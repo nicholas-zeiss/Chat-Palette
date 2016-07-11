@@ -1,5 +1,6 @@
 angular.module('app', [
   'app.auth',
+  'app.services',
   'ngRoute'
 ])
 .config(function($routeProvider, $httpProvider) {
