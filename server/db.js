@@ -11,7 +11,7 @@ var Bookshelf = require('Bookshelf')(knex);
 // Creates our user table
 knex.schema.createTableIfNotExists('users', function(table) {
 	table.increments();
-	table.string('usernmame');
+	table.string('username');
 	table.string('password');
 	table.timestamps();
 });
