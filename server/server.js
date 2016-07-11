@@ -46,7 +46,7 @@ app.post('/signup', function(req, res) {
 //this will serve up the main chat page
 app.get('/chat', function(req, res) {
 	Messages.getAllMessages(function(collection) {
-		res.status(200).json(collection.models);
+		res.status(200).json(collection);
 	});
 });
 
