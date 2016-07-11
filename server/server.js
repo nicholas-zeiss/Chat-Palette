@@ -7,6 +7,7 @@
 var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
+var  bookshelf = require('bookshelf');
 
 var db = require('./db.js');
 var Users = require('./controllers/userController.js');
@@ -16,10 +17,11 @@ var rootpath = path.normalize(__dirname + '/..');
 
 //Creates instance of express object
 var app = express();
+app.set('bookshelf', db);
 app.use(bodyParser.json());
 
 app.get('/', function(req, res) {
-  res.redirect('/chat'); 
+  res.redirect('/chat');
 });
 
 //this will be used for login page

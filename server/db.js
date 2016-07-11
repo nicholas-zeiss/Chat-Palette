@@ -9,7 +9,7 @@ var knex = require('knex')({
 	useNullAsDefault: true
 });
 
-var Bookshelf = require('Bookshelf')(knex);
+var Bookshelf = require('bookshelf')(knex);
 
 // Creates our user table
 knex.schema.createTableIfNotExists('users', function(table) {
