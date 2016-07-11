@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/superhashbros/Chat-Pallette/issues"
   },
-  "homepage": "https://github.com/superhashbros/Chat-Pallette#readme"
+  "homepage": "https://github.com/superhashbros/Chat-Pallette#readme",
+  "dependencies": {
+    "angular": "^1.5.7",
+    "bookshelf": "^0.10.0",
+    "express": "^4.14.0",
+    "knex": "^0.11.7",
+    "node": "0.0.0"
+  }
 }
