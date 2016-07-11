@@ -38,4 +38,8 @@ angular.module('app.services', [])
     signUp: signUp,
     signOut: signOut
   };
+})
+.factory('Chat', function($http) {
+
+
 });

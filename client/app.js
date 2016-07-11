@@ -1,6 +1,8 @@
+// Main module for Chat Palatte App
 angular.module('app', [
   'app.auth',
   'app.services',
+  'app.chat'
   'ngRoute'
 ])
 .config(function($routeProvider, $httpProvider) {
