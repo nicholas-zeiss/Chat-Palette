@@ -2,10 +2,10 @@
  *  Helper functions for looking at the message table
  */
 
- var Message = require('../models/message.js');
+var Message = require('../models/message.js');
 
 exports.getAllMessages = function(callback) {
-	new Message.fetchAll().then(callback);
+	new Message().fetchAll().then(callback);
 }
 
 exports.createMessage = function(content, user, callback) {

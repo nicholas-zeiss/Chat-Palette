@@ -9,7 +9,6 @@ var knex = require('knex')({
 	useNullAsDefault: true
 });
 
-
 var Bookshelf = require('Bookshelf')(knex);
 
 // Creates our user table
