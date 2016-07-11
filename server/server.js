@@ -12,12 +12,12 @@ var db = require('./db.js');
 var Users = require('./controllers/userController.js');
 var Messages = require('./controllers/messageController.js');
 
-//Creates instance of express object
-var app = express();
-
 var rootpath = path.normalize(__dirname + '/..');
 
-//this will serve up the hompage
+//Creates instance of express object
+var app = express();
+app.use(bodyParser.json());
+
 app.get('/', function(req, res) {
   res.redirect('/chat'); 
 });
