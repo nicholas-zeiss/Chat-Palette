@@ -46,8 +46,8 @@ app.get('/chat', function(req, res) {
 
 //this posts a message to the main chat page
 app.post('/chat', function(req, res) {
-	Messages.createMessage(req.body.content, req.body.username, function(message) {
-		res.status(201).json(message);
+	Messages.createMessage(req.body.content, req.body.username, function(collection) {
+		res.status(201).json(collection);
 	});
 });
 
