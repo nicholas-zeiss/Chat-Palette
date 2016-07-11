@@ -1,3 +1,7 @@
+/**
+ *   Creates our schema for storing our app's data. We create two folders,
+ *   one to store users and one to store their messages.
+ */
 
 var knex = require('knex')({
 	client: 'sqlite3',
