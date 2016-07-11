@@ -12,8 +12,10 @@
 </head>
 <body>
   <h1>WELCOME TO CHAT PALETTE</h1>
-  <h3><a href='/login'>Login</a></h3>
-  <h3><a href='/signup'>Sign Up</a></h3>
+    <form>
+      <button ng-click='login()'>Login</button>
+      <button ng-click='signUp()'>Sign Up</button>
+    </form>
   <div class='container' ng-view>
   	<div class='formWrapper'>
   	<form  action='' class='login'>
