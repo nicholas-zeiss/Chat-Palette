@@ -1,1 +1,1 @@
-# Chat-Pallette
+# Chat-Palette
