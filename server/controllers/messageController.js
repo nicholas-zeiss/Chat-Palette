@@ -5,7 +5,6 @@
 var Message = require('../models/message.js');
 
 exports.getAllMessages = function(callback) {
-	console.log('got to getallmessages inner call');
 	new Message().fetchAll().then(callback);
 }
 
