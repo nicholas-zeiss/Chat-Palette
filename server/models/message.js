@@ -4,6 +4,8 @@
  *  responsible for the message
  */
 
+var Bookshelf = require('../db.js');
+
 var Message = Bookshelf.Model.extend({
 	tablename: 'messages',
 	hasTimestamps: true

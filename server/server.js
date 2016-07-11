@@ -8,9 +8,9 @@ var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
 
-var db = require('db.js');
-var Users = require('/controllers/userController.js');
-var Messages = require('/controllers/messageController.js');
+var db = require('./db.js');
+var Users = require('./controllers/userController.js');
+var Messages = require('./controllers/messageController.js');
 
 //Creates instance of express object
 var app = express();
