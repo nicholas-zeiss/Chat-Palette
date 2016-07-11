@@ -1,6 +1,8 @@
 /**
  *  Helper functions for interacting with the user table
  */
+var User = require('../models/user.js');
+
 
 exports.getUser = function(name, callback) {
 	new User({'username': name}).fetch.then(callback);
