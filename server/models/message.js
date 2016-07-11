@@ -7,7 +7,7 @@
 var Bookshelf = require('../db.js');
 
 var Message = Bookshelf.Model.extend({
-	tablename: 'messages',
+	tableName: 'messages',
 	hasTimestamps: true
 });
 

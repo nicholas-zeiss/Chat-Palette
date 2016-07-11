@@ -3,6 +3,12 @@
  */
 var User = require('../models/user.js');
 
+exports.getUsers = function(callback) {
+	new User().fetchAll().then(callback).catch(function(err) {
+		console.log(err);
+	});
+}
+
 
 exports.getUser = function(name, callback) {
 	new User({'username': name}).fetch.then(callback);

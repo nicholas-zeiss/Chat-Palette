@@ -9,22 +9,44 @@ var knex = require('knex')({
 	useNullAsDefault: true
 });
 
-var Bookshelf = require('Bookshelf')(knex);
 
-// Creates our user table
-knex.schema.createTableIfNotExists('users', function(table) {
-	table.increments();
-	table.string('username');
-	table.string('password');
-	table.timestamps();
+knex.schema.hasTable('users').then(function(exists) {
+  if (!exists) {
+    return knex.schema.createTable('users', function (table) {
+      table.increments();
+			table.string('username');
+			table.string('password');
+			table.timestamps();
+    });
+  }
 });
 
-// Creates our messages table
-knex.schema.createTableIfNotExists('messages', function(table) {
-	table.increments();
-	table.string('content');
-	table.string('username');
-	table.timestamps();
+knex.schema.hasTable('messages').then(function(exists) {
+  if (!exists) {
+    return knex.schema.createTable('messages', function (table) {
+      table.increments();
+			table.string('content');
+			table.string('username');
+			table.timestamps();
+    });
+  }
 });
+
+var Bookshelf = require('bookshelf')(knex);
+// // Creates our user table
+// knex.schema.createTableIfNotExists('users', function(table) {
+// 	table.increments();
+// 	table.string('username');
+// 	table.string('password');
+// 	table.timestamps();
+// });
+
+// // Creates our messages table
+// knex.schema.createTableIfNotExists('messages', function(table) {
+// 	table.increments();
+// 	table.string('content');
+// 	table.string('username');
+// 	table.timestamps();
+// });
 
 module.exports = Bookshelf;
