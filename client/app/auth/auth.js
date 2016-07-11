@@ -16,7 +16,7 @@ angular.module('app.auth', [])
 	$scope.signUp = function() {
 		Auth.signUp($scope.user)
 			.then(function ($scope.user) {
-				$location.path('/signup');
+				$location.path('/chat');
 			})
 			.catch(function (error) {
 				console.log(error("Ridwan's server's broke");
