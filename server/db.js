@@ -3,6 +3,7 @@
  *   one to store users and one to store their messages.
  */
 
+
 var knex = require('knex')({
 	client: 'sqlite3',
 	connection: { filename: './data/data.db' },
