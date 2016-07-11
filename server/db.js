@@ -20,7 +20,7 @@ knex.schema.createTableIfNotExists('users', function(table) {
 knex.schema.createTableIfNotExists('messages', function(table) {
 	table.increments();
 	table.string('content');
-	table.integer('user rel id');
+	table.integer('user rel key');
 	table.timestamps();
 });
 
