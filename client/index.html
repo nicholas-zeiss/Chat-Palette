@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app='MainController'>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Chat Palette</title>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src='//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js'></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-route.js"></script>
+  <script src="//momentjs.com/downloads/moment.js"></script>
+  <script src='../../styles/styles.css'></script>
+</head>
+<body>
+  <h1>WELCOME TO CHAT PALETTE</h1>
+  <h3><a href='Login'>Login</a></h3>
+  <h3><a href='Sign-Up'>Sign Up</a></h3>
+  <div class='container' ng-view='chatPaletteView'>
+  	<div class='formWrapper'>
+  	<form  action='' class='login'>
+  		
+  	</form>
+  	</div>
+
+  </div>
+  <script src='/chatapp/auth/login.js'></script>
+  <script src='/chatapp/auth/signup.js'></script>
+</body>
+</html>
