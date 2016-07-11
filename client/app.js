@@ -6,11 +6,11 @@ angular.module('chatPaletteApp', [])
       controller: 'chatPaletteApp'
     })
     .when('/signup', {
-	  template: '/chatPaletteApp/auth/signup.html',
+	  template: '/client/auth/signup.html',
 	  controller: 
     })
     .when('/login', {
-      template: '/chatPaletteApp/auth/login.html'
+      template: '/client/auth/login.html'
     })
     .otherwise({redirectTo:'/'});
 })
