@@ -22,7 +22,7 @@ app.use(bodyParser.json());
 app.set('bookshelf', db);	//delete?
 
 app.get('/', function(req, res) {
-  res.redirect('/chat'); 
+  res.redirect('/chat');
 });
 
 //this will be used for login page
@@ -55,7 +55,7 @@ app.get('/chat', function(req, res) {
 
 //this posts a message to the main chat page
 app.post('/chat', function(req, res) {
-	Messages.createMessage(req.body.content, req.body.username, function(collection) {
+	Messages.createMessage(req.body.content, req.body.username, req.body.color, function(collection) {
 		res.status(201).json(collection);
 	});
 });
