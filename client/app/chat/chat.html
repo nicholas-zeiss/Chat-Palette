@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!-- App main module for Chat Palatte -->
+<html ng-app=''>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width'>
+  <title>Chat Palette</title>
+  <!-- required file for date/time functionality -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
+  <script src='//momentjs.com/downloads/moment.js'></script>
+  <script src='styles/styles.css'></script>
+  <script src='//'></script>
+</head>
+<body>
+	<div id='chat' ng-init="colors=['Red', 'Blue', 'Green', 'Yellow']">
+		<h1>CHAT</h1>
+		<nav class='chatroom'>
+			<ul class='chatcolors'>
+				<!-- ng-repeat iterates through the colors array and displays a button -->
+				<li ng-repeat='color in colors'> 
+					<button>{{ color }}</button>
+	  		</li>
+		</nav>
+	</div>
+
+	<!-- Test Messages Objects -->
+	<div id='msg' ng-init="messages=[ { sessionID: 'alex01', message: 'Hello, World!', dateStamp: '07/11/2016', timeStamp: '18:33:26' }, { sessionID: 'alex01', message: 'Hello, World!', dateStamp: '07/11/2016', timeStamp: '18:33:26' }, { sessionID: 'alex01', message: 'Hello, World!', dateStamp: '07/11/2016', timeStamp: '18:33:26' }, { sessionID: 'alex01', message: 'Hello, World!', dateStamp: '07/11/2016', timeStamp: '18:33:26' } ] ">
+
+	<!-- Test Messages -->
+	<ol>
+			<li ng-repeat='message in messages'>
+				<p>{{ message.sessionID }}</p>
+				<p>{{ message.message }}</p>
+				<p>{{ message.dateStamp }}</p>
+				<p>{{ message.timeStamp }}</p>
+			</li>
+		</ol>
+		
+	</div>
+
+  <!-- Color Buttons -->
+	<div id='colorChoice'>
+		<button>Red</button>
+		<button>Blue</button>
+		<button>Green</button>
+		<button>Yellow</button>
+	</div>
+
+	<!-- Input area for message -->
+	<div>
+		<input name='messageInput' placeholder='Send your message' ng-model='name' autofocus />
+	</div>
+
+</body>
+</html>
+
