@@ -4,9 +4,9 @@
  */
 
 var knex = require('knex')({
-	client: 'sqlite3',
-	connection: { filename: './data/data.db' },
-	useNullAsDefault: true
+  client: 'sqlite3',
+  connection: { filename: './data/data.db' },
+  useNullAsDefault: true
 });
 
 
@@ -14,9 +14,9 @@ knex.schema.hasTable('users').then(function(exists) {
   if (!exists) {
     return knex.schema.createTable('users', function (table) {
       table.increments();
-			table.string('username');
-			table.string('password');
-			table.timestamps();
+      table.string('username');
+      table.string('password');
+      table.timestamps();
     });
   }
 });
@@ -25,9 +25,10 @@ knex.schema.hasTable('messages').then(function(exists) {
   if (!exists) {
     return knex.schema.createTable('messages', function (table) {
       table.increments();
-			table.string('content');
-			table.string('username');
-			table.timestamps();
+      table.string('content');
+      table.string('username');
+      table.string('color')
+      table.timestamps();
     });
   }
 });
