@@ -25,10 +25,17 @@ knex.schema.hasTable('messages').then(function(exists) {
   if (!exists) {
     return knex.schema.createTable('messages', function (table) {
       table.increments();
+<<<<<<< HEAD
       table.string('content');
       table.string('username');
       table.string('color')
       table.timestamps();
+=======
+			table.string('content');
+			table.string('username');
+			table.string('color')
+			table.timestamps();
+>>>>>>> 75bfea29fbef38060a81feef58ef715653a946db
     });
   }
 });

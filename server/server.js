@@ -19,7 +19,7 @@ var app = express();
 app.use(bodyParser.json());
 
 app.get('/', function(req, res) {
-  res.redirect('/chat'); 
+  res.redirect('/chat');
 });
 
 //this will be used for login page
