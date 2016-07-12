@@ -27,6 +27,7 @@ knex.schema.hasTable('messages').then(function(exists) {
       table.increments();
 			table.string('content');
 			table.string('username');
+			table.string('color')
 			table.timestamps();
     });
   }
