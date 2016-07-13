@@ -2,7 +2,7 @@
 angular.module('app', [
   'app.auth',
   'app.services',
-  'app.chat'
+  'app.chat',
   'ngRoute'
 ])
 .config(function($routeProvider, $httpProvider) {

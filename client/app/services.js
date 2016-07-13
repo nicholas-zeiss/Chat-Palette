@@ -1,4 +1,5 @@
 angular.module('app.services', [])
+
 .factory('Auth', function($http, $location, $window) {
 
   var login = function(user) {
@@ -39,7 +40,22 @@ angular.module('app.services', [])
     signOut: signOut
   };
 })
+
 .factory('Chat', function($http) {
 
+  var sendMessage = function(message) {
+    return $http({
+      method: 'POST',
+      url: '/localhost:9001/chat',
+      data: message
+    });
+  };
 
+  // var filter = function() {
+  //   filter messages by color
+  // };
+
+  return {
+    sendMessage: sendMessage
+  };
 });
