@@ -1,7 +1,4 @@
-/**
- *   Main module for Chat Palatte App
- */
-
+// Main module for Chat Palatte App
 angular.module('app', [
   'app.auth',
   'app.services',

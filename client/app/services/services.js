@@ -1,14 +1,15 @@
-/**
- *   factory for login and signup html/js
- */
-
 angular.module('app.services', [])
+
+/**
+*  factory for login and signup html/js
+*/
+
 .factory('Auth', function($http, $location, $window) {
 
   var login = function(user) {
     return $http({
       method: 'POST',
-      url: '/login',
+      url: '/',
       data: user
     })
     .then(function(resp) {
@@ -43,6 +44,10 @@ angular.module('app.services', [])
     signOut: signOut
   };
 })
+
+/**
+* factory for 
+*/
 
 .factory('Chat', function($http) {
 

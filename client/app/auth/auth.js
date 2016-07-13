@@ -1,7 +1,3 @@
-/**
- *   Authorization controller for login and sign up
- */
-
 // Authorization controller for login and sign up
 angular.module('app.auth', [])
 

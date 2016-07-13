@@ -1,4 +1,8 @@
-/*html, body, div, span, applet, object, iframe,
+/**
+ * Default styles 
+ */
+
+html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
@@ -11,246 +15,249 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}*/
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
 
- /* HTML5 display-role reset for older browsers */
-/*article, aside, details, figcaption, figure, 
+/**
+ * HTML5 display-role reset for older browsers
+ */
+
+article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
-	display: block;
-}*/
-
-/*section {
-	display: inline-block;
-	margin: 0 1.5%;
-	width: 100%;
+    display: block;
 }
 
+section {
+    display: inline-block;
+    margin: 0 1.5%;
+    width: 100%;
+}
 body {
-	margin-top: 30px;
-	line-height: 1;
+    margin-top: 30px;
+    line-height: 1;
 }
-
 ol, ul, li {
-	 list-style-type: none;
+     list-style-type: none;
 }
 blockquote, q {
-	quotes: none;
+    quotes: none;
 }
-
 blockquote:before, blockquote:after,
 q:before, q:after {
-	content: '';
-	content: none;
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
+/*.loginForm {
+    float: left;
+    margin-top: 20px;
+    height: 200px;
+    width: 200px;
 }
 */
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-body {
-  /*background: url('assets/ff.jpe/*g') no-repeat center center fixed;
-=======
-=======
->>>>>>> f4e87e0b094cf7c8ea5bdb8c3c2b012d717b7c03
-/*.chatcolors {
-=======
-.chatcolors {
->>>>>>> ca53099b48c8c25c5fb802ad964c2566bf6e5b94
-	margin-left: 10px;
-	padding: 10px;
-	height: 50%;
-	width: 15%;
-	border-radius: 5%;
-	font-size: 15px;
+.loginForm input {
+  /*width: 40px;*/
 }
 
-.chatcolors Red {
-	background-color: #CD5C5C;
+#chatlogin {
+    height: 250px;
+    width: 250px;
 }
 
-.chatcolors Blue {
-	background-color: #098DF5
+/**
+ * Chatroom Styles - Container styles for workspace
+ */
+
+.container {
+    margin: 0 auto;
+    width: 980px;
+    text-align: center;
 }
 
-.chatcolors Green {
-	background-color: #81F509
-}
-
-.chatcolors Yellow {
-	background-color: #ECF715
-}
-
-.chatcolors ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-
-}
-
-.chatcolors li {
-
-}
+/**
+ * Body tag styles
+ */
 
 body {
-  background: url('assets/ff.jpeg') no-repeat center center fixed;
->>>>>>> f4e87e0b094cf7c8ea5bdb8c3c2b012d717b7c03
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;*/
   font-family: "Times New Roman", Times, serif;
   height: 100%;
   width: 100%;
 }
 
-.container {
-	margin: 0 auto;
-	width: 980px;
-	text-align: center;
-}
+/**
+ * Headers
+ */
 
 h1 {
-	float: left;
-	font-size: 40px;
-	font-weight: bold;
-	padding-right: 232px;
+    float: left;
+    font-size: 40px;
+    font-weight: bold;
+    padding-right: 370px;
 }
+
+#chatlogin h1 {
+    font-size: 20px;
+}
+
+/**
+ * Chatroom top bar 
+ */
 
 .chatroom {
-	margin-bottom: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
 }
+
+/**
+ * Chat color swatch 
+ */
 
 .buttons {
-	padding: 20px 0 20px 10px;
-	height: 40%;
-	width: 99%;
-	background-color: #f2f2f2;
-	border-radius: 5px;
-  background: #8e9eab; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(#8e9eab, #eef2f3); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(#8e9eab, #eef2f3); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(#8e9eab, #eef2f3); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(#8e9eab, #eef2f3); /* Standard syntax */
+    padding: 20px 0 20px 10px;
+    height: 40%;
+    width: 99%;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+
+     /** 
+      * Individual browser styles
+      * For browsers that do not support gradients 
+      */
+    background: #8e9eab; 
+    /**
+     * For Safari 5.1 to 6.0 
+     */
+    background: -webkit-linear-gradient(#8e9eab, #eef2f3); 
+    /**
+     * For Opera 11.1 to 12.0
+     */
+    background: -o-linear-gradient(#8e9eab, #eef2f3); 
+    /**
+     * For Firefox 3.6 to 15 
+     */
+    background: -moz-linear-gradient(#8e9eab, #eef2f3); 
+    /**
+     * Standard syntax 
+     */
+    background: linear-gradient(#8e9eab, #eef2f3);
+  }
+
+ /**
+  * Same styles for each navigation button 
+  */
+
+.chatroom button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 4px;
 }
+
+/**
+ * Set the background color of each button in nav bar
+ */
 
 #red {
-	background-color: #CD5C5C;
-	border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  border-radius: 4px;
+    background-color: #CD5C5C;
 }
-
 #blue {
-	background-color: #0000cc;
-	border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  border-radius: 4px;
+    background-color: #0000cc;
 }
-
 #green {
-	background-color: #006600;
-	border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  border-radius: 4px;
+    background-color: #006600;
+}
+#yellow {
+    background-color: #e6e600;
 }
 
-#yellow {
-	background-color: #e6e600;
-	border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  border-radius: 4px;
-}
+/**
+ * Display chatroom messages
+ */
+
+/**
+ * Test data
+ */
 
 .msg {
-	height: 100%;
-	width: 100%;
-	border-radius: 5px;
-	border-style: solid;
-	display: inline-block;
-	font-size: 30px;
-	margin-bottom: 5px;
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    border-style: solid;
+    display: inline-block;
+    font-size: 30px;
+    margin-bottom: 5px;
 }
+
+/**
+ * Container for all chat messages from the server
+ */
 
 #messagecontainer {
-	background-color: #ebf0fa;
-	border-radius: 10px;
+    margin-left: 20px;
+    background-color: #ebf0fa;
+    border-radius: 10px;
+    width: 95%;
 }
 
-<<<<<<< HEAD
 #messages {
-	
+    
+    
 }
 
 .messagelisting {
-	float: left;
-	background-color: gray;
+    float: left;
+    background-color: gray;
 }
 
-<<<<<<< HEAD
+/**
+ * Display current chat messages from the server
+ */
+
 .singlemessage {
-	text-align: left;
-	font-size: 25px;
-	height:40px;
-	width: 93%;
-	margin: 20px;
-	border-style: groove;
-	border-color: #e6e6e6;
-	color: #595959;
-	border-width: 2px;
-	border-radius: 5px;
-	padding: 10px 10px 5px 10px;
-=======
-li {
-  margin: 0 auto;
-	display: inline;
-  font-weight: bold;
-  text-align: center;
-  list-style-type: none;
-  font-size: 35px;
->>>>>>> ca53099b48c8c25c5fb802ad964c2566bf6e5b94
+    text-align: left;
+    font-size: 23px;
+    height:40px;
+    width: 93%;
+    margin: 20px;
+    border-style: groove;
+    border-color: #e6e6e6;
+    color: #595959;
+    border-width: 2px;
+    border-radius: 5px;
+    padding: 10px 10px 5px 10px;
 }
+
+/**
+ * Input area for the new chat message to the stream
+ */
 
 #sendmessage {
-	width: 75%;
-	padding: 15px 32px;
-	margin: 5px 10px 10px 10px;
-	text-align: left;
-	font-size: 20px;
+    width: 75%;
+    padding: 15px 47px;
+    margin: 5px 10px 10px 10px;
+    text-align: left;
+    font-size: 20px;
 }
 
+/**
+ * Button to send the new chat message to the stream
+ */
+
 #sendmsg {
-  padding: 15px 32px;
+  /*padding: 15px 32px;*/
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -259,32 +266,29 @@ li {
   font-family: "Times New Roman", Times, serif;
 }
 
-<<<<<<< HEAD
-#addingspace {
-	letter-spacing: 2px;
-	font-size: 22px;
-=======
-table {
-  width: 100%;
-  text-align: left;
-  padding: 100px;
->>>>>>> ca53099b48c8c25c5fb802ad964c2566bf6e5b94
+#userSendMessage {
+
+
 }
 
+/**
+ * Add correct spacing between color radio buttons
+ */
+
+#addingspace {
+    letter-spacing: 2px;
+    font-size: 22px;
+    padding-left: 200px;
+    margin: 0 auto;
+}
+
+/**
+ * Send new chat message container
+ */
+
 .sendoptions {
-	font-size: 20px;
-	color: #595959;
+    font-size: 20px;
+    color: #595959;
+    padding-left: 13px;
+    float: left;
 }
-=======
-th {
-    height: 50px;
-<<<<<<< HEAD
-<<<<<<< HEAD
-}*/
->>>>>>> f4e87e0b094cf7c8ea5bdb8c3c2b012d717b7c03
-=======
-}*/
->>>>>>> f4e87e0b094cf7c8ea5bdb8c3c2b012d717b7c03
-=======
-}
->>>>>>> ca53099b48c8c25c5fb802ad964c2566bf6e5b94

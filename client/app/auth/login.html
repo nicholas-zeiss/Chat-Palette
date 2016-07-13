@@ -1,9 +1,10 @@
 <!-- Login in template -->
+<br><br><br><br>
 <div id='login'>
   <h1>User Login</h1>
-  <form name='loginForm' ng-submit='login()'>
-    <input type='text' ng-model='user.username'>
-    <input type='password' ng-model='user.password'>
+  <form class='loginForm' name='loginForm' ng-submit='login()'>
+    <input id='logusername' type='text' ng-model='user.username'>
+    <input id='logpassword' type='password' ng-model='user.password'>
     <button id='login'>Login</button>
     <br>
   </form>
