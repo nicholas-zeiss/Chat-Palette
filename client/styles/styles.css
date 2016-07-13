@@ -55,51 +55,15 @@ table {
 	border-spacing: 0;
 }
 
-.chatcolors {
-	margin-left: 10px;
-	padding: 10px;
-	height: 50%;
-	width: 15%;
-	border-radius: 5%;
-	font-size: 15px;
-}
-
-.chatcolors Red {
-	background-color: #CD5C5C;
-}
-
-.chatcolors Blue {
-	background-color: #098DF5
-}
-
-.chatcolors Green {
-	background-color: #81F509
-}
-
-.chatcolors Yellow {
-	background-color: #ECF715
-}
-
-.chatcolors ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-
-}
-
-.chatcolors li {
-
-}
-
-/*body {
-  background: url('assets/ff.jpeg') no-repeat center center fixed;
+body {
+  /*background: url('assets/ff.jpe/*g') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
+  background-size: cover;*/
+  font-family: "Times New Roman", Times, serif;
   height: 100%;
   width: 100%;
-  color: #F8F8FF;
 }
 
 .container {
@@ -108,80 +72,140 @@ table {
 	text-align: center;
 }
 
-#date {
+h1 {
 	float: left;
-	margin: 0 auto;
-	border-style: none;
-	height: 15px;
-	width: 21%;
-	font-size: 15px;
-}
-
-.header {
-	padding: 0;
-	color: #000000;
 	font-size: 40px;
+	font-weight: bold;
+	padding-right: 232px;
 }
 
-#sub-title {
-	font-size: 35%;
+.chatroom {
+	margin-bottom: 20px;
 }
 
-.display-wrapper {
+.buttons {
+	padding: 20px 0 20px 10px;
+	height: 40%;
+	width: 99%;
+	background-color: #f2f2f2;
+	border-radius: 5px;
+  background: #8e9eab; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(#8e9eab, #eef2f3); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#8e9eab, #eef2f3); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#8e9eab, #eef2f3); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#8e9eab, #eef2f3); /* Standard syntax */
+}
+
+#red {
+	background-color: #CD5C5C;
+	border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+#blue {
+	background-color: #0000cc;
+	border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+#green {
+	background-color: #006600;
+	border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+#yellow {
+	background-color: #e6e600;
+	border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+.msg {
+	height: 100%;
 	width: 100%;
+	border-radius: 5px;
+	border-style: solid;
+	display: inline-block;
+	font-size: 30px;
+	margin-bottom: 5px;
 }
 
-.data-display {
-	width: 200px;
-	height: 200px;
-	list-style-type: none;
-	text-align: center;
+#messagecontainer {
+	background-color: #ebf0fa;
+	border-radius: 10px;
 }
 
-input {
-	margin-left: 10px;
-	padding: 10px;
-	height: 50%;
-	width: 25%;
-	border-radius: 5%;
-	font-size: 15px;
+#messages {
+	
 }
 
-button {
-	margin-left: 10px;
-	padding: 10px;
-	height: 50%;
-	width: 15%;
-	border-radius: 5%;
-	font-size: 15px;
+.messagelisting {
+	float: left;
+	background-color: gray;
 }
 
-li {
-	margin: 0;
-	display: inline;
-    font-weight: bold;
-    text-align: center;
-    list-style-type: none;
-    font-size: 35px;
-    scroll-behavior: 
+.singlemessage {
+	text-align: left;
+	font-size: 25px;
+	height:40px;
+	width: 93%;
+	margin: 20px;
+	border-style: groove;
+	border-color: #e6e6e6;
+	color: #595959;
+	border-width: 2px;
+	border-radius: 5px;
+	padding: 10px 10px 5px 10px;
 }
 
-[ng\:cloak], [ng-cloak], .ng-cloak {
-    display: none;
+#sendmessage {
+	width: 75%;
+	padding: 15px 32px;
+	margin: 5px 10px 10px 10px;
+	text-align: left;
+	font-size: 20px;
 }
 
-.list-class{
-	list-style-type: none;
+#sendmsg {
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  border-radius: 4px;
+  font-family: "Times New Roman", Times, serif;
 }
 
-table {
-    width: 100%;
-    text-align: left;
-    padding: 100px;
+#addingspace {
+	letter-spacing: 2px;
+	font-size: 22px;
 }
 
-th {
-    height: 50px;
+.sendoptions {
+	font-size: 20px;
+	color: #595959;
 }
-
-*/

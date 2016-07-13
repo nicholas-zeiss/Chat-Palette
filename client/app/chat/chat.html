@@ -1,57 +1,41 @@
-<!DOCTYPE html>
-<!-- App main module for Chat Palatte -->
-<html ng-app=''>
-<head>
-  <meta charset='utf-8'>
-  <meta name='viewport' content='width=device-width'>
-  <title>Chat Palette</title>
-  <!-- required file for date/time functionality -->
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
-  <script src='//momentjs.com/downloads/moment.js'></script>
-  <script src='styles/styles.css'></script>
-  <script src='//'></script>
-</head>
-<body>
-	<div id='chat' ng-init="colors=['Red', 'Blue', 'Green', 'Yellow']">
-		<h1>CHAT</h1>
+<div class='container'>
+	<div class='buttons'>
 		<nav class='chatroom'>
-			<ul class='chatcolors'>
-				<!-- ng-repeat iterates through the colors array and displays a button -->
-				<li ng-repeat='color in colors'> 
-					<button>{{ color }}</button>
-	  		</li>
+			<h1>CHATROOMS</h1>
+			<button id='red'>Red</button>
+			<button id='blue'>Blue</button>
+			<button id='green'>Green</button>
+			<button id='yellow'>Yellow</button>
 		</nav>
 	</div>
 
-	<!-- Test Messages Objects -->
-	<div id='msg' ng-init="messages=[ { sessionID: 'alex01', message: 'Hello, World!', dateStamp: '07/11/2016', timeStamp: '18:33:26' }, { sessionID: 'alex01', message: 'Hello, World!', dateStamp: '07/11/2016', timeStamp: '18:33:26' }, { sessionID: 'alex01', message: 'Hello, World!', dateStamp: '07/11/2016', timeStamp: '18:33:26' }, { sessionID: 'alex01', message: 'Hello, World!', dateStamp: '07/11/2016', timeStamp: '18:33:26' } ] ">
+	<!-- Test dummy messages objects -->
+	<div id='messagecontainer'>
+		<div class='msg' ng-init="messages=[ { sessionID: 'alex01', message: 'Hello, World!', dateStamp: '07/11/2016', timeStamp: '18:33:26' }, { sessionID: 'dan02', message: 'Hello, World!', dateStamp: '07/11/2016', timeStamp: '18:33:26' }, { sessionID: 'ridwan03', message: 'Hello, World!', dateStamp: '07/11/2016', timeStamp: '18:33:26' }, { sessionID: 'nick04', message: 'Hello, World!', dateStamp: '07/11/2016', timeStamp: '18:33:26' } ] ">
 
-	<!-- Test Messages -->
-	<ol>
-			<li ng-repeat='message in messages'>
-				<p>{{ message.sessionID }}</p>
-				<p>{{ message.message }}</p>
-				<p>{{ message.dateStamp }}</p>
-				<p>{{ message.timeStamp }}</p>
-			</li>
-		</ol>
-		
-	</div>
+			<!-- Display Test Messages for dev only -->
+			<div id='messages' ng-repeat='message in messages'> 
+					<p class='singlemessage'>
+						{{ message.sessionID }}
+						{{ message.message }}
+						{{ message.dateStamp }}
+						{{ message.timeStamp }}
+					</p>
+			</div>
+		</div>
+	
 
-  <!-- Color Buttons -->
-	<div id='colorChoice'>
-		<button>Red</button>
-		<button>Blue</button>
-		<button>Green</button>
-		<button>Yellow</button>
-	</div>
-
-	<!-- Input area for message -->
-	<div>
-		<input name='messageInput' placeholder='Send your message' ng-model='name' autofocus />
-	</div>
-
-</body>
-</html>
-
+		<!-- Input area for message to add to group chat -->
+		<div>
+		<!-- Form to handle new chat messages to be added to the chat stream -->
+			<form class='sendoptions'>
+				<span id='addingspace'>Choose your chat palatte:</span>
+			  Red <input type="radio" name="color" value="red" checked>
+			  Blue <input type="radio" name="color" value="blue" checked>
+			  Green <input type="radio" name="color" value="green" checked>
+			  Yellow <input type="radio" name="color" value="yellow" checked><br>
+				<input id='sendmessage' name='messageInput' placeholder='Send your message' ng-model='name' autofocus/>
+				<button id='sendmsg'>Send</button>
+			</form>		
+	 </div>
+ </div>
