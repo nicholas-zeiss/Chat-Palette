@@ -3,29 +3,39 @@
 angular.module('app.chat', [])
 
 .controller('ChatController', function ($scope, $window, $location, Chat) {
-  $scope.message = {};
+  $scope.messagU = {};
+  $scope.messageObj = {
+    username: 'username',
+    content: 'content',
+    color: 'color'
+  };
 
-  $scope.sendMessage = function() {
+  $scope.getMessages = function() {
+    Chat.getMessages()
+      .then(function(message) {
+        $scope.messagU = message;
+        console.log($scope.messagU);
+      })
+      .catch(function (error) {
+        console.error('Hurry up Alexius I\'m dying');
+      });
+  };
+
+  $scope.sendMessage = function(userInfo, msgInfo, colorChoice) {
     $scope.loading = true;
-    Chat.sendMessage($scope.message)
+    $scope.messageObj.content = msgInfo;
+    $scope.messageObj.username = userInfo;
+    $scope.messageObj.color = colorChoice;
+    console.log($scope.messageObj);
+    Chat.sendMessage($scope.messageObj)
       .then(function() {
         $scope.loading = false;
         $location.path('/chat');
+        $scope.getMessages();
       })
       .catch(function (error) {
-        console.error('Hurry up Alexius I\'m dying');
+        console.error(error);
       });
   };
-
-  $scope.getMessage = function() {
-    Chat.getMessage()
-      .then(function(message) {
-        $scope.message.message = message;
-      })
-      .catch(function (error) {
-        console.error('Hurry up Alexius I\'m dying');
-      });
-  };
-  $scope.getMessage();
 });
 

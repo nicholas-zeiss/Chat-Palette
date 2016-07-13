@@ -55,6 +55,9 @@ angular.module('app.services', [])
     return $http({
       method: 'GET',
       url: '/chat'
+    })
+    .then(function(resp) {
+      return resp.data;
     });
   };
 

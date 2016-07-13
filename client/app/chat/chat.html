@@ -11,15 +11,14 @@
 
   <!-- Test dummy messages objects -->
   <div id='messagecontainer'>
-    <div class='msg' ng-init="messages=[ { sessionID: 'alex01', message: 'Hello, World!', dateStamp: '07/11/2016', timeStamp: '18:33:26' }, { sessionID: 'dan02', message: 'Hello, World!', dateStamp: '07/11/2016', timeStamp: '18:33:26' }, { sessionID: 'ridwan03', message: 'Hello, World!', dateStamp: '07/11/2016', timeStamp: '18:33:26' }, { sessionID: 'nick04', message: 'Hello, World!', dateStamp: '07/11/2016', timeStamp: '18:33:26' } ] ">
-
+    <div class='msg' >
+<!-- ng-init="messages=[ { sessionID: 'alex01', message: 'Hello, World!', dateStamp: '07/11/2016', timeStamp: '18:33:26' }, { sessionID: 'dan02', message: 'Hello, World!', dateStamp: '07/11/2016', timeStamp: '18:33:26' }, { sessionID: 'ridwan03', message: 'Hello, World!', dateStamp: '07/11/2016', timeStamp: '18:33:26' }, { sessionID: 'nick04', message: 'Hello, World!', dateStamp: '07/11/2016', timeStamp: '18:33:26' } ] " was in 'msg' class-->
       <!-- Display Test Messages for dev only -->
-      <div id='messages' ng-repeat='message in messages'> 
+      <div id='messages' ng-repeat='message in messagU'> 
           <p class='singlemessage'>
-            {{ message.sessionID }}
-            {{ message.message }}
-            {{ message.dateStamp }}
-            {{ message.timeStamp }}
+            {{ message.username }}
+            {{ message.content }}
+            {{ message.created_at }}
           </p>
       </div>
     </div>
@@ -29,13 +28,14 @@
     <div>
     <!-- Form to handle new chat messages to be added to the chat stream -->
       <form class='sendoptions'>
-        <span id='addingspace'>Choose your chat palatte:</span>
-        Red <input type="radio" name="color" value="red" checked>
-        Blue <input type="radio" name="color" value="blue" checked>
-        Green <input type="radio" name="color" value="green" checked>
-        Yellow <input type="radio" name="color" value="yellow" checked><br>
-        <input id='sendmessage' name='messageInput' placeholder='Send your message' ng-model='name' autofocus/>
-        <button id='sendmsg'>Send</button>
+        <span id='addingspace'>Choose your chat palette:</span>
+        Red <input type='radio' name='color' value='red' ng-model='colorChoice'>
+        Blue <input type='radio' name='color' value='blue' ng-model='colorChoice'>
+        Green <input type='radio' name='color' value='green' ng-model='colorChoice'>
+        Yellow <input type='radio' name='color' value='yellow' ng-model='colorChoice'><br>
+        <input id='userSendMessage' placeholder='Choose your name' ng-model='userInfo'/>
+        <input id='sendMessage' name='messageInput' placeholder='Send your message' ng-model='msgInfo' autofocus/>
+        <button id='sendmsg' ng-click='sendMessage(userInfo, msgInfo, colorChoice); getMessages()'>Send</button>
       </form>   
    </div>
  </div>

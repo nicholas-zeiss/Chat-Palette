@@ -6,7 +6,13 @@ angular.module('app.auth', [])
 
   // login() - executes upon submission of the login form
   $scope.login = function(user) {
-    Auth.login(user);
+    Auth.login(user)
+      .then(function(user) {
+        $scope.user.user = user;
+      })
+      .catch(function(error) {
+        console.error(error);
+      });
       // .then(function($scope.user) {
     $location.path('/chat');
       // });
