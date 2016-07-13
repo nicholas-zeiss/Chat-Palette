@@ -20,7 +20,7 @@ angular.module('app.auth', [])
   };
 
   // signUp() - executes upon submission of the signUp form
-  $scope.signUp = function() {
+  $scope.signUp = function(user) {
     Auth.signUp(user)
       .then(function(user) {
         $location.path('/chat');

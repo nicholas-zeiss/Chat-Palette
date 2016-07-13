@@ -5,7 +5,7 @@
 
 var knex = require('knex')({
   client: 'postgresql',
-  connection: process.env.POSTGRESQL_URL
+  connection: process.env.DATABASE_URL
 });
 
 
