@@ -57,12 +57,16 @@ table {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 body {
   /*background: url('assets/ff.jpe/*g') no-repeat center center fixed;
 =======
 =======
 >>>>>>> f4e87e0b094cf7c8ea5bdb8c3c2b012d717b7c03
 /*.chatcolors {
+=======
+.chatcolors {
+>>>>>>> ca53099b48c8c25c5fb802ad964c2566bf6e5b94
 	margin-left: 10px;
 	padding: 10px;
 	height: 50%;
@@ -213,6 +217,7 @@ h1 {
 	background-color: gray;
 }
 
+<<<<<<< HEAD
 .singlemessage {
 	text-align: left;
 	font-size: 25px;
@@ -225,6 +230,15 @@ h1 {
 	border-width: 2px;
 	border-radius: 5px;
 	padding: 10px 10px 5px 10px;
+=======
+li {
+  margin: 0 auto;
+	display: inline;
+  font-weight: bold;
+  text-align: center;
+  list-style-type: none;
+  font-size: 35px;
+>>>>>>> ca53099b48c8c25c5fb802ad964c2566bf6e5b94
 }
 
 #sendmessage {
@@ -245,9 +259,16 @@ h1 {
   font-family: "Times New Roman", Times, serif;
 }
 
+<<<<<<< HEAD
 #addingspace {
 	letter-spacing: 2px;
 	font-size: 22px;
+=======
+table {
+  width: 100%;
+  text-align: left;
+  padding: 100px;
+>>>>>>> ca53099b48c8c25c5fb802ad964c2566bf6e5b94
 }
 
 .sendoptions {
@@ -258,8 +279,12 @@ h1 {
 th {
     height: 50px;
 <<<<<<< HEAD
+<<<<<<< HEAD
 }*/
 >>>>>>> f4e87e0b094cf7c8ea5bdb8c3c2b012d717b7c03
 =======
 }*/
 >>>>>>> f4e87e0b094cf7c8ea5bdb8c3c2b012d717b7c03
+=======
+}
+>>>>>>> ca53099b48c8c25c5fb802ad964c2566bf6e5b94
