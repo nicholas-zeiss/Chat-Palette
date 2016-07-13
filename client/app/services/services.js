@@ -8,7 +8,7 @@ angular.module('app.services', [])
   var login = function(user) {
     return $http({
       method: 'POST',
-      url: '/localhost:8080',
+      url: '/login',
       data: user
     })
     .then(function(resp) {
@@ -22,8 +22,6 @@ angular.module('app.services', [])
   var signUp = function(user) {
     return $http({
       method: 'POST',
-      url: '/localhost:8080',
-      url: '/signup',
       url: '/signup',
       data: user
     })
