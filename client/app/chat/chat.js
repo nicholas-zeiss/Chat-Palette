@@ -1,6 +1,6 @@
 /**
-* Chat controller for main chat room
-*/
+ *  Chat controller for main chat room
+ */
 
 angular.module('app.chat', [])
 
@@ -13,8 +13,8 @@ angular.module('app.chat', [])
   };
 
   /**
-  * Use Chat factory getMessages() and sendMessage() functions to handle server response messages
-  */
+   *   Use Chat factory getMessages() and sendMessage() functions to handle server response messages
+   */
 
   $scope.getMessages = function() {
     Chat.getMessages()
@@ -28,8 +28,8 @@ angular.module('app.chat', [])
   };
 
   /**
-  * Sends a post request with message data then loads up messages again
-  */
+   *   Sends a post request with message data then loads up messages again
+   */
 
   $scope.sendMessage = function(userInfo, msgInfo, colorChoice) {
     $scope.loading = true;

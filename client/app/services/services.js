@@ -1,9 +1,8 @@
-angular.module('app.services', [])
-
 /**
-*  factory for login and signup html/js
-*/
+ *   factory for login and signup html/js
+ */
 
+angular.module('app.services', [])
 .factory('Auth', function($http, $location, $window) {
 
   var login = function(user) {
@@ -23,15 +22,9 @@ angular.module('app.services', [])
   var signUp = function(user) {
     return $http({
       method: 'POST',
-<<<<<<< HEAD:client/app/services/services.js
-<<<<<<< HEAD:client/app/services.js
       url: '/localhost:8080',
-=======
       url: '/signup',
->>>>>>> f4e87e0b094cf7c8ea5bdb8c3c2b012d717b7c03:client/app/services/services.js
-=======
       url: '/signup',
->>>>>>> f4e87e0b094cf7c8ea5bdb8c3c2b012d717b7c03:client/app/services/services.js
       data: user
     })
     .then(function(resp){
@@ -52,10 +45,6 @@ angular.module('app.services', [])
     signOut: signOut
   };
 })
-
-/**
-* factory for 
-*/
 
 .factory('Chat', function($http) {
 
