@@ -5,7 +5,7 @@ angular.module('app.services', [])
   var login = function(user) {
     return $http({
       method: 'POST',
-      url: '/localhost:9001',
+      url: '/localhost:8080',
       data: user
     })
     .then(function(resp) {
@@ -19,7 +19,7 @@ angular.module('app.services', [])
   var signUp = function(user) {
     return $http({
       method: 'POST',
-      url: '/localhost:9001',
+      url: '/localhost:8080',
       data: user
     })
     .then(function(resp){

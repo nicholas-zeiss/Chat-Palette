@@ -7,20 +7,20 @@ angular.module('app', [
 ])
 .config(function($routeProvider, $httpProvider) {
   $routeProvider
-    .when('/', {
-      templateUrl: 'index.html',
-      controller: 'AuthController'
-    })
-    .when('/signup', {
-	  templateUrl: 'app/auth/signup.html',
-	  controller: 'AuthController'
-    })
-    .when('/login', {
-      templateUrl: 'app/auth/login.html'
-      controller: 'AuthController'
-    })
-    .otherwise({
-      redirectTo:'/'
-    });
+  .when('/', {
+    templateUrl: 'index.html',
+    controller: 'AuthController'
+  })
+  .when('/signup', {
+  templateUrl: 'app/auth/signup.html',
+  controller: 'AuthController'
+  })
+  .when('/login', {
+    templateUrl: '/app/auth/login.html'
+    controller: 'AuthController'
+  })
+  .otherwise({
+    redirectTo:'/'
+  });
 })
  

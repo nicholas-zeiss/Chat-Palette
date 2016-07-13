@@ -17,10 +17,10 @@ var rootpath = path.normalize(__dirname + '/..');
 //Creates instance of express object
 var app = express();
 app.use(bodyParser.json());
-app.use(express.static('../client/'));
+app.use(express.static(path.join(rootpath, 'client')));
 
 app.get('/', function(req, res) {
-  res.redirect('/chat');
+	res.sendFile(path.join(rootpath, '/client/index.html'));
 });
 
 //this will be used for login page
@@ -32,7 +32,7 @@ app.post('/login', function(req, res) {
 
 //this is used to retrieve a list of all users for test purposes
 app.get('/login', function(req, res) {
-	res.sendFile(path.join(rootpath + '/client/index.html'));
+	res.sendFile(path.join(rootpath, '/client/index.html'));
 });
 
 //this will be used to signin
