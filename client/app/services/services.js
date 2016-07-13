@@ -5,7 +5,7 @@ angular.module('app.services', [])
   var login = function(user) {
     return $http({
       method: 'POST',
-      url: '/localhost:9001',
+      url: 'https://polar-springs-84938.herokuapp.com/login',
       data: user
     })
     .then(function(resp) {
@@ -19,7 +19,7 @@ angular.module('app.services', [])
   var signUp = function(user) {
     return $http({
       method: 'POST',
-      url: '/localhost:9001',
+      url: 'https://polar-springs-84938.herokuapp.com/signup',
       data: user
     })
     .then(function(resp){
@@ -31,7 +31,7 @@ angular.module('app.services', [])
   };
 
   var signOut = function() {
-    $location.path('/login');
+    $location.path('https://polar-springs-84938.herokuapp.com/login');
   };
 
   return {
@@ -46,16 +46,20 @@ angular.module('app.services', [])
   var sendMessage = function(message) {
     return $http({
       method: 'POST',
-      url: '/localhost:9001/chat',
+      url: 'https://polar-springs-84938.herokuapp.com/chat',
       data: message
     });
   };
 
-  // var filter = function() {
-  //   filter messages by color
-  // };
+  var getMessages = function() {
+    return $http({
+      method: 'GET',
+      url: 'https://polar-springs-84938.herokuapp.com/chat'
+    });
+  };
 
   return {
-    sendMessage: sendMessage
+    sendMessage: sendMessage,
+    getMessages: getMessages
   };
 });
