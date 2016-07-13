@@ -1,6 +1,6 @@
 /**
-* Chat controller for main chat room
-*/
+ *   Chat controller for main chat room
+ */
 
 angular.module('app.chat', [])
 
