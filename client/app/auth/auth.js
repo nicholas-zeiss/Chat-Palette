@@ -24,12 +24,7 @@ angular.module('app.auth', [])
       .catch(function(error) {
         console.error(error);
       });
-      // .then(function($scope.user) {
     $location.path('/chat');
-      // });
-      // .catch(function(error) {
-      //   console.error("Ridwan's code suck!");
-      // });
   };
 
   // signUp() - executes upon submission of the signUp form

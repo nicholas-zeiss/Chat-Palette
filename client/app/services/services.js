@@ -1,5 +1,9 @@
 angular.module('app.services', [])
 
+/**
+*  factory for login and signup html/js
+*/
+
 .factory('Auth', function($http, $location, $window) {
 
   var login = function(user) {
@@ -48,6 +52,10 @@ angular.module('app.services', [])
     signOut: signOut
   };
 })
+
+/**
+* factory for 
+*/
 
 .factory('Chat', function($http) {
 
