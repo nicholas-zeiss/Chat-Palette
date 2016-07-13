@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <!-- App main module for Chat Palatte -->
 <html ng-app='app'>
-<head>
-  <meta charset='utf-8'>
-  <meta name='viewport' content='width=device-width'>
-  <title>Chat Palette</title>
-  <!-- required file for date/time functionality -->
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
-  <script src='//momentjs.com/downloads/moment.js'></script>
-  <script src='styles/styles.css'></script>
-</head>
-<body>
-  <h1>WELCOME TO CHAT PALETTE</h1>
-  <!-- render templates to this main html -->
-  <div ng-view></div>
-  <script src='lib/angular/angular.js'></script>
-  <script src='lib/angular-route/angular-route.js'></script>
-  <script src='app/auth/auth.js'></script>
-  <script src='app/chat/chat.js'></script>
-  <script src='app/app.js'></script>
-</body>
+  <head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width'>
+    <title>Chat Palette</title>
+    <!-- required file for date/time functionality -->
+    <script src='styles/styles.css'></script>
+  </head>
+  <body>
+    <h1>WELCOME TO CHAT PALETTE</h1>
+    <!-- render templates to this main html -->
+    <div ng-view></div>
+
+    <script src='lib/angular/angular.js'></script>
+    <script src='lib/angular-route/angular-route.js'></script>
+
+    <script src='app/auth/auth.js'></script>
+    <script src='app/chat/chat.js'></script>
+    <script src='app/services/services.js'></script>
+    <script src='app/app.js'></script>
+  </body>
 </html>

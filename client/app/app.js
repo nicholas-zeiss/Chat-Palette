@@ -8,7 +8,7 @@ angular.module('app', [
 .config(function($routeProvider, $httpProvider) {
   $routeProvider
     .when('/', {
-      templateUrl: 'index.html',
+      templateUrl: 'app/auth/login.html',
       controller: 'AuthController'
     })
     .when('/signup', {
