@@ -8,12 +8,9 @@
       <button id='yellow'>Yellow</button>
     </nav>
   </div>
-
-  <!-- Test dummy messages objects -->
   <div id='messagecontainer'>
-    <div class='msg' >
-<!-- ng-init="messages=[ { sessionID: 'alex01', message: 'Hello, World!', dateStamp: '07/11/2016', timeStamp: '18:33:26' }, { sessionID: 'dan02', message: 'Hello, World!', dateStamp: '07/11/2016', timeStamp: '18:33:26' }, { sessionID: 'ridwan03', message: 'Hello, World!', dateStamp: '07/11/2016', timeStamp: '18:33:26' }, { sessionID: 'nick04', message: 'Hello, World!', dateStamp: '07/11/2016', timeStamp: '18:33:26' } ] " was in 'msg' class-->
-      <!-- Display Test Messages for dev only -->
+    <div class='msg'>
+      <!-- Display messages in user/content/created_at format -->
       <div id='messages' ng-repeat='message in messagU'> 
           <p class='singlemessage'>
             {{ message.username }}
@@ -22,8 +19,6 @@
           </p>
       </div>
     </div>
-  
-
     <!-- Input area for message to add to group chat -->
     <div>
     <!-- Form to handle new chat messages to be added to the chat stream -->
