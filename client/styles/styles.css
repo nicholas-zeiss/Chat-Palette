@@ -1,4 +1,4 @@
-html, body, div, span, applet, object, iframe,
+/*html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
@@ -17,18 +17,15 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
-}
-
+}*/
 
  /* HTML5 display-role reset for older browsers */
- 
-article, aside, details, figcaption, figure, 
+/*article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
-}
+}*/
 
-section {
-
+/*section {
 	display: inline-block;
 	margin: 0 1.5%;
 	width: 100%;
@@ -45,18 +42,65 @@ ol, ul, li {
 blockquote, q {
 	quotes: none;
 }
+
 blockquote:before, blockquote:after,
 q:before, q:after {
 	content: '';
 	content: none;
 }
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+*/
 
+<<<<<<< HEAD
+<<<<<<< HEAD
 body {
   /*background: url('assets/ff.jpe/*g') no-repeat center center fixed;
+=======
+=======
+>>>>>>> f4e87e0b094cf7c8ea5bdb8c3c2b012d717b7c03
+/*.chatcolors {
+	margin-left: 10px;
+	padding: 10px;
+	height: 50%;
+	width: 15%;
+	border-radius: 5%;
+	font-size: 15px;
+}
+
+.chatcolors Red {
+	background-color: #CD5C5C;
+}
+
+.chatcolors Blue {
+	background-color: #098DF5
+}
+
+.chatcolors Green {
+	background-color: #81F509
+}
+
+.chatcolors Yellow {
+	background-color: #ECF715
+}
+
+.chatcolors ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+
+}
+
+.chatcolors li {
+
+}
+
+body {
+  background: url('assets/ff.jpeg') no-repeat center center fixed;
+>>>>>>> f4e87e0b094cf7c8ea5bdb8c3c2b012d717b7c03
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -159,6 +203,7 @@ h1 {
 	border-radius: 10px;
 }
 
+<<<<<<< HEAD
 #messages {
 	
 }
@@ -209,3 +254,12 @@ h1 {
 	font-size: 20px;
 	color: #595959;
 }
+=======
+th {
+    height: 50px;
+<<<<<<< HEAD
+}*/
+>>>>>>> f4e87e0b094cf7c8ea5bdb8c3c2b012d717b7c03
+=======
+}*/
+>>>>>>> f4e87e0b094cf7c8ea5bdb8c3c2b012d717b7c03

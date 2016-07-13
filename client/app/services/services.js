@@ -19,7 +19,15 @@ angular.module('app.services', [])
   var signUp = function(user) {
     return $http({
       method: 'POST',
+<<<<<<< HEAD:client/app/services/services.js
+<<<<<<< HEAD:client/app/services.js
       url: '/localhost:8080',
+=======
+      url: '/signup',
+>>>>>>> f4e87e0b094cf7c8ea5bdb8c3c2b012d717b7c03:client/app/services/services.js
+=======
+      url: '/signup',
+>>>>>>> f4e87e0b094cf7c8ea5bdb8c3c2b012d717b7c03:client/app/services/services.js
       data: user
     })
     .then(function(resp){
@@ -46,16 +54,23 @@ angular.module('app.services', [])
   var sendMessage = function(message) {
     return $http({
       method: 'POST',
-      url: '/localhost:9001/chat',
+      url: '/chat',
       data: message
     });
   };
 
-  // var filter = function() {
-  //   filter messages by color
-  // };
+  var getMessages = function() {
+    return $http({
+      method: 'GET',
+      url: '/chat'
+    })
+    .then(function(resp) {
+      return resp.data;
+    });
+  };
 
   return {
-    sendMessage: sendMessage
+    sendMessage: sendMessage,
+    getMessages: getMessages
   };
 });
