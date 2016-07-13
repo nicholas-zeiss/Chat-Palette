@@ -41,3 +41,4 @@ jspm_packages
 server/.DS_Store
 
 server/data/data.db
+*/data.db

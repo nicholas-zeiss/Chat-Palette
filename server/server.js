@@ -18,7 +18,11 @@ var rootpath = path.normalize(__dirname + '/..');
 var app = express();
 app.use(bodyParser.json());
 <<<<<<< HEAD
+<<<<<<< HEAD
 app.use(express.static(path.join(rootpath, 'client')));
+=======
+app.use(express.static('../client/'));
+>>>>>>> f4e87e0b094cf7c8ea5bdb8c3c2b012d717b7c03
 =======
 app.use(express.static('../client/'));
 >>>>>>> f4e87e0b094cf7c8ea5bdb8c3c2b012d717b7c03
@@ -37,7 +41,11 @@ app.post('/login', function(req, res) {
 //this is used to retrieve a list of all users for test purposes
 app.get('/login', function(req, res) {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	res.sendFile(path.join(rootpath, '/client/index.html'));
+=======
+  res.sendFile(path.join(rootpath + '/client/index.html'));
+>>>>>>> f4e87e0b094cf7c8ea5bdb8c3c2b012d717b7c03
 =======
   res.sendFile(path.join(rootpath + '/client/index.html'));
 >>>>>>> f4e87e0b094cf7c8ea5bdb8c3c2b012d717b7c03
@@ -68,7 +76,11 @@ var port = process.env.PORT || 8080;
 
 app.listen(port, function() {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	console.log("Listening on " + port);
+=======
+  console.log("Listening on " + port);
+>>>>>>> f4e87e0b094cf7c8ea5bdb8c3c2b012d717b7c03
 =======
   console.log("Listening on " + port);
 >>>>>>> f4e87e0b094cf7c8ea5bdb8c3c2b012d717b7c03

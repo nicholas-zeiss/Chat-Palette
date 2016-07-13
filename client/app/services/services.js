@@ -19,8 +19,12 @@ angular.module('app.services', [])
   var signUp = function(user) {
     return $http({
       method: 'POST',
+<<<<<<< HEAD:client/app/services/services.js
 <<<<<<< HEAD:client/app/services.js
       url: '/localhost:8080',
+=======
+      url: '/signup',
+>>>>>>> f4e87e0b094cf7c8ea5bdb8c3c2b012d717b7c03:client/app/services/services.js
 =======
       url: '/signup',
 >>>>>>> f4e87e0b094cf7c8ea5bdb8c3c2b012d717b7c03:client/app/services/services.js

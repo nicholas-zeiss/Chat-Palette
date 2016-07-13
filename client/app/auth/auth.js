@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 /*************************************************
 * Authorization controller for login and sign up
 **************************************************/
 
+=======
+// Authorization controller for login and sign up
+>>>>>>> f4e87e0b094cf7c8ea5bdb8c3c2b012d717b7c03
 =======
 // Authorization controller for login and sign up
 >>>>>>> f4e87e0b094cf7c8ea5bdb8c3c2b012d717b7c03
