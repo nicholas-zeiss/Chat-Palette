@@ -17,6 +17,7 @@ var rootpath = path.normalize(__dirname + '/..');
 //Creates instance of express object
 var app = express();
 app.use(bodyParser.json());
+app.use(express.static('../client/'));
 
 app.get('/', function(req, res) {
   res.redirect('/chat');
@@ -31,9 +32,7 @@ app.post('/login', function(req, res) {
 
 //this is used to retrieve a list of all users for test purposes
 app.get('/login', function(req, res) {
-	Users.getUsers(function(collection) {
-		res.status(200).json(collection);
-	});
+	res.sendFile(path.join(rootpath + '/client/index.html'));
 });
 
 //this will be used to signin
