@@ -12,15 +12,19 @@ angular.module('app', [
       controller: 'AuthController'
     })
     .when('/signup', {
-	  templateUrl: 'app/auth/signup.html',
-	  controller: 'AuthController'
+      templateUrl: 'app/auth/signup.html',
+      controller: 'AuthController'
     })
     .when('/login', {
-      templateUrl: 'app/auth/login.html'
+      templateUrl: 'app/auth/login.html',
       controller: 'AuthController'
+    })
+    .when('/chat', {
+      templateUrl: 'app/chat/chat.html',
+      controller: 'ChatController'
     })
     .otherwise({
       redirectTo:'/'
     });
-})
+});
  

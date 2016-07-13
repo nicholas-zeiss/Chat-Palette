@@ -3,22 +3,29 @@
 angular.module('app.chat', [])
 
 .controller('ChatController', function ($scope, $window, $location, Chat) {
+  $scope.message = {};
 
   $scope.sendMessage = function() {
-    Chat.sendMessage(/*message*/)
+    $scope.loading = true;
+    Chat.sendMessage($scope.message)
       .then(function() {
-        //reload page
+        $scope.loading = false;
+        $location.path('/chat');
       })
       .catch(function (error) {
         console.error('Hurry up Alexius I\'m dying');
       });
   };
 
-  // Maybe we don't need this function because we can just use ng-filter
-  
-  // $scope.filter = function() {
-  //   Chat.filter();
-  // };
-
+  $scope.getMessage = function() {
+    Chat.getMessage()
+      .then(function(message) {
+        $scope.message.message = message;
+      })
+      .catch(function (error) {
+        console.error('Hurry up Alexius I\'m dying');
+      });
+  };
+  $scope.getMessage();
 });
 

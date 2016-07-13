@@ -5,7 +5,7 @@ angular.module('app.services', [])
   var login = function(user) {
     return $http({
       method: 'POST',
-      url: 'https://polar-springs-84938.herokuapp.com/login',
+      url: '/login',
       data: user
     })
     .then(function(resp) {
@@ -19,7 +19,7 @@ angular.module('app.services', [])
   var signUp = function(user) {
     return $http({
       method: 'POST',
-      url: 'https://polar-springs-84938.herokuapp.com/signup',
+      url: '/signup',
       data: user
     })
     .then(function(resp){
@@ -31,7 +31,7 @@ angular.module('app.services', [])
   };
 
   var signOut = function() {
-    $location.path('https://polar-springs-84938.herokuapp.com/login');
+    $location.path('/login');
   };
 
   return {
@@ -46,7 +46,7 @@ angular.module('app.services', [])
   var sendMessage = function(message) {
     return $http({
       method: 'POST',
-      url: 'https://polar-springs-84938.herokuapp.com/chat',
+      url: '/chat',
       data: message
     });
   };
@@ -54,7 +54,7 @@ angular.module('app.services', [])
   var getMessages = function() {
     return $http({
       method: 'GET',
-      url: 'https://polar-springs-84938.herokuapp.com/chat'
+      url: '/chat'
     });
   };
 

@@ -9,8 +9,8 @@ angular.module('app.auth', [])
 	$scope.login = function() {
 		Auth.login($scope.user)
 			.then(function ($scope.user) {
-				$location.path('/chat');
-			})
+				$location.path('https://polar-springs-84938.herokuapp.com/chat');
+			});
 			.catch(function (error) {
 				console.error("Ridwan's code suck!");
 			});
@@ -20,8 +20,8 @@ angular.module('app.auth', [])
 	$scope.signUp = function() {
 		Auth.signUp($scope.user)
 			.then(function ($scope.user) {
-				$location.path('/chat');
-			})
+				$location.path('https://polar-springs-84938.herokuapp.com/chat');
+			});
 			.catch(function (error) {
 				console.log(error("Ridwan's server's broke");
 			});
