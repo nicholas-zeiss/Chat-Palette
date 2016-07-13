@@ -4,9 +4,8 @@
  */
 
 var knex = require('knex')({
-  client: 'sqlite3',
-  connection: { filename: './data/data.db' },
-  useNullAsDefault: true
+  client: 'postgresql',
+  connection: process.env.POSTGRESQL_URL
 });
 
 
