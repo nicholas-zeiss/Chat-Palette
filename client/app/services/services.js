@@ -9,7 +9,7 @@ angular.module('app.services', [])
   var login = function(user) {
     return $http({
       method: 'POST',
-      url: '/localhost:8080',
+      url: '/',
       data: user
     })
     .then(function(resp) {
