@@ -55,7 +55,7 @@ table {
 }
 */
 
-/*.chatcolors {
+.chatcolors {
 	margin-left: 10px;
 	padding: 10px;
 	height: 50%;
@@ -157,13 +157,12 @@ button {
 }
 
 li {
-	margin: 0;
+  margin: 0 auto;
 	display: inline;
-    font-weight: bold;
-    text-align: center;
-    list-style-type: none;
-    font-size: 35px;
-    scroll-behavior: 
+  font-weight: bold;
+  text-align: center;
+  list-style-type: none;
+  font-size: 35px;
 }
 
 [ng\:cloak], [ng-cloak], .ng-cloak {
@@ -175,11 +174,11 @@ li {
 }
 
 table {
-    width: 100%;
-    text-align: left;
-    padding: 100px;
+  width: 100%;
+  text-align: left;
+  padding: 100px;
 }
 
 th {
     height: 50px;
-}*/
+}

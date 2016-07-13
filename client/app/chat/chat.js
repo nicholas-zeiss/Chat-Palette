@@ -22,7 +22,7 @@ angular.module('app.chat', [])
         $scope.messagU = message;
         console.log($scope.messagU);
       })
-      .catch(function (error) {
+      .catch(function(error) {
         console.error('Hurry up Alexius I\'m dying');
       });
   };
