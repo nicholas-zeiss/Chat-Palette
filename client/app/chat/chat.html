@@ -25,11 +25,11 @@
     <div>
     <!-- Form to handle new chat messages to be added to the chat stream -->
       <form class='sendoptions'>
-        <span id='addingspace'>Choose your chat breed:</span>
-        Red <input type='radio' name='color' value='Shibe' ng-model='colorChoice'>
-        Blue <input type='radio' name='color' value='German Shepherd' ng-model='colorChoice'>
-        Green <input type='radio' name='color' value='Lab' ng-model='colorChoice'>
-        Yellow <input type='radio' name='color' value='Chihuahau' ng-model='colorChoice'><br>
+        <span id='addingspace'>Choose your breed:</span>
+        Corgi <input type='radio' name='color' value='red' ng-model='colorChoice'>
+        German Shepherd <input type='radio' name='color' value='blue' ng-model='colorChoice'>
+        Chihuahua<input type='radio' name='color' value='green' ng-model='colorChoice'>
+        Shibe Inu <input type='radio' name='color' value='yellow' ng-model='colorChoice'><br>
         <input id='userSendMessage' placeholder='Choose your name' ng-model='userInfo'/>
         <input id='sendMessage' name='messageInput' placeholder='Send your message' ng-model='msgInfo' autofocus/>
         <button id='sendmsg' ng-click='sendMessage(userInfo, msgInfo, colorChoice); getMessages()'>Send</button>
