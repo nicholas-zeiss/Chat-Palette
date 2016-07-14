@@ -19,9 +19,9 @@ var app = express();
 app.use(bodyParser.json());
 app.use(express.static(path.join(rootpath, 'client')));
 
-// app.get('/', function(req, res) {
-// 	res.sendFile(path.join(rootpath, '/client/index.html'));
-// });
+app.get('/', function(req, res) {
+	res.sendFile(path.join(rootpath, '/client/index.html'));
+});
 
 //this will be used for login page
 app.post('/login', function(req, res) {
