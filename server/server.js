@@ -56,10 +56,6 @@ app.post('/chat', function(req, res) {
   });
 });
 
-app.get('/dan', function(req, res) {
-  res.sendFile(path.join(rootpath, '/dan.html'))
-})
-
 var port = process.env.PORT || 8080;
 
 app.listen(port, function() {
