@@ -14,8 +14,8 @@ angular.module('app.services', [])
     })
   };
 
+
   var signUp = function(user) {
-    console.log('user passed to post request', user);
     return $http({
       method: 'POST',
       url: '/signup',

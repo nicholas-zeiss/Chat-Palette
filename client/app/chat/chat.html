@@ -7,12 +7,22 @@
       <button id='blue'>Blue</button>
       <button id='green'>Green</button>
       <button id='yellow'>Yellow</button>
+<div class='container' ng-init='getMessages()'>
+  <div class='buttons'>
+    <nav class='chatroom'>
+      <h1>CHATROOMS</h1>
+      <button class='button' id='all' ng-click='allFilter()'>All</button>
+      <button class='button' id='red' ng-click='redFilter()'>Red</button>
+      <button class='button' id='blue' ng-click='blueFilter()'>Blue</button>
+      <button class='button' id='green' ng-click='greenFilter()'>Green</button>
+      <button class='button' id='yellow' ng-click='yellowFilter()'>Yellow</button>
+      <p>Messages are filtered by {{ color }}:</p>
     </nav>
   </div>
   <div id='messagecontainer'>
     <div class='msg'>
       <!-- Display messages in user/content/created_at format -->
-      <div id='messages' ng-repeat='message in messagU'> 
+      <div id='messages' ng-repeat='message in messagU' > 
           <p class='singlemessage'>
             {{ message.username }}
             {{ message.content }}
@@ -24,7 +34,7 @@
     <div>
     <!-- Form to handle new chat messages to be added to the chat stream -->
       <form class='sendoptions'>
-        <span id='addingspace'>Choose your color:</span>
+        <span id='addingspace'>Choose your chat palette:</span>
         Red <input type='radio' name='color' value='red' ng-model='colorChoice'>
         Blue <input type='radio' name='color' value='blue' ng-model='colorChoice'>
         Green <input type='radio' name='color' value='green' ng-model='colorChoice'>

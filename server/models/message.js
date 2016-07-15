@@ -5,7 +5,6 @@
  */
 
 var Bookshelf = require('../db.js');
-var Chat = require('./chat.js');
 
 var Message = Bookshelf.Model.extend({
   tableName: 'messages',
