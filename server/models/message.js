@@ -4,9 +4,15 @@
  *  responsible for the message
  */
 
+var Bookshelf = require('../db.js');
+var User = require('./user.js');
+
 var Message = Bookshelf.Model.extend({
-	tablename: 'messages',
-	hasTimestamps: true
+	tableName: 'messages',
+	hasTimestamps: true,
+	user: function() {
+		return this.hasOne(User);
+	}
 });
 
 module.exports = Message;
