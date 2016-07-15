@@ -5,7 +5,6 @@
 angular.module('app.chat', [])
 
 .controller('ChatController', function ($scope, $window, $location, Chat) {
-  Chat.getMessages();
   $scope.messagU = {};
   $scope.messageObj = {
     username: 'username',
@@ -50,7 +49,7 @@ angular.module('app.chat', [])
         console.error(error);
       });
   };
-  
+
   /**
   * Filters all the messages based on color property and button clicked
   */
