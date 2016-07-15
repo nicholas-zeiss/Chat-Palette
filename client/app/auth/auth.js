@@ -9,6 +9,9 @@ angular.module('app.auth', [])
   // login() - executes upon submission of the login form
   $scope.login = function() {
     Auth.login($scope.user)
+      .then(function(res) {
+        $location.path('/chat');
+      })
       .catch(function(error) {
         console.error(error);
       });
@@ -17,6 +20,9 @@ angular.module('app.auth', [])
   // signUp() - executes upon submission of the signUp form
   $scope.signUp = function() {
     Auth.signUp($scope.user)
+      .then(function(res) {
+        $location.path('/chat');
+      })
       .catch(function (error) {
         console.error(error);
       });

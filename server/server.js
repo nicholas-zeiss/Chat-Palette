@@ -30,13 +30,21 @@ app.get('/', util.checkUser, function(req, res) {
 	res.sendFile(path.join(rootpath, '/client/index.html'));
 });
 
+app.get('/logout'), function(req, res) {
+  console.log('Im logging out!');
+  req.session.destroy(function() {
+    res.redirect('/login');
+  })
+}
+
 //this will be used for login page
 app.post('/login', function(req, res) {
   Users.getUser(req.body.username, function(user) {
     if (!!user && util.comparePasswords(req.body.password, user.get('password'))) {
-      util.createSession(req, res, user);
-      res.redirect('/chat');
+      util.createSession(req, res, user.get('username'));
+      // res.redirect('/chat');
     } else {
+      console.log('error')
       res.redirect('/login');
     }
   });
@@ -45,13 +53,14 @@ app.post('/login', function(req, res) {
 //this will be used to create a new account
 app.post('/signup', function(req, res) {
   Users.createUser(req.body.username, req.body.password, function(user) {
-    util.createSession(req, res, user);
-    res.redirect('/chat');
+    util.createSession(req, res, user.get('username'));
+    // res.redirect('/chat');
   });
 });
 
 //this will serve up the main chat page
 app.get('/chat', util.checkUser, function(req, res) {
+  console.log('in chat get', req.session);
   Messages.getAllMessages(function(collection) {
     res.status(200).json(collection);
   });

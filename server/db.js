@@ -17,7 +17,7 @@ var knex = require('knex')({            //Uncomment this to make this file work 
 knex.schema.hasTable('users').then(function(exists) {
   if (!exists) {
     return knex.schema.createTable('users', function(table) {
-      table.increments();
+      table.increments('id').primary();
       table.string('username');
       table.string('password');
       table.timestamps();
@@ -28,24 +28,26 @@ knex.schema.hasTable('users').then(function(exists) {
 knex.schema.hasTable('messages').then(function(exists) {
   if (!exists) {
     return knex.schema.createTable('messages', function(table) {
-      table.increments();
+      table.increments('id').primary();
       table.string('content');
       table.string('username');
-      table.string('color')
+      table.string('color');
+      tabe.string('tableName');
       table.timestamps();
     });
   }
 });
 
-knex.schema.hasTable('chats').then(function(exists) {
-  if (!exists) {
-    return knex.schema.createTable('chats', function(table) {
-    table.increments();
-    table.string('chatName');
-    table.timestamps();
-    })
-  }
-})
+// knex.schema.hasTable('chats').then(function(exists) {
+//   if (!exists) {
+//     return knex.schema.createTable('chats', function(table) {
+//     table.increments('id').primary();
+//     table.string('chatName');
+//     table.integer('messageId').references('messages.id');
+//     table.timestamps();
+//     })
+//   }
+// })
 
 var Bookshelf = require('bookshelf')(knex);
 

@@ -14,6 +14,5 @@ exports.getUser = function(name, callback) {
 };
 
 exports.createUser = function(name, password, callback) {
-	console.log('in create user ', name, password);
   new User({username: name, password: bcrypt.hashSync(password, 10)}).save().then(callback);
 };

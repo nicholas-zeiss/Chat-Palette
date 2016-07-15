@@ -8,10 +8,7 @@ var Message = require('./message.js');
 
 var User = Bookshelf.Model.extend({
   tableName: 'users',
-  hasTimestamps: true,
-  messages: function() {
-    return this.hasMany(Message);
-  }
+  hasTimestamps: true
 });
 
 module.exports = User;

@@ -1,7 +1,7 @@
 var bcrypt = require('bcryptjs');
 
 exports.checkUser = function(req, res, next) {
-	if (!req.session) {
+	if (!req.session || !req.session.username) {
 		res.redirect('/login');
 	} else {
 		next();
@@ -14,6 +14,8 @@ exports.comparePasswords = function(pass, hash) {
 
 exports.createSession = function(req, res, user) {
 	return req.session.regenerate(function() {
-		req.session.user = user;
+		req.session.username = user;
+		console.log(req.session);
+		res.redirect('/chat');
 	})
 }
