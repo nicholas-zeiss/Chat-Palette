@@ -7,45 +7,58 @@
 var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
+var session = require('express-session');
 
 var db = require('./db.js');
 var Users = require('./controllers/userController.js');
 var Messages = require('./controllers/messageController.js');
+var util = require('./lib/utility.js')
 
 var rootpath = path.normalize(__dirname + '/..');
 
-//Creates instance of express object
+//Creates instance of express object and our session
 var app = express();
 app.use(bodyParser.json());
 app.use(express.static(path.join(rootpath, 'client')));
+app.use(session({
+  secret: 'shh',
+  resave: false,
+  saveUninitialized: true
+}));
 
-app.get('/', function(req, res) {
+app.get('/', util.checkUser, function(req, res) {
 	res.sendFile(path.join(rootpath, '/client/index.html'));
 });
 
 //this will be used for login page
 app.post('/login', function(req, res) {
   Users.getUser(req.body.username, function(user) {
-    user ? res.status(201).json(user) : res.sendStatus(404);
+    if (!!user && util.comparePasswords(req.body.password, user.get('password'))) {
+      util.createSession(req, res, user);
+      res.redirect('/chat');
+    } else {
+      res.redirect('/login');
+    }
   });
 });
 
-//this will be used to signin
+//this will be used to create a new account
 app.post('/signup', function(req, res) {
   Users.createUser(req.body.username, req.body.password, function(user) {
-    res.status(201).json(user);
+    util.createSession(req, res, user);
+    res.redirect('/chat');
   });
 });
 
 //this will serve up the main chat page
-app.get('/chat', function(req, res) {
+app.get('/chat', util.checkUser, function(req, res) {
   Messages.getAllMessages(function(collection) {
     res.status(200).json(collection);
   });
 });
 
 //this posts a message to the main chat page
-app.post('/chat', function(req, res) {
+app.post('/chat', util.checkUser, function(req, res) {
   Messages.createMessage(req.body.content, req.body.username, req.body.color, function(model) {
     res.status(201).json(model);
   });

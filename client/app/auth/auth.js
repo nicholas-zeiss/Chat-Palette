@@ -5,26 +5,18 @@
 angular.module('app.auth', [])
 
 .controller('AuthController', function($scope, $window, $location, Auth) {
-  $scope.user = {};
 
   // login() - executes upon submission of the login form
-  $scope.login = function(user) {
-    Auth.login(user)
-      .then(function(user) {
-        $scope.user.user = user;
-      })
+  $scope.login = function() {
+    Auth.login($scope.user)
       .catch(function(error) {
         console.error(error);
       });
-    $location.path('/chat');
   };
 
   // signUp() - executes upon submission of the signUp form
-  $scope.signUp = function(user) {
-    Auth.signUp(user)
-      .then(function(user) {
-        $location.path('/chat');
-      })
+  $scope.signUp = function() {
+    Auth.signUp($scope.user)
       .catch(function (error) {
         console.error(error);
       });

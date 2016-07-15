@@ -9,5 +9,5 @@ exports.getAllMessages = function(callback) {
 };
 
 exports.createMessage = function(content, user, color, callback) {
-  new Message({'content': content, 'username': user, 'color': color}).save().then(callback);
+  new Message({content: content, username: user, color: color}).save().then(callback);
 };

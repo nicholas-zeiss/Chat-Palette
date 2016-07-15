@@ -9,29 +9,18 @@ angular.module('app.services', [])
   var login = function(user) {
     return $http({
       method: 'POST',
-      url: '/',
+      url: '/login',
       data: user
     })
-    .then(function(resp) {
-      return resp.data;
-    })
-    .catch(function(error) {
-      console.error(error);
-    });
   };
 
   var signUp = function(user) {
+    console.log('user passed to post request', user);
     return $http({
       method: 'POST',
       url: '/signup',
       data: user
     })
-    .then(function(resp){
-      return resp.data;
-    })
-    .catch(function(error){
-      console.error(error);
-    });
   };
 
   var signOut = function() {
