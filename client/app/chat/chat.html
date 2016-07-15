@@ -8,17 +8,19 @@
       <button class='button' id='blue' ng-click='blueFilter()'>Blue</button>
       <button class='button' id='green' ng-click='greenFilter()'>Green</button>
       <button class='button' id='yellow' ng-click='yellowFilter()'>Yellow</button>
-      <p>Messages are filtered by {{ color }}:</p>
+      <p>Below are all the {{ color }} messages:</p>
     </nav>
   </div>
   <div id='messagecontainer'>
     <div class='msg'>
       <!-- Display messages in user/content/created_at format -->
-      <div id='messages' ng-repeat='message in messagU' > 
+      <div id='messages' ng-repeat='message in messagU' ng-if="color === message.color || color === ''">
           <p class='singlemessage'>
             {{ message.username }}
+            posted
             {{ message.content }}
-            {{ message.created_at }}
+            at
+            {{ message.created_at | date: 'yyyy-MM-dd HH:mm:ss' }}
           </p>
       </div>
     </div>

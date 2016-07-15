@@ -12,7 +12,6 @@ angular.module('app.chat', [])
     color: 'color'
   };
   $scope.color = '';
-  // $scope.buttons = ['Red', 'Blue', 'Green', 'Yellow'];
 
   /**
   * Use Chat factory getMessages() and sendMessage() functions to handle server response messages
@@ -56,15 +55,16 @@ angular.module('app.chat', [])
   
   $scope.allFilter = function() {
     $scope.color = '';
-    $scope.getMessages();
   };
+
   $scope.redFilter = function() {
     $scope.color = 'red';
-    $scope.getMessages();
   };
+
   $scope.blueFilter = function() {
     $scope.color = 'blue';
   };
+
   $scope.greenFilter = function() {
     $scope.color = 'green';
   };
