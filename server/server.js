@@ -30,11 +30,6 @@ app.post('/login', function(req, res) {
   });
 });
 
-//this is used to retrieve a list of all users for test purposes
-app.get('/login', function(req, res) {
-	res.sendFile(path.join(rootpath, '/client/index.html'));
-});
-
 //this will be used to signin
 app.post('/signup', function(req, res) {
   Users.createUser(req.body.username, req.body.password, function(user) {
@@ -51,8 +46,8 @@ app.get('/chat', function(req, res) {
 
 //this posts a message to the main chat page
 app.post('/chat', function(req, res) {
-  Messages.createMessage(req.body.content, req.body.username, req.body.color, function(collection) {
-    res.status(201).json(collection);
+  Messages.createMessage(req.body.content, req.body.username, req.body.color, function(model) {
+    res.status(201).json(model);
   });
 });
 

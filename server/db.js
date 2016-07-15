@@ -1,11 +1,11 @@
 /**
- *   Creates our schema for storing our app's data. We create two folders,
+ *   Creates our schema for storing our app's data. We create two tables,
  *   one to store users and one to store their messages.
  */
 
 var knex = require('knex')({
   client: 'postgresql',
-  connection: process.env.DATABASE_URL
+  connection: process.env.DATABASE_URL || {filename: './data/data.db'}
 });
 
 
