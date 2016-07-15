@@ -23,8 +23,8 @@ angular.module('app.auth', [])
       .then(function(res) {
         $location.path('/chat');
       })
-      .catch(function (error) {
-        console.error(error);
-      });
+      .catch(function(error) {
+        console.log(error);
+      })
   };
 });

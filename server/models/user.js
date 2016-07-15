@@ -6,6 +6,9 @@
 var Bookshelf = require('../db.js');
 var Message = require('./message.js');
 
+var Bookshelf = require('../db.js');
+var Message = require('./message.js');
+
 var User = Bookshelf.Model.extend({
   tableName: 'users',
   hasTimestamps: true

@@ -55,12 +55,39 @@ app.post('/signup', function(req, res) {
   Users.createUser(req.body.username, req.body.password, function(user) {
     util.createSession(req, res, user.get('username'));
     // res.redirect('/chat');
+
+var rootpath = path.normalize(__dirname + '/..');
+
+//Creates instance of express object
+var app = express();
+app.use(bodyParser.json());
+app.use(express.static(path.join(rootpath, 'client')));
+
+app.get('/', function(req, res) {
+	res.sendFile(path.join(rootpath, '/client/index.html'));
+});
+
+//this will be used for login page
+app.post('/login', function(req, res) {
+  Users.getUser(req.body.username, function(user) {
+    user ? res.status(201).json(user) : res.sendStatus(404);
+  });
+});
+
+//this is used to retrieve a list of all users for test purposes
+app.get('/login', function(req, res) {
+	res.sendFile(path.join(rootpath, '/client/index.html'));
+});
+
+//this will be used to signin
+app.post('/signup', function(req, res) {
+  Users.createUser(req.body.username, req.body.password, function(user) {
+    res.status(201).json(user);
   });
 });
 
 //this will serve up the main chat page
 app.get('/chat', util.checkUser, function(req, res) {
-  console.log('in chat get', req.session);
   Messages.getAllMessages(function(collection) {
     res.status(200).json(collection);
   });
@@ -68,7 +95,7 @@ app.get('/chat', util.checkUser, function(req, res) {
 
 //this posts a message to the main chat page
 app.post('/chat', util.checkUser, function(req, res) {
-  Messages.createMessage(req.body.content, req.body.username, req.body.color, function(model) {
+  Messages.createMessage(req.body.content, req.body.username, req.body.color, req.body.tableName, function(model) {
     res.status(201).json(model);
   });
 });

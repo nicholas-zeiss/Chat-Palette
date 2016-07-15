@@ -101,7 +101,8 @@ h1 {
     float: left;
     font-size: 40px;
     font-weight: bold;
-    padding-right: 370px;
+
+    padding-right: 100px;
 }
 
 #chatlogin h1 {
@@ -122,8 +123,10 @@ h1 {
  */
 
 .buttons {
+
+  float: left;
     padding: 20px 0 20px 10px;
-    height: 40%;
+    height: 100%;
     width: 99%;
     background-color: #f2f2f2;
     border-radius: 5px;
@@ -194,12 +197,13 @@ h1 {
 .msg {
     height: 100%;
     width: 100%;
+    overflow-y: auto;
     border-radius: 5px;
     border-style: solid;
     display: inline-block;
     font-size: 30px;
-    margin-bottom: 5px;
-}
+    margin: 0 auto;
+]}
 
 /**
  * Container for all chat messages from the server
@@ -215,6 +219,8 @@ h1 {
 #messages {
     
     
+    height: 90%
+    width: 200px;
 }
 
 .messagelisting {
