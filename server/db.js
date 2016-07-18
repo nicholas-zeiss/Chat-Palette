@@ -3,12 +3,16 @@
  *   one to store users and one to store their messages.
  */
 
-var knex = require('knex')({
-  client: 'sqlite3',
-  connection: { filename: './data/data.db' },
-  useNullAsDefault: true
-});
+// var knex = require('knex')({
+//   client: 'sqlite3',
+//   connection: { filename: './data/data.db' },
+//   useNullAsDefault: true
+// });
 
+var knex = require('knex')({         //Uncomment this to make this file work for heroku
+  client: 'postgresql',
+  connection: process.env.DATABASE_URL 
+});
 
 knex.schema.hasTable('users').then(function(exists) {
   if (!exists) {

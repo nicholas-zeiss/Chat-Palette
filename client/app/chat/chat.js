@@ -12,6 +12,7 @@ angular.module('app.chat', [])
     color: 'color'
   };
   $scope.color = '';
+  $scope.clearAll = '';
 
   /**
   * Use Chat factory getMessages() and sendMessage() functions to handle server response messages
@@ -37,12 +38,10 @@ angular.module('app.chat', [])
     $scope.messageObj.content = msgInfo;
     $scope.messageObj.username = userInfo;
     $scope.messageObj.color = colorChoice;
-    console.log($scope.messageObj);
     Chat.sendMessage($scope.messageObj)
       .then(function() {
         $scope.loading = false;
         $location.path('/chat');
-        console.log('running $scope.getMessages');
       })
       .catch(function (error) {
         console.error(error);
@@ -71,5 +70,9 @@ angular.module('app.chat', [])
   
   $scope.yellowFilter = function() {
     $scope.color = 'yellow';
+  };
+
+  $scope.clearSearch = function() {
+    $scope.searchAll = null;
   };
 });

@@ -6,9 +6,12 @@
     <title>Chat Palette</title>
     <!-- required file for date/time functionality -->
     <link href='styles/styles.css' type='text/css' rel='stylesheet'/>
+    <script src="http://momentjs.com/downloads/moment.js"></script>
   </head>
   <body>
-    <h1>WELCOME TO CHAT PALETTE</h1>
+    <section class='appHeaderContainer'>
+        <h1 id='appHeader' ng-style="{'background-image': 'url(/assets/top-bar.jpg)'}"><span class='appTitle'>WELCOME TO CHAT PALETTE</span></h1>
+    </section>
     <!-- render templates to this main html -->
     <div ng-view></div>
 

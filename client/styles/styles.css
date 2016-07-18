@@ -1,5 +1,5 @@
 /**
- * Default styles 
+ * Default styles for Chat Palette
  */
 
 html, body, div, span, applet, object, iframe,
@@ -37,44 +37,33 @@ section {
     margin: 0 1.5%;
     width: 100%;
 }
+
 body {
     margin-top: 30px;
     line-height: 1;
 }
+
 ol, ul, li {
      list-style-type: none;
 }
+
 blockquote, q {
     quotes: none;
 }
+
 blockquote:before, blockquote:after,
 q:before, q:after {
     content: '';
     content: none;
 }
+
 table {
     border-collapse: collapse;
     border-spacing: 0;
 }
 
-/*.loginForm {
-    float: left;
-    margin-top: 20px;
-    height: 200px;
-    width: 200px;
-}
-*/
-.loginForm input {
-  /*width: 40px;*/
-}
-
-#chatlogin {
-    height: 250px;
-    width: 250px;
-}
-
 /**
- * Chatroom Styles - Container styles for workspace
+ * Body container - affecting several templates
  */
 
 .container {
@@ -84,14 +73,152 @@ table {
 }
 
 /**
- * Body tag styles
+ * Main App Template styles - header
  */
 
-body {
-  font-family: "Times New Roman", Times, serif;
-  height: 100%;
-  width: 100%;
+.appHeaderContainer {
+  /*position: fixed;*/
 }
+
+#appHeader {
+  padding: 30px 0 10px 10px;
+  height: 100%;
+  width: 970px;
+  text-align: center;
+  font-size: 50px;
+  margin-left: 125px;
+  border-radius: 5px;
+}
+
+#appTitle {
+  padding-top: 20px;
+}
+
+/**
+ * Login Template styles - section container
+ */
+
+.loginTemplate {
+    float: left;
+    align-content: center;
+    margin-top: 20px;
+    margin-left: 470px;
+    height: 280px;
+    width: 400px;
+    border-radius: 5px;
+    background: linear-gradient(#8e9eab, #eef2f3);
+}
+
+.loginForm input {
+  height: 30px;
+  width: 380px;
+  font-size: large;
+  text-align: center;
+  margin-left: 2px;
+}
+
+#loginInput {
+  padding-bottom: 10px;
+}
+
+.loginForm button {
+  height: 30px;
+  width: 386px;
+  margin-left: 2px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: large;
+  border-radius: 4px;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.loginForm a {
+  font-size: large;
+}
+
+#loginHeader {
+  float: left;
+  font-size: 40px;
+  font-weight: bold;
+  margin-left: 100px;
+  padding-bottom: 20px;
+}
+
+#login {
+  padding: 20px 5px;
+}
+
+#loginSignUp {
+  font-size: larger;
+  margin-left: 30px;
+}
+
+/**
+ * Sign Up Template styles - section container
+ */
+
+.signupTemplate {
+    float: left;
+    align-content: center;
+    margin-top: 20px;
+    margin-left: 470px;
+    height: 280px;
+    width: 400px;
+    border-radius: 5px;
+    background: linear-gradient(#8e9eab, #eef2f3);
+}
+
+.signUpForm input {
+  height: 30px;
+  width: 380px;
+  font-size: large;
+  text-align: center;
+  margin-left: 2px;
+}
+
+#signupInput {
+  padding-bottom: 10px;
+}
+
+.signUpForm button {
+  height: 30px;
+  width: 386px;
+  margin-left: 2px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: large;
+  border-radius: 4px;
+  font-family: "Times New Roman", Times, serif;
+
+}
+
+.signupForm a {
+  font-size: large;
+}
+
+#signupHeader {
+  float: left;
+  font-size: 40px;
+  font-weight: bold;
+  margin-left: 130px;
+  padding-bottom: 20px;
+}
+
+#signup {
+  padding: 20px 5px;
+}
+
+#signUpLogin {
+  font-size: larger;
+  padding-top: 20px;
+  margin-left: 85px;
+}
+
+/**
+ * Chatroom Styles - Container styles for workspace
+ */
 
 /**
  * Headers
@@ -101,11 +228,15 @@ h1 {
     float: left;
     font-size: 40px;
     font-weight: bold;
-    padding-right: 100px;
+    padding-right: 70px;
+    text-align: center;
 }
 
-#chatlogin h1 {
-    font-size: 20px;
+h2 {
+    float: left;
+    font-size: 25px;
+    font-weight: bold;
+    padding-left: 20px;
 }
 
 /**
@@ -123,33 +254,33 @@ h1 {
 
 .buttons {
   float: left;
-    padding: 20px 0 20px 10px;
-    height: 100%;
-    width: 99%;
-    background-color: #f2f2f2;
-    border-radius: 5px;
+  /*padding: 20px 20px;*/
+  height: 100%;
+  width: 99%;
+  background-color: #f2f2f2;
+  border-radius: 5px;
 
-     /** 
-      * Individual browser styles
-      * For browsers that do not support gradients 
-      */
-    background: #8e9eab; 
-    /**
-     * For Safari 5.1 to 6.0 
-     */
-    background: -webkit-linear-gradient(#8e9eab, #eef2f3); 
-    /**
-     * For Opera 11.1 to 12.0
-     */
-    background: -o-linear-gradient(#8e9eab, #eef2f3); 
-    /**
-     * For Firefox 3.6 to 15 
-     */
-    background: -moz-linear-gradient(#8e9eab, #eef2f3); 
-    /**
-     * Standard syntax 
-     */
-    background: linear-gradient(#8e9eab, #eef2f3);
+   /** 
+    * Individual browser styles
+    * For browsers that do not support gradients 
+    */
+  background: #8e9eab; 
+  /**
+   * For Safari 5.1 to 6.0 
+   */
+  background: -webkit-linear-gradient(#8e9eab, #eef2f3); 
+  /**
+   * For Opera 11.1 to 12.0
+   */
+  background: -o-linear-gradient(#8e9eab, #eef2f3); 
+  /**
+   * For Firefox 3.6 to 15 
+   */
+  background: -moz-linear-gradient(#8e9eab, #eef2f3); 
+  /**
+   * Standard syntax 
+   */
+  background: linear-gradient(#8e9eab, #eef2f3);
   }
 
  /**
@@ -158,7 +289,7 @@ h1 {
 
 .chatroom button {
   border: none;
-  color: white;
+  color: #000000;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
@@ -171,17 +302,26 @@ h1 {
  * Set the background color of each button in nav bar
  */
 
+#all {
+    background-color: none;
+    font-size: large;
+}
+
 #red {
-    background-color: #CD5C5C;
+    background-color: red;
+    font-size: large;
 }
 #blue {
-    background-color: #0000cc;
+    background-color: blue;
+    font-size: large;
 }
 #green {
-    background-color: #006600;
+    background-color: green;
+    font-size: large;
 }
 #yellow {
-    background-color: #e6e600;
+    background-color: yellow;
+    font-size: large;
 }
 
 /**
@@ -192,10 +332,17 @@ h1 {
  * Test data
  */
 
+.scrollable {
+  overflow-x: scroll;
+  height: 400px;
+  width: 975px;
+}
+
 .msg {
-    height: 100%;
+    float: left;
+    height: 50%;
     width: 100%;
-    overflow-y: auto;
+    position:relative;
     border-radius: 5px;
     border-style: solid;
     display: inline-block;
@@ -207,15 +354,21 @@ h1 {
  * Container for all chat messages from the server
  */
 
+ul {
+  width: 100%;
+}
+
 #messagecontainer {
-    margin-left: 20px;
+    margin-left: 5px;
+    /*padding-right: 30px;*/
     background-color: #ebf0fa;
     border-radius: 10px;
-    height: 90%
-    width: 200px;
+    height: 500px;
+    width: 970px;
 }
 
 #messages {
+
 }
 
 .messagelisting {
@@ -230,12 +383,12 @@ h1 {
 .singlemessage {
     text-align: left;
     font-size: 23px;
-    height:40px;
+    height:30px;
     width: 93%;
     margin: 20px;
     border-style: groove;
     border-color: #e6e6e6;
-    color: #595959;
+    color: #000000;
     border-width: 2px;
     border-radius: 5px;
     padding: 10px 10px 5px 10px;
@@ -245,31 +398,35 @@ h1 {
  * Input area for the new chat message to the stream
  */
 
-#sendmessage {
-    width: 75%;
-    padding: 15px 47px;
-    margin: 5px 10px 10px 10px;
-    text-align: left;
-    font-size: 20px;
+#userid {
+  margin-top: 10px;
+  height: 40px;
+  width: 200px;
+  font-size: large;
+  text-align: center;
+}
+
+#messagetosend {
+    width: 590px;
+    height: 40px;
+    font-size: large;
+    text-align: center;
 }
 
 /**
  * Button to send the new chat message to the stream
  */
 
-#sendmsg {
-  /*padding: 15px 32px;*/
+#btn-sendmsg {
+  padding: 10px;
+  height: 50px;
+  width: 80px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 20px;
+  font-size: large;
   border-radius: 4px;
   font-family: "Times New Roman", Times, serif;
-}
-
-#userSendMessage {
-
-
 }
 
 /**
@@ -287,9 +444,14 @@ h1 {
  * Send new chat message container
  */
 
-.sendoptions {
-    font-size: 20px;
+.newmessages {
+  height: 100px;
+  width: 900px;
+}
+
+#sendoptions {
+    font-size: 25px;
     color: #595959;
-    padding-left: 13px;
+    /*padding-left: 13px;*/
     float: left;
 }
