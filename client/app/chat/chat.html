@@ -44,8 +44,8 @@
         Yellow <input type='radio' name='color' value='yellow' ng-model='colorChoice' ng-click="myStyle={ background: 'yellow' }">
         Clear <input type='radio' name='color' value='clear' ng-model='colorChoice' ng-click="myStyle={ background: 'none' }">
 
-        <input id='userid' placeholder="Enter your username" ng-model=userInfo autofocus maxlength="10" required/>
-        <input  ng-style="myStyle" id='messagetosend' name='messageInput' placeholder='Type your message - 120 character max!' ng-model='msgInfo' maxlength="120" required/>
+        <input id='userid' placeholder="Enter your username" ng-model=userInfo/>
+        <input  ng-style="myStyle" id='messagetosend' name='messageInput' placeholder='Type your message - 120 character max!' ng-model='msgInfo'/>
         <button id='btn-sendmsg' ng-click="sendMessage(userInfo, msgInfo, colorChoice);getMessages();userInfo='';msgInfo=''">Send</button>
 
       </form>   
