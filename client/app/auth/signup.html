@@ -1,10 +1,14 @@
 <!-- Sign Up for new users. Auto redirect to chatroom upon success -->
-<div id='signup'>
-  <h1>Sign Up</h1>
-  <form name="signUpForm" ng-submit='signUp()'>
-    <input type='text' ng-model='user.username'>
-    <input type="password" ng-model='user.password'>
-    <button>Sign Up</button>
-  </form>
-  <a href='#/login'>Too much fat Ridwan? <strong>Login</strong> ...</a>
-</div>
+<section class='signupTemplate'>
+	<div id='signup'>
+	  <h1><span id='signupHeader'>Sign Up</span></h1>
+	  <form class='signUpForm' name='signupform'>
+	  	<div id='signupInput'><input type='text' name='messageSignUp' placeholder='Enter user name' ng-model='newUser' autofocus required></div>
+	    <div><input type="password" placeholder='Enter password' ng-model='userPwd' required></div>
+	    <br>
+	    <button  ng-click='signUp(newUser, userPwd)'>Sign Up</button>
+	  </form>
+	  <br>
+	  <a href='#/login'><span id='signUpLogin'>Too much fat Ridwan?<strong>    Login</strong></span></a>
+	</div>
+</section>

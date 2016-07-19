@@ -12,8 +12,13 @@ angular.module('app.services', [])
       url: '/login',
       data: user
     })
+    .then(function(resp) {
+      return resp.data;
+    })
+    .catch(function(error) {
+      console.error(error);
+    });
   };
-
 
   var signUp = function(user) {
     return $http({
@@ -21,6 +26,12 @@ angular.module('app.services', [])
       url: '/signup',
       data: user
     })
+    .then(function(resp){
+      return resp.data;
+    })
+    .catch(function(error){
+      console.error(error);
+    });
   };
 
   var signOut = function() {
@@ -35,7 +46,7 @@ angular.module('app.services', [])
 })
 
 /**
-* factory for 
+* factory for chat, allows us to send and get messages
 */
 
 .factory('Chat', function($http) {
