@@ -38,17 +38,6 @@ knex.schema.hasTable('messages').then(function(exists) {
   }
 });
 
-// knex.schema.hasTable('chats').then(function(exists) {
-//   if (!exists) {
-//     return knex.schema.createTable('chats', function(table) {
-//     table.increments('id').primary();
-//     table.string('chatName');
-//     table.integer('messageId').references('messages.id');
-//     table.timestamps();
-//     })
-//   }
-// })
-
 var Bookshelf = require('bookshelf')(knex);
 
 module.exports = Bookshelf;
