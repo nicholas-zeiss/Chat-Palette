@@ -32,7 +32,7 @@ knex.schema.hasTable('messages').then(function(exists) {
       table.string('content');
       table.string('username');
       table.string('color');
-      tabe.string('tableName');
+      table.string('tableName');
       table.timestamps();
     });
   }
