@@ -4,16 +4,16 @@
  */
 
 
-var knex = require('knex')({            //Uncomment this to make this file work locally
-  client: 'sqlite3',
-  connection: {filename: './data/data.db'},
-  useNullAsDefault: true
-});
-
-// var knex = require('knex')({         //Uncomment this to make this file work for heroku
-//   client: 'postgresql',
-//   connection: process.env.DATABASE_URL 
+// var knex = require('knex')({            //Uncomment this to make this file work locally
+//   client: 'sqlite3',
+//   connection: {filename: './data/data.db'},
+//   useNullAsDefault: true
 // });
+
+var knex = require('knex')({         //Uncomment this to make this file work for heroku
+  client: 'postgresql',
+  connection: process.env.DATABASE_URL 
+});
 
 knex.schema.hasTable('users').then(function(exists) {
   if (!exists) {
