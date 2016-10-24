@@ -22,7 +22,6 @@ angular.module('app.chat', [])
     Chat.getMessages()
       .then(function(message) {
         $scope.messagU = message;
-
       })
       .catch(function(error) {
         console.error('Hurry up Alexius I\'m dying');
@@ -44,6 +43,14 @@ angular.module('app.chat', [])
         console.log('succesful post');
         $scope.loading = false;
         $location.path('/chat');
+        console.log('this is reached');
+        Chat.getMessages();
+          .then(function(message) {
+            $scope.messagU = message;
+          })
+          .catch(function(error) {
+            console.error('Hurry up Alexius I\'m dying');
+          });
       })
       .catch(function (error) {
         console.error(error);
