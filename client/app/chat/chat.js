@@ -38,8 +38,10 @@ angular.module('app.chat', [])
     $scope.messageObj.content = msgInfo;
     $scope.messageObj.username = userInfo;
     $scope.messageObj.color = colorChoice;
+    console.log('asdf', $scope.messageObj);
     Chat.sendMessage($scope.messageObj)
       .then(function() {
+        console.log('succesful post');
         $scope.loading = false;
         $location.path('/chat');
       })

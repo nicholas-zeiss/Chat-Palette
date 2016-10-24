@@ -52,6 +52,7 @@ angular.module('app.services', [])
 .factory('Chat', function($http) {
 
   var sendMessage = function(message) {
+    console.log(message);
     return $http({
       method: 'POST',
       url: '/chat',

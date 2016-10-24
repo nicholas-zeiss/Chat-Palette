@@ -51,8 +51,10 @@ app.get('/chat', function(req, res) {
 
 //this posts a message to the main chat page
 app.post('/chat', function(req, res) {
-  Messages.createMessage(req.body.content, req.body.username, req.body.color, function(collection) {
-    res.status(201).json(collection);
+  console.log(req.body);
+  Messages.createMessage(req.body.content, req.body.username, req.body.color, 'messages', function(collection) {
+    console.log('COLLECTION--------------------------',collection);
+    res.status(201).json({});
   });
 });
 
