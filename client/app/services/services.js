@@ -46,7 +46,7 @@ angular.module('app.services', [])
 })
 
 /**
-* factory for 
+* factory for chat, allows us to send and get messages
 */
 
 .factory('Chat', function($http) {

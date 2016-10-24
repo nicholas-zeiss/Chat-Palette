@@ -5,14 +5,10 @@
  */
 
 var Bookshelf = require('../db.js');
-var User = require('./user.js');
 
 var Message = Bookshelf.Model.extend({
-	tableName: 'messages',
-	hasTimestamps: true,
-	user: function() {
-		return this.hasOne(User);
-	}
+  tableName: 'messages',
+  hasTimestamps: true,
 });
 
 module.exports = Message;

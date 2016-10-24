@@ -1,8 +1,9 @@
 /**
- *   Creates our schema for storing our app's data. We create two folders,
+ *   Creates our schema for storing our app's data. We create two tables,
  *   one to store users and one to store their messages.
  */
 
+<<<<<<< HEAD
 // var knex = require('knex')({
 //   client: 'sqlite3',
 //   connection: { filename: './data/data.db' },
@@ -13,11 +14,23 @@ var knex = require('knex')({         //Uncomment this to make this file work for
   client: 'postgresql',
   connection: process.env.DATABASE_URL 
 });
+=======
+var knex = require('knex')({            //Uncomment this to make this file work locally
+  client: 'sqlite3',
+  connection: {filename: './data/data.db'},
+  useNullAsDefault: true
+});
+
+// var knex = require('knex')({         //Uncomment this to make this file work for heroku
+//   client: 'postgresql',
+//   connection: process.env.DATABASE_URL 
+// });
+>>>>>>> 2e588bcfa2bae07da58f648fa4f0c6fcd3a70f5d
 
 knex.schema.hasTable('users').then(function(exists) {
   if (!exists) {
-    return knex.schema.createTable('users', function (table) {
-      table.increments();
+    return knex.schema.createTable('users', function(table) {
+      table.increments('id').primary();
       table.string('username');
       table.string('password');
       table.timestamps();
@@ -27,11 +40,12 @@ knex.schema.hasTable('users').then(function(exists) {
 
 knex.schema.hasTable('messages').then(function(exists) {
   if (!exists) {
-    return knex.schema.createTable('messages', function (table) {
-      table.increments();
+    return knex.schema.createTable('messages', function(table) {
+      table.increments('id').primary();
       table.string('content');
       table.string('username');
       table.string('color');
+      table.string('tableName');
       table.timestamps();
     });
   }

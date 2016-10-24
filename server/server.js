@@ -20,19 +20,19 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(rootpath, 'client')));
 
 app.get('/', function(req, res) {
-	res.sendFile(path.join(rootpath, '/client/index.html'));
+  res.sendFile(path.join(rootpath, '/client/index.html'));
 });
 
-//this will be used for login page
+//this will be used for login page to function
 app.post('/login', function(req, res) {
   Users.getUser(req.body.username, function(user) {
     user ? res.status(201).json(user) : res.sendStatus(404);
   });
 });
 
-//this is used to retrieve a list of all users for test purposes
+//this is used in case of a bad redirect
 app.get('/login', function(req, res) {
-	res.sendFile(path.join(rootpath, '/client/index.html'));
+  res.sendFile(path.join(rootpath, '/client/index.html'));
 });
 
 //this will be used to signin
