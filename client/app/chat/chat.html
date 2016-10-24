@@ -1,15 +1,9 @@
-<<<<<<< HEAD
-=======
 <!-- contains the main view for our app and displays/allows interaction with the chatroom -->
->>>>>>> 2e588bcfa2bae07da58f648fa4f0c6fcd3a70f5d
 <div class='container' ng-init='getMessages()'>
 <section class='buttons'>
   <nav class='chatroom'>
     <h1>CHATROOMS</h1>
-<<<<<<< HEAD
-=======
     <!-- Here are our buttons for filtering -->
->>>>>>> 2e588bcfa2bae07da58f648fa4f0c6fcd3a70f5d
     <button class='button' id='all' ng-click='allFilter()'>All</button>
     <button class='button' id='red' ng-click='redFilter()'>Red</button>
     <button class='button' id='blue' ng-click='blueFilter()'>Blue</button>
@@ -24,26 +18,17 @@
     <div class='msg'>
       <!-- Display messages in user/content/created_at format -->
       <div id='messages'>
-<<<<<<< HEAD
-      <!-- <br><br><br><br><br> -->
-=======
->>>>>>> 2e588bcfa2bae07da58f648fa4f0c6fcd3a70f5d
+
       <ul>
        <li class='singlemessage' ng-repeat='message in messagU' ng-if="color === message.color || color === ''" ng-style="{ background: message.color }"> 
            
             <p> {{ message.username }}:   {{ message.content }} at
             {{ message.created_at | date: 'yyyy-MM-dd HH:mm:ss' }}
-<<<<<<< HEAD
             <!-- where are you? {{ moment(message.created_at).fromNow() }} -->
             </p>
         </li>
       </ul>
       <!-- </div> -->
-=======
-            </p>
-        </li>
-      </ul>
->>>>>>> 2e588bcfa2bae07da58f648fa4f0c6fcd3a70f5d
      </div>
     </div>
    </section>
