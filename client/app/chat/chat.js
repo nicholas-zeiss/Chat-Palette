@@ -44,7 +44,7 @@ angular.module('app.chat', [])
         $scope.loading = false;
         $location.path('/chat');
         console.log('this is reached');
-        Chat.getMessages();
+        Chat.getMessages()
           .then(function(message) {
             $scope.messagU = message;
           })
