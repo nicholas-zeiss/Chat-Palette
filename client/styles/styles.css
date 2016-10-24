@@ -1,11 +1,5 @@
 /**
-<<<<<<< HEAD
  * Default styles for Chat Palette
-=======
- * Default styles for Chat Palette - A CSS Reset (or “Reset CSS”) is a short, 
- * often compressed (minified) set of CSS rules that resets the styling of all 
- * HTML elements to a consistent baseline. Sample from Eric Meyer's CSS Reset 2.0
->>>>>>> 2e588bcfa2bae07da58f648fa4f0c6fcd3a70f5d
  */
 
 html, body, div, span, applet, object, iframe,
@@ -69,11 +63,7 @@ table {
 }
 
 /**
-<<<<<<< HEAD
  * Body container - affecting several templates
-=======
- * START - CHAT PALETTE STYLING Body container - in index.html; but used in every template
->>>>>>> 2e588bcfa2bae07da58f648fa4f0c6fcd3a70f5d
  */
 
 .container {
@@ -83,19 +73,9 @@ table {
 }
 
 /**
-<<<<<<< HEAD
  * Main App Template styles - header
  */
 
-.appHeaderContainer {
-  /*position: fixed;*/
-}
-
-=======
- * Main Page Header Palette
- */
-
->>>>>>> 2e588bcfa2bae07da58f648fa4f0c6fcd3a70f5d
 #appHeader {
   padding: 30px 0 10px 10px;
   height: 100%;
@@ -111,11 +91,7 @@ table {
 }
 
 /**
-<<<<<<< HEAD
  * Login Template styles - section container
-=======
- * Login template styles - section container
->>>>>>> 2e588bcfa2bae07da58f648fa4f0c6fcd3a70f5d
  */
 
 .loginTemplate {
@@ -129,20 +105,16 @@ table {
     background: linear-gradient(#8e9eab, #eef2f3);
 }
 
-<<<<<<< HEAD
-=======
 /**
  * Login form styles - username, password, and login button
  */
 
->>>>>>> 2e588bcfa2bae07da58f648fa4f0c6fcd3a70f5d
 .loginForm input {
   height: 30px;
   width: 380px;
   font-size: large;
   text-align: center;
   margin-left: 2px;
-<<<<<<< HEAD
 }
 
 #loginInput {
@@ -195,9 +167,6 @@ table {
     width: 400px;
     border-radius: 5px;
     background: linear-gradient(#8e9eab, #eef2f3);
-}
-
-=======
 }
 
 #loginInput {
@@ -256,7 +225,6 @@ table {
  * Signin form styles - username, password, and login button
  */
 
->>>>>>> 2e588bcfa2bae07da58f648fa4f0c6fcd3a70f5d
 .signUpForm input {
   height: 30px;
   width: 380px;
@@ -296,15 +264,6 @@ table {
 
 #signup {
   padding: 20px 5px;
-<<<<<<< HEAD
-}
-
-#signUpLogin {
-  font-size: larger;
-  padding-top: 20px;
-  margin-left: 85px;
-=======
->>>>>>> 2e588bcfa2bae07da58f648fa4f0c6fcd3a70f5d
 }
 
 #signUpLogin {
@@ -318,15 +277,11 @@ table {
  */
 
 /**
-<<<<<<< HEAD
  * Chatroom Styles - Container styles for workspace
  */
 
 /**
- * Headers
-=======
  * Headers - this style affects all header tags
->>>>>>> 2e588bcfa2bae07da58f648fa4f0c6fcd3a70f5d
  */
 
 h1 {
@@ -367,10 +322,7 @@ h2 {
 
 .buttons {
   float: left;
-<<<<<<< HEAD
   /*padding: 20px 20px;*/
-=======
->>>>>>> 2e588bcfa2bae07da58f648fa4f0c6fcd3a70f5d
   height: 100%;
   width: 99%;
   background-color: #f2f2f2;
@@ -380,10 +332,7 @@ h2 {
     * Individual browser styles
     * For browsers that do not support gradients 
     */
-<<<<<<< HEAD
-=======
 
->>>>>>> 2e588bcfa2bae07da58f648fa4f0c6fcd3a70f5d
   background: #8e9eab; 
   /**
    * For Safari 5.1 to 6.0 
@@ -422,11 +371,8 @@ h2 {
  * Set the background color of each button in nav bar
  */
 
-<<<<<<< HEAD
-#all {
-=======
+
 #all, #logout {
->>>>>>> 2e588bcfa2bae07da58f648fa4f0c6fcd3a70f5d
     background-color: none;
     font-size: large;
 }
@@ -494,13 +440,6 @@ ul {
     border-radius: 10px;
     height: 500px;
     width: 970px;
-<<<<<<< HEAD
-}
-
-#messages {
-
-=======
->>>>>>> 2e588bcfa2bae07da58f648fa4f0c6fcd3a70f5d
 }
 
 .messagelisting {
@@ -584,9 +523,6 @@ ul {
 #sendoptions {
     font-size: 25px;
     color: #595959;
-<<<<<<< HEAD
     /*padding-left: 13px;*/
-=======
->>>>>>> 2e588bcfa2bae07da58f648fa4f0c6fcd3a70f5d
     float: left;
 }
