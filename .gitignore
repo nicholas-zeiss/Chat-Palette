@@ -3,8 +3,7 @@ logs
 *.log
 npm-debug.log*
 *.DS_STORE
-
-server/data/data.db
+server/data/data.sqlite
 
 # Runtime data
 pids

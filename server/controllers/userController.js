@@ -1,6 +1,6 @@
 /**
  *  Helper functions for interacting with the user table
- */
+**/
 
 var bcrypt = require('bcryptjs');
 var User = require('../models/user.js');
@@ -14,5 +14,6 @@ exports.getUser = function(name, callback) {
 };
 
 exports.createUser = function(name, password, callback) {
-  new User({username: name, password: bcrypt.hashSync(password, 10)}).save().then(callback);
+  new User({username: name, password: bcrypt.hashSync(password, 'chat-palette')}).save().then(callback);
 };
+

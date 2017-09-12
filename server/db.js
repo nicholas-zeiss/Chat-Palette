@@ -3,17 +3,28 @@
  *   one to store users and one to store their messages.
  */
 
+var path = require('path');
+var sqlite3 = require('sqlite3');
 
-// var knex = require('knex')({            //Uncomment this to make this file work locally
-//   client: 'sqlite3',
-//   connection: {filename: './data/data.db'},
-//   useNullAsDefault: true
-// });
+var config;
 
-var knex = require('knex')({         //Uncomment this to make this file work for heroku
-  client: 'postgresql',
-  connection: process.env.DATABASE_URL 
-});
+if (!process.env.DATABASE_URL) {
+  config = {
+    client: 'postgresql',
+    connection: process.env.DATABASE_URL 
+  };
+} else {
+  config = {
+    client: 'sqlite3',
+    connection: {
+      filename: path.resolve(__dirname, './data/data.sqlite')
+    },
+    useNullAsDefault: true
+  }
+}
+
+var knex = require('knex')(config);
+
 
 knex.schema.hasTable('users').then(function(exists) {
   if (!exists) {
@@ -25,6 +36,7 @@ knex.schema.hasTable('users').then(function(exists) {
     });
   }
 });
+
 
 knex.schema.hasTable('messages').then(function(exists) {
   if (!exists) {
@@ -39,6 +51,6 @@ knex.schema.hasTable('messages').then(function(exists) {
   }
 });
 
-var Bookshelf = require('bookshelf')(knex);
 
-module.exports = Bookshelf;
+module.exports = require('bookshelf')(knex);
+

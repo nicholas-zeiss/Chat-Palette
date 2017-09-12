@@ -16,7 +16,6 @@
   <div id='messagecontainer'>
    <section class='scrollable'>
     <div class='msg'>
-      <!-- Display messages in user/content/created_at format -->
       <div id='messages'>
 
       <ul>
@@ -24,11 +23,10 @@
            
             <p> {{ message.username }}:   {{ message.content }} at
             {{ message.created_at | date: 'yyyy-MM-dd HH:mm:ss' }}
-            <!-- where are you? {{ moment(message.created_at).fromNow() }} -->
             </p>
         </li>
       </ul>
-      <!-- </div> -->
+
      </div>
     </div>
    </section>

@@ -1,19 +1,16 @@
-<!-- App main module for Chat Palatte & test for git -->
 <!DOCTYPE html>
 <html ng-app='app'>
   <head>
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width'>
     <title>Chat Palette</title>
-    <!-- required file for date/time functionality -->
     <link href='styles/styles.css' type='text/css' rel='stylesheet'/>
     <script src="https://momentjs.com/downloads/moment.js"></script>
   </head>
   <body>
-    <section class='appHeaderContainer'>
-        <h1 id='appHeader' ng-style="{'background-image': 'url(/assets/top-bar.jpg)'}"><span class='appTitle'>WELCOME TO CHAT PALETTE</span></h1>
-    </section>
-    <!-- render templates to this main html -->
+    <div id='appHeaderContainer'>
+        <h1 id='appHeader'><span class='appTitle'>WELCOME TO CHAT PALETTE</span></h1>
+    </div>
     <div ng-view></div>
 
     <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js'></script>

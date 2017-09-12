@@ -84,6 +84,7 @@ table {
   font-size: 50px;
   margin-left: 125px;
   border-radius: 5px;
+  background-image: url('/assets/top-bar.jpg')
 }
 
 #appTitle {
