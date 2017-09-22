@@ -3,10 +3,10 @@
 	<div id='signup'>
 	  <h1><span id='signupHeader'>Sign Up</span></h1>
 	  <form class='signUpForm' name='signupform'>
-	  	<div id='signupInput'><input type='text' name='messageSignUp' placeholder='Enter user name' ng-model='newUser' autofocus required></div>
-	    <div><input type="password" placeholder='Enter password' ng-model='userPwd' required></div>
+	  	<div id='signupInput'><input type='text' name='messageSignUp' placeholder='Enter user name' ng-model='user.username' autofocus required></div>
+	    <div><input type="password" placeholder='Enter password' ng-model='user.password' required></div>
 	    <br>
-	    <button  ng-click='signUp(newUser, userPwd)'>Sign Up</button>
+	    <button  ng-click='signUp()'>Sign Up</button>
 	  </form>
 	  <br>
 	  <a href='#/login'><span id='signUpLogin'><strong>Login</strong></span></a>
