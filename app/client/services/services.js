@@ -13,50 +13,40 @@ import angular from 'angular';
 		.factory('serverCalls', [ '$http', '$location', '$window', ($http, $location, $window) => {
 
 
-			const handleResponse = request => (
-				request
-					.then(res => res.data ? res.data : res)
-					.catch(err => {
-						console.error(err);
-						return err;
-					})
-			);
-
-
 			const login = user => (
-				handleResponse($http({
+				$http({
 					method: 'POST',
 					url: '/login',
 					data: user
-				}))
+				})
 			);
 
 
 			const signUp = user => (
-				handleResponse($http({
+				$http({
 					method: 'POST',
 					url: '/signup',
 					data: user
-				}))
+				})
 			);
 
 
 			const sendMessage = message => (
-				handleResponse($http({
+				$http({
 					method: 'POST',
 					url: '/messages',
 					headers: { Authorization: 'Bearer ' + $window.sessionStorage.token },
 					data: message
-				}))
+				})
 			);
 
 
 			const getMessages = () => (
-				handleResponse($http({
+				$http({
 					method: 'GET',
 					url: '/messages',
 					headers: { Authorization: 'Bearer ' + $window.sessionStorage.token }
-				}))
+				})
 			);
 
 			
@@ -66,6 +56,7 @@ import angular from 'angular';
 				sendMessage,
 				signUp
 			};
+
 		}]);
 })();
 
