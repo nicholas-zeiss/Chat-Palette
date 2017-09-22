@@ -1,6 +1,7 @@
 /**
  *
- *  Here we create our root level module, app, and configure the router
+ *  Here we create our root level module, 'app', and configure the router.
+ *  The rest of our front-end code is imported and loaded into the module.
  *
 **/
 

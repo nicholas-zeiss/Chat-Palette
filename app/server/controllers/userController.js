@@ -9,8 +9,11 @@ const bcrypt = require('bcryptjs');
 const User = require('../models/user.js');
 
 
-exports.createUser = function(name, password, cb) {	
-	new User({ username: name, password: bcrypt.hashSync(password) })
+exports.createUser = (username, password, cb) => {
+	new User({
+		username,
+		password: bcrypt.hashSync(password)
+	})
 		.save()
 		.then(user => {
 			if (user) {
@@ -23,8 +26,8 @@ exports.createUser = function(name, password, cb) {
 };
 
 
-exports.getUser = function(name, password, cb) {
-	new User({ username: name })
+exports.getUser = (username, password, cb) => {
+	new User({ username })
 		.fetch()
 		.then(user => {
 			if (user && bcrypt.compareSync(password, user.attributes.password)) {
@@ -37,7 +40,7 @@ exports.getUser = function(name, password, cb) {
 };
 
 
-exports.userExists = function(name, cb) {
-	new User({ username: name }).fetch().then(cb);
+exports.userExists = (username, cb) => {
+	new User({ username }).fetch().then(cb);
 };
 
