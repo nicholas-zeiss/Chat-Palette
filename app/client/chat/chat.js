@@ -20,28 +20,32 @@ function ChatController($window, $location, serverCalls) {
 	vm.color = 'clear';
 
 
+	const updateMessages = () => {
+		serverCalls
+			.getMessages()
+			.then(messages => {
+				vm.messages = messages;
+			})
+			.catch(err => {
+				if (err.status == 401) {
+					$window.sessionStorage.clear();
+					$location.path('/');
+				}
 
-	serverCalls
-		.getMessages()
-		.then(messages => {
-			vm.messages = messages;
-		})
-		.catch(err => {
-			if (err.status == 401) {
-				$window.sessionStorage.clear();
-				$location.path('/');
-			}
+				console.error(err);
+			});
+	};
 
-			console.error(err);
-		});
+
+	updateMessages();
 
   
 	vm.sendMessage = () => {
 		serverCalls
 			.sendMessage(vm.message)
 			.then(() => {
-				vm.messages.push(vm.message);
 				vm.message = {};
+				updateMessages();
 			})
 			.catch(err => {
 				if (err.status == 401) {
