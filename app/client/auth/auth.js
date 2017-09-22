@@ -1,8 +1,8 @@
 /**
  *
  *  Authorization controller for login and sign up pages. Handles submission of login/sign up details.
- *  If successful, the controller sets the token onto the window's sessionStorage and routes us to the chat view.
- *  If unsuccessful, the controller removes the token should one already exist.
+ *  If successful, the controller sets the session token and username onto the window's sessionStorage
+ *  and routes us to the chat view. If unsuccessful, the controller removes the token should one already exist.
  *
 **/ 
  

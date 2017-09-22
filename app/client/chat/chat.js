@@ -20,7 +20,7 @@ function ChatController($window, $location, serverCalls) {
 	vm.color = 'clear';
 
 
-	const updateMessages = () => {
+	const loadMessages = () => {
 		serverCalls
 			.getMessages()
 			.then(messages => {
@@ -37,15 +37,20 @@ function ChatController($window, $location, serverCalls) {
 	};
 
 
-	updateMessages();
+	loadMessages();
+
+
+	const addMessage = message => {
+		vm.messages.push(message);
+	};
 
   
 	vm.sendMessage = () => {
 		serverCalls
 			.sendMessage(vm.message)
 			.then(() => {
-				vm.message = {};
-				updateMessages();
+				addMessage(Object.assign({}, vm.message));
+				delete vm.message.content;
 			})
 			.catch(err => {
 				if (err.status == 401) {
