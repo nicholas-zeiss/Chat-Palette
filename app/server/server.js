@@ -28,7 +28,6 @@ app.use(express.static(path.resolve(__dirname, '../client')));
 app.use('/chat', expressJwt({ secret: tokenSecret }));
 
 
-
 //Routes
 app.get('/', (req, res) => {
 	res.sendFile(path.resolve(__dirname, '../index.html'));

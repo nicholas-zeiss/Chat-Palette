@@ -1,159 +1,160 @@
-/**
- * Default styles for Chat Palette
- */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-}
 
 /**
- * HTML5 display-role reset for older browsers
- */
-
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-    display: block;
-}
-
-section {
-    display: inline-block;
-    margin: 0 1.5%;
-    width: 100%;
-}
-
+ *
+ *  App wide styles
+ *
+**/
 body {
-    margin-top: 30px;
-    line-height: 1;
+  width: 100vw;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 0;
+
+  font: 16px 'Montserrat', sans-serif;
+  
+  color: black;
+  background-color: #e3e5f9;
 }
 
-ol, ul, li {
-     list-style-type: none;
+
+h1, h2, h3, h4, h5, h6 {
+  padding: 0;
+  margin: 0;
 }
 
-blockquote, q {
-    quotes: none;
+
+a {
+  color: blue;
 }
 
-blockquote:before, blockquote:after,
-q:before, q:after {
-    content: '';
-    content: none;
-}
-
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
-/**
- * Body container - affecting several templates
- */
-
-.container {
-    margin: 0 auto;
-    width: 980px;
-    text-align: center;
-}
-
-/**
- * Main App Template styles - header
- */
 
 #appHeader {
-  padding: 30px 0 10px 10px;
-  height: 100%;
-  width: 970px;
+  align-self: stretch;
+
+  padding: .75rem 0;
+  box-shadow: 0 0 15px rgba(0, 0, 0, .8);
+  margin: 0;
+  
+  font-size: 3rem;
   text-align: center;
-  font-size: 50px;
-  margin-left: 125px;
-  border-radius: 5px;
+  text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.67);
+
   background-image: url('/assets/top-bar.jpg')
 }
 
-#appTitle {
-  padding-top: 20px;
-}
 
 /**
- * Login Template styles - section container
- */
+ *
+ *  Login page styles
+ *
+**/
+.auth {
+  /*width: calc(100vw - 10rem);*/
 
-.loginTemplate {
-    float: left;
-    align-content: center;
-    margin-top: 20px;
-    margin-left: 470px;
-    height: 280px;
-    width: 400px;
-    border-radius: 5px;
-    background: linear-gradient(#8e9eab, #eef2f3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 1rem 3rem;
+  border: 1px solid #636363;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, .6);
+
+  background-color: #ff3c3c;
 }
 
-/**
- * Login form styles - username, password, and login button
- */
 
-.loginForm input {
-  height: 30px;
-  width: 380px;
-  font-size: large;
-  text-align: center;
-  margin-left: 2px;
-}
+  .auth h1 {
+    margin: .5rem 0 1.5rem;
 
-#loginInput {
-  padding-bottom: 10px;
-}
+    font-size: 2rem;
+    text-shadow: 1px 1px 2px rgba(236, 205, 205, 0.4);
+  }
 
-.loginForm button {
-  height: 30px;
-  width: 386px;
-  margin-left: 2px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: large;
-  border-radius: 4px;
-  font-family: "Times New Roman", Times, serif;
-}
 
-.loginForm a {
-  font-size: large;
-}
+  .auth form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-#loginHeader {
-  float: left;
-  font-size: 40px;
-  font-weight: bold;
-  margin-left: 100px;
-  padding-bottom: 20px;
-}
+    margin-bottom: 1.5rem;
+  }
 
-#login {
-  padding: 20px 5px;
-}
 
-#loginSignUp {
-  font-size: larger;
-  margin-left: 30px;
-}
+    .auth form input {
+      font-size: 1rem;
+    }
+
+
+    .auth form input[required] {
+      padding: .3rem .5rem;
+      border: 1px solid #5a5959;
+      border-radius: 2px;
+      box-shadow: inset 0 0 3px #717171;
+      outline: none;
+
+      font-weight: 500;
+
+      background-color: #f7f7f7;
+    }
+
+
+    .auth form input[required]:focus {
+      box-shadow: 0 0 5px 2px #0095ff;
+    }
+
+
+    .auth form input:nth-child(2) {
+      margin: 1rem 0 2.5rem; 
+    }
+
+
+    .auth form input:last-child {
+      padding: .3rem .75rem .4rem;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.7);
+
+      font-size: 1.25rem;
+      font-weight: 500;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.86);
+
+      color: #fdfdfd;
+      background-color: #08bd0e;
+
+      cursor: pointer;
+
+      transition: box-shadow .25s ease-out;
+    }
+
+
+    .auth form input:last-child:hover {
+      box-shadow: 0 0 10px 1px black;
+    }
+
+
+  .auth a {
+    margin-bottom: 1rem;
+
+    font-weight: 600;
+    text-shadow: 0 0 0 rgba(101, 120, 255, 0.54);
+
+    color: #001bde;
+
+    transition: text-shadow .25s ease-out;
+  }
+
+
+  .auth a:hover {
+    text-shadow: 0 0 5px rgba(101, 120, 255, 0.54);
+  }
+
 
 /**
  * Sign Up Template styles - section container
@@ -170,42 +171,7 @@ table {
     background: linear-gradient(#8e9eab, #eef2f3);
 }
 
-#loginInput {
-  padding-bottom: 10px;
-}
 
-.loginForm button {
-  height: 30px;
-  width: 386px;
-  margin-left: 2px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: large;
-  border-radius: 4px;
-  font-family: "Times New Roman", Times, serif;
-}
-
-.loginForm a {
-  font-size: large;
-}
-
-#loginHeader {
-  float: left;
-  font-size: 40px;
-  font-weight: bold;
-  margin-left: 100px;
-  padding-bottom: 20px;
-}
-
-#login {
-  padding: 20px 5px;
-}
-
-#loginSignUp {
-  font-size: larger;
-  margin-left: 30px;
-}
 
 /**
  * Sign Up Template styles - section container
@@ -273,32 +239,6 @@ table {
   margin-left: 85px;
 }
 
-/**
- * Chatroom Styles - Container styles for workspace
- */
-
-/**
- * Chatroom Styles - Container styles for workspace
- */
-
-/**
- * Headers - this style affects all header tags
- */
-
-h1 {
-    float: left;
-    font-size: 40px;
-    font-weight: bold;
-    padding-right: 70px;
-    text-align: center;
-}
-
-h2 {
-    float: left;
-    font-size: 25px;
-    font-weight: bold;
-    padding-left: 20px;
-}
 
 /**
  * Chatroom top bar 

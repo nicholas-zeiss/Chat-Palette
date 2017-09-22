@@ -1,16 +1,12 @@
 
 
-<section class="loginTemplate">
-	<div id="login">
-	  <h1><span id="loginHeader">User Login</span></h1>
-	  <form class="loginForm">
-	    <div id="loginInput"><input type="text" placeholder="Enter user name" ng-model="auth.user.username" autofocus required></div>
-	    <div><input type="password" ng-model="auth.user.password" placeholder="Enter password" required></div>
-	    <br>
-	    <button ng-click="auth.login()">Login</button>
-	  </form>
-	  <br>
-	  <a href="/#/signup"><span id="loginSignUp"><strong>Join now</strong></span></a>
-	</div>
+<section class="auth">
+  <h1>User Login</h1>
+  <form>
+    <input type="text" placeholder="username"  autofocus required ng-model="auth.user.username"/>
+    <input type="password" placeholder="password" required ng-model="auth.user.password"/>
+    <input type="submit" value="Login" ng-click="auth.login()"/>
+  </form>
+  <a href="/#/signup">Need an account? Sign up here!</span></a>
 </section>
 
