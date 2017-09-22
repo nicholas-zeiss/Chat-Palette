@@ -36,50 +36,54 @@ app.get('/', (req, res) => {
 
 
 app.get('/chat', (req, res) => {
-	Messages.getAllMessages(msgs => {
-		if (msgs) {
-			res.status(200).json(msgs);
-		
-		} else {
-			res.sendStatus(500);
-		}
-	});
+	Messages
+		.getAllMessages(msgs => {
+			if (msgs) {
+				res.status(200).json(msgs);
+			
+			} else {
+				res.sendStatus(500);
+			}
+		});
 });
 
 
 app.post('/login', (req, res) => {
-	Users.getUser(req.body.username, req.body.password, user => {
-		if (user) {
-			res.status(201).json({
-				token: jwt.sign(user, tokenSecret, { expiresIn: '1h' }),
-				username: user.username
-			});
-		
-		}	else {
-			res.sendStatus(404);
-		}
-	});
+	Users
+		.getUser(req.body.username, req.body.password, user => {
+			if (user) {
+				res.status(201).json({
+					token: jwt.sign(user, tokenSecret, { expiresIn: '1h' }),
+					username: user.username
+				});
+			
+			}	else {
+				res.sendStatus(404);
+			}
+		});
 });
 
 
 app.post('/signup', (req, res) => {
-	Users.userExists(req.body.username, user => {
-		if (user) {		
-			//username already exists in the database	
-			res.sendStatus(400);
-		
-		} else {
-			Users.createUser(req.body.username, req.body.password, user => {
-				if (user) {
-					let token = jwt.sign(user, tokenSecret, { expiresIn: '1h' });
-					res.status(201).json({ token });
-				
-				} else {
-					res.sendStatus(500);
-				}
-			});
-		}
-	});
+	Users
+		.userExists(req.body.username, user => {
+			if (user) {		
+				//username already exists in the database	
+				res.sendStatus(400);
+			
+			} else {
+				Users.createUser(req.body.username, req.body.password, user => {
+					if (user) {
+						res.status(201).json({
+							token: jwt.sign(user, tokenSecret, { expiresIn: '1h' })
+						});
+					
+					} else {
+						res.sendStatus(500);
+					}
+				});
+			}
+		});
 });
 
 
@@ -87,22 +91,23 @@ app.post('/chat', (req, res) => {
 	//in case someone tries to post from outside the app w/ invalid data
 	if (!/red|blue|green|yellow|clear/.test(req.body.color)) {
 		res.sendStatus(400);
+		return;
 	}
 
-
-	Messages.createMessage(req.body.content, req.body.username, req.body.color, msg => {
-		if (msg) {
-			res.sendStatus(201);
-		
-		} else {
-			res.sendStatus(500);
-		}
-	});
+	Messages
+		.createMessage(req.body.content, req.body.username, req.body.color, msg => {
+			if (msg) {
+				res.sendStatus(201);
+			
+			} else {
+				res.sendStatus(500);
+			}
+		});
 });
 
 
 //initialize server
-let port = 8080;
+const port = 8080;
 
 app.listen(port, () => console.log('Listening on ', port));
 

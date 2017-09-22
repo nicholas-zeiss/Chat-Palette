@@ -1,14 +1,16 @@
-<!-- Sign Up for new users. Auto redirect to chatroom upon success -->
-<section class='signupTemplate'>
-	<div id='signup'>
-	  <h1><span id='signupHeader'>Sign Up</span></h1>
-	  <form class='signUpForm' name='signupform'>
-	  	<div id='signupInput'><input type='text' name='messageSignUp' placeholder='Enter user name' ng-model='user.username' autofocus required></div>
-	    <div><input type="password" placeholder='Enter password' ng-model='user.password' required></div>
+
+
+<section class="signupTemplate">
+	<div id="signup">
+	  <h1><span id="signupHeader">Sign Up</span></h1>
+	  <form class="signUpForm">
+	  	<div id="signupInput"><input type="text" placeholder="Enter user name" ng-model="auth.user.username" autofocus required></div>
+	    <div><input type="password" placeholder="Enter password" ng-model="auth.user.password" required></div>
 	    <br>
-	    <button  ng-click='signUp()'>Sign Up</button>
+	    <button  ng-click="auth.signUp()">Sign Up</button>
 	  </form>
 	  <br>
-	  <a href='#/login'><span id='signUpLogin'><strong>Login</strong></span></a>
+	  <a href="/#/login"><span id="signUpLogin"><strong>Login</strong></span></a>
 	</div>
 </section>
+

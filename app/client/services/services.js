@@ -1,79 +1,71 @@
-angular.module('app.services', [])
-
 /**
-*  factory for login and signup html/js
-*/
+ *
+ *  Factory for our serverCalls service. serverCalls handles all http requests, passing responses to supplied callbacks.
+ *
+**/
 
-.factory('Auth', function($http, $location, $window) {
 
-  var login = function(user) {
-    return $http({
-      method: 'POST',
-      url: '/login',
-      data: user
-    })
-    .then(function(res) {
-      return res.data;
-    })
-    .catch(function(error) {
-      console.error(error);
-    });
-  };
+import angular from 'angular';
 
-  var signUp = function(user) {
-    return $http({
-      method: 'POST',
-      url: '/signup',
-      data: user
-    })
-    .then(function(res){
-      return res.data;
-    })
-    .catch(function(error){
-      console.error(error);
-    });
-  };
 
-  var signOut = function() {
-    $location.path('/login');
-  };
+(() => {
+	angular.module('app.serverCalls', [])
+		.factory('serverCalls', [ '$http', '$location', '$window', ($http, $location, $window) => {
 
-  return {
-    login: login,
-    signUp: signUp,
-    signOut: signOut
-  };
-})
 
-/**
-* factory for chat, allows us to send and get messages
-*/
+			const handleResponse = request => (
+				request
+					.then(res => res.data ? res.data : res)
+					.catch(err => {
+						console.error(err);
+						return err;
+					})
+			);
 
-.factory('Chat', function($http, $window) {
 
-  var sendMessage = function(message) {
-    console.log(message);
-    return $http({
-      method: 'POST',
-      url: '/chat',
-			headers: { Authorization: 'Bearer ' + $window.sessionStorage.token },
-      data: message
-    });
-  };
+			const login = user => (
+				handleResponse($http({
+					method: 'POST',
+					url: '/login',
+					data: user
+				}))
+			);
 
-  var getMessages = function() {
-    return $http({
-      method: 'GET',
-      url: '/chat',
-      headers: { Authorization: 'Bearer ' + $window.sessionStorage.token }
-    })
-    .then(function(res) {
-      return res.data;
-    });
-  };
 
-  return {
-    sendMessage: sendMessage,
-    getMessages: getMessages
-  };
-});
+			const signUp = user => (
+				handleResponse($http({
+					method: 'POST',
+					url: '/signup',
+					data: user
+				}))
+			);
+
+
+			const sendMessage = message => (
+				handleResponse($http({
+					method: 'POST',
+					url: '/chat',
+					headers: { Authorization: 'Bearer ' + $window.sessionStorage.token },
+					data: message
+				}))
+			);
+
+
+			const getMessages = () => (
+				handleResponse($http({
+					method: 'GET',
+					url: '/chat',
+					headers: { Authorization: 'Bearer ' + $window.sessionStorage.token }
+				}))
+			);
+
+			
+			return {
+				login,
+				getMessages,
+				sendMessage,
+				signUp
+			};
+		}]);
+})();
+

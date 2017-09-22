@@ -1,29 +1,29 @@
-<!-- contains the main view for our app and displays/allows interaction with the chatroom -->
-<div class='container' ng-init='getMessages()'>
-<section class='buttons'>
-  <nav class='chatroom'>
+
+
+<div class="container">
+<section class="buttons">
+  <nav class="chatroom">
     <h1>CHATROOMS</h1>
-    <!-- Here are our buttons for filtering -->
-    <button class='button' id='all' ng-click='allFilter()'>All</button>
-    <button class='button' id='red' ng-click='redFilter()'>Red</button>
-    <button class='button' id='blue' ng-click='blueFilter()'>Blue</button>
-    <button class='button' id='green' ng-click='greenFilter()'>Green</button>
-    <button class='button' id='yellow' ng-click='yellowFilter()'>Yellow</button>
+    <button class="button" id="all" ng-click="chat.filter('all')">All</button>
+    <button class="button" id="red" ng-click="chat.filter('red')">Red</button>
+    <button class="button" id="blue" ng-click="chat.filter('blue')">Blue</button>
+    <button class="button" id="green" ng-click="chat.filter('green')">Green</button>
+    <button class="button" id="yellow" ng-click="chat.filter('yellow')">Yellow</button>
   </nav>
-  <h2>Below are all the {{ color }} messages:</h2>
+  <h2>Below are all {{ chat.color == 'all' ? '' : chat.color }} messages:</h2>
 </section>
 <section>
-  <div id='messagecontainer'>
-   <section class='scrollable'>
-    <div class='msg'>
-      <div id='messages'>
+  <div id="messagecontainer">
+   <section class="scrollable">
+    <div class="msg">
+      <div id="messages">
 
       <ul>
-       <li class='singlemessage' ng-repeat='message in messagU' ng-if="color === message.color || color === ''" ng-style="{ background: message.color }"> 
+       <li class="singlemessage" ng-repeat="message in chat.messages" ng-if="chat.color == message.color || chat.color === 'all'" ng-style="{ background: message.color }"> 
            
-            <p> {{ message.username }}:   {{ message.content }} at
-            {{ message.created_at | date: 'yyyy-MM-dd HH:mm:ss' }}
-            </p>
+            <span> {{ message.username }}:   {{ message.content }}<br/>
+            {{ message.created_at | date: 'MMM d, HH:mm' }}
+            </span>
         </li>
       </ul>
 
@@ -31,24 +31,23 @@
     </div>
    </section>
 
-   <section class='newmessages'>
-    <!-- Input area for message to add to group chat -->
+   <section class="newmessages">
     <div>
-    <!-- Form to handle new chat messages to be added to the chat stream -->
-      <form id='sendoptions'>
-        <span id='addingspace'>Choose your chat palette:</span>
-        Red <input type='radio' name='color' value='red' ng-model='colorChoice'  ng-click="myStyle={ background: 'red' }" required>
-        Blue <input type='radio' name='color' value='blue' ng-model='colorChoice' ng-click="myStyle={ background: 'blue' }">
-        Green <input type='radio' name='color' value='green' ng-model='colorChoice' ng-click="myStyle={ background: 'green' }">
-        Yellow <input type='radio' name='color' value='yellow' ng-model='colorChoice' ng-click="myStyle={ background: 'yellow' }">
-        Clear <input type='radio' name='color' value='clear' ng-model='colorChoice' ng-click="myStyle={ background: 'none' }">
+      <form id="sendoptions">
+        <span id="addingspace">Choose your chat palette:</span>
+        Red <input type="radio" value="red" ng-model="chat.message.color"  ng-click="chat.myStyle={ background: 'red' }" required>
+        Blue <input type="radio" value="blue" ng-model="chat.message.color" ng-click="chat.myStyle={ background: 'blue' }">
+        Green <input type="radio" value="green" ng-model="chat.message.color" ng-click="chat.myStyle={ background: 'green' }">
+        Yellow <input type="radio" value="yellow" ng-model="chat.message.color" ng-click="chat.myStyle={ background: 'yellow' }">
+        Clear <input type="radio" value="clear" ng-model="chat.message.color" ng-click="chat.myStyle={ background: 'none' }">
 
-        <input id='userid' placeholder="Enter your username" ng-model=userInfo autofocus maxlength="10" required/>
-        <input  ng-style="myStyle" id='messagetosend' name='messageInput' placeholder='Type your message - 120 character max!' ng-model='msgInfo' maxlength="120" required/>
-        <button id='btn-sendmsg' ng-click="sendMessage(userInfo, msgInfo, colorChoice);getMessages();userInfo='';msgInfo=''">Send</button>
+        <input id="userid" placeholder="Enter your username" ng-model="chat.message.username" autofocus maxlength="10" required/>
+        <input  ng-style="chat.myStyle" id="messagetosend" placeholder="Type your message - 120 character max!" ng-model="chat.message.content" maxlength="120" required/>
+        <button id="btn-sendmsg" ng-click="chat.sendMessage()">Send</button>
 
       </form>   
     </div>
     </section>
   </section>
  </div>
+
