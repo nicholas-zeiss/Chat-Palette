@@ -1,529 +1,431 @@
-/**
- * Default styles for Chat Palette
- */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-}
 
 /**
- * HTML5 display-role reset for older browsers
- */
-
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-    display: block;
-}
-
-section {
-    display: inline-block;
-    margin: 0 1.5%;
-    width: 100%;
-}
-
+ *
+ *  App wide styles
+ *
+**/
 body {
-    margin-top: 30px;
-    line-height: 1;
+  width: 100vw;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 0;
+
+  font: 16px 'Montserrat', sans-serif;
+  
+  color: black;
+  background-color: #e3e5f9;
 }
 
-ol, ul, li {
-     list-style-type: none;
+
+h1, h2, h3, h4, h5, h6, p {
+  padding: 0;
+  margin: 0;
 }
 
-blockquote, q {
-    quotes: none;
-}
 
-blockquote:before, blockquote:after,
-q:before, q:after {
-    content: '';
-    content: none;
-}
+#app-header {
+  align-self: stretch;
 
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
+  padding: .75rem 0;
+  box-shadow: 0 0 15px rgba(0, 0, 0, .8);
+  margin: 0 0 1rem;
 
-/**
- * Body container - affecting several templates
- */
-
-.container {
-    margin: 0 auto;
-    width: 980px;
-    text-align: center;
-}
-
-/**
- * Main App Template styles - header
- */
-
-#appHeader {
-  padding: 30px 0 10px 10px;
-  height: 100%;
-  width: 970px;
+  font-size: 3rem;
   text-align: center;
-  font-size: 50px;
-  margin-left: 125px;
-  border-radius: 5px;
+  text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.67);
+
   background-image: url('/assets/top-bar.jpg')
 }
 
-#appTitle {
-  padding-top: 20px;
-}
 
 /**
- * Login Template styles - section container
- */
+ *
+ *  Login and Sign Up page styles
+ *
+**/
+.auth {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-.loginTemplate {
-    float: left;
-    align-content: center;
-    margin-top: 20px;
-    margin-left: 470px;
-    height: 280px;
-    width: 400px;
-    border-radius: 5px;
-    background: linear-gradient(#8e9eab, #eef2f3);
-}
-
-/**
- * Login form styles - username, password, and login button
- */
-
-.loginForm input {
-  height: 30px;
-  width: 380px;
-  font-size: large;
-  text-align: center;
-  margin-left: 2px;
-}
-
-#loginInput {
-  padding-bottom: 10px;
-}
-
-.loginForm button {
-  height: 30px;
-  width: 386px;
-  margin-left: 2px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: large;
-  border-radius: 4px;
-  font-family: "Times New Roman", Times, serif;
-}
-
-.loginForm a {
-  font-size: large;
-}
-
-#loginHeader {
-  float: left;
-  font-size: 40px;
-  font-weight: bold;
-  margin-left: 100px;
-  padding-bottom: 20px;
-}
-
-#login {
-  padding: 20px 5px;
-}
-
-#loginSignUp {
-  font-size: larger;
-  margin-left: 30px;
-}
-
-/**
- * Sign Up Template styles - section container
- */
-
-.signupTemplate {
-    float: left;
-    align-content: center;
-    margin-top: 20px;
-    margin-left: 470px;
-    height: 280px;
-    width: 400px;
-    border-radius: 5px;
-    background: linear-gradient(#8e9eab, #eef2f3);
-}
-
-#loginInput {
-  padding-bottom: 10px;
-}
-
-.loginForm button {
-  height: 30px;
-  width: 386px;
-  margin-left: 2px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: large;
-  border-radius: 4px;
-  font-family: "Times New Roman", Times, serif;
-}
-
-.loginForm a {
-  font-size: large;
-}
-
-#loginHeader {
-  float: left;
-  font-size: 40px;
-  font-weight: bold;
-  margin-left: 100px;
-  padding-bottom: 20px;
-}
-
-#login {
-  padding: 20px 5px;
-}
-
-#loginSignUp {
-  font-size: larger;
-  margin-left: 30px;
-}
-
-/**
- * Sign Up Template styles - section container
- */
-
-.signupTemplate {
-    float: left;
-    align-content: center;
-    margin-top: 20px;
-    margin-left: 470px;
-    height: 280px;
-    width: 400px;
-    border-radius: 5px;
-    background: linear-gradient(#8e9eab, #eef2f3);
-}
-
-/**
- * Signin form styles - username, password, and login button
- */
-
-.signUpForm input {
-  height: 30px;
-  width: 380px;
-  font-size: large;
-  text-align: center;
-  margin-left: 2px;
-}
-
-#signupInput {
-  padding-bottom: 10px;
-}
-
-.signUpForm button {
-  height: 30px;
-  width: 386px;
-  margin-left: 2px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: large;
-  border-radius: 4px;
-  font-family: "Times New Roman", Times, serif;
-
-}
-
-.signupForm a {
-  font-size: large;
-}
-
-#signupHeader {
-  float: left;
-  font-size: 40px;
-  font-weight: bold;
-  margin-left: 130px;
-  padding-bottom: 20px;
-}
-
-#signup {
-  padding: 20px 5px;
-}
-
-#signUpLogin {
-  font-size: larger;
-  padding-top: 20px;
-  margin-left: 85px;
-}
-
-/**
- * Chatroom Styles - Container styles for workspace
- */
-
-/**
- * Chatroom Styles - Container styles for workspace
- */
-
-/**
- * Headers - this style affects all header tags
- */
-
-h1 {
-    float: left;
-    font-size: 40px;
-    font-weight: bold;
-    padding-right: 70px;
-    text-align: center;
-}
-
-h2 {
-    float: left;
-    font-size: 25px;
-    font-weight: bold;
-    padding-left: 20px;
-}
-
-/**
- * Chatroom top bar 
- */
-
-.chatroom {
-    margin-left: 20px;
-    margin-bottom: 20px;
-}
-
-.chatroom h1 {
-    float: left;
-    font-size: 40px;
-    font-weight: bold;
-    padding-right: 20px;
-    text-align: center;
-}
-
-/**
- * Chat buttons color 
- */
-
-.buttons {
-  float: left;
-  /*padding: 20px 20px;*/
-  height: 100%;
-  width: 99%;
-  background-color: #f2f2f2;
+  padding: 1rem 3rem;
+  border: 1px solid #636363;
   border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, .6);
 
-   /** 
-    * Individual browser styles
-    * For browsers that do not support gradients 
-    */
+  background-color: #ff3c3c;
+}
 
-  background: #8e9eab; 
-  /**
-   * For Safari 5.1 to 6.0 
-   */
-  background: -webkit-linear-gradient(#8e9eab, #eef2f3); 
-  /**
-   * For Opera 11.1 to 12.0
-   */
-  background: -o-linear-gradient(#8e9eab, #eef2f3); 
-  /**
-   * For Firefox 3.6 to 15 
-   */
-  background: -moz-linear-gradient(#8e9eab, #eef2f3); 
-  /**
-   * Standard syntax 
-   */
-  background: linear-gradient(#8e9eab, #eef2f3);
+
+  .auth h1 {
+    margin: .5rem 0 1.5rem;
+
+    font-size: 2rem;
+    text-shadow: 1px 1px 2px rgba(236, 205, 205, 0.4);
   }
 
- /**
-  * Same styles for each navigation button 
-  */
 
-.chatroom button {
-  border: none;
-  color: #000000;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  border-radius: 4px;
-}
+  .auth form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-bottom: 1.5rem;
+  }
+
+
+    .auth form input {
+      font-size: 1rem;
+    }
+
+
+    .auth form input[required] {
+      padding: .3rem .5rem;
+      border: 1px solid #5a5959;
+      border-radius: 5px;
+      box-shadow: inset 0 0 3px #717171;
+      outline: none;
+
+      font-weight: 500;
+
+      background-color: #f7f7f7;
+    }
+
+
+    .auth form input[required]:focus {
+      box-shadow: 0 0 7px 1px #0095ff;
+    }
+
+
+    .auth form input:nth-child(2) {
+      margin: 1rem 0 2.5rem; 
+    }
+
+
+    .auth form input:last-child {
+      padding: .3rem .75rem .4rem;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.7);
+
+      font-size: 1.25rem;
+      font-weight: 500;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
+
+      color: #fdfdfd;
+      background-color: #08bd0e;
+
+      cursor: pointer;
+
+      transition: box-shadow .25s ease-out;
+    }
+
+
+    .auth form input:last-child:hover {
+      box-shadow: 0 0 10px 1px black;
+    }
+
+
+  .auth a {
+    margin-bottom: 1rem;
+
+    font-weight: 500;
+    text-shadow: 0 0 0 rgba(101, 120, 255, 0.54);
+
+    color: #001bde;
+
+    transition: text-shadow .25s ease-out;
+  }
+
+
+  .auth a:hover {
+    text-shadow: 0 0 5px rgba(101, 120, 255, 0.54);
+  }
+
 
 /**
- * Set the background color of each button in nav bar
- */
+ *
+ *  Chat page styles
+ *
+**/
+#chat-container {
+  position: relative;
 
+  min-width: 650px;
+  max-width: 70vw;
+  width: 70vw;
 
-#all, #logout {
-    background-color: none;
-    font-size: large;
+  padding: 1.5rem 3rem 1rem;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, .6);
+
+  background-color: #c7d6ff;
 }
 
-#red {
-    background-color: red;
-    font-size: large;
-}
 
-#blue {
-    background-color: blue;
-    font-size: large;
-}
+  #chat-container button {
+    position: relative;
 
-#green {
-    background-color: green;
-    font-size: large;
-}
-
-#yellow {
-    background-color: yellow;
-    font-size: large;
-}
-
-/**
- * Display chatroom messages
- */
-
-.scrollable {
-  overflow-x: scroll;
-  height: 400px;
-  width: 975px;
-}
-
-.scrollable {
-  overflow-x: scroll;
-  height: 400px;
-  width: 975px;
-}
-
-.msg {
-    float: left;
-    height: 50%;
-    width: 100%;
-    position:relative;
+    padding: .3rem .75rem;
     border-radius: 5px;
-    border-style: solid;
-    display: inline-block;
-    font-size: 30px;
-    margin: 0 auto;
-}
+    box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.5);
+    outline: none;
+    margin: 0 .25rem;
 
-/**
- * Container for all chat messages from the server
- */
+    font-size: 1rem;
+    font-weight: 500;
 
-ul {
-  width: 100%;
-}
+    cursor: pointer;
 
-#messagecontainer {
-    margin-left: 5px;
-    /*padding-right: 30px;*/
-    background-color: #ebf0fa;
-    border-radius: 10px;
-    height: 500px;
-    width: 970px;
-}
+    transition: all .25s ease-out;
+  }
 
-.messagelisting {
-    float: left;
-    background-color: gray;
-}
 
-/**
- * Styles each message
- */
+  #chat-container button:hover {
+    box-shadow: 0 0 7px 1px black;
+  }
 
-.singlemessage {
-    text-align: left;
-    font-size: 23px;
-    height:30px;
-    width: 93%;
-    margin: 20px;
-    border-style: groove;
-    border-color: #e6e6e6;
-    color: #000000;
-    border-width: 2px;
+
+  #chat-container button.active {
+    transform: scale(1.25);
+  }
+
+
+  #logout {
+    position: absolute;
+    bottom: .75rem;
+    left: .75rem;
+
+    display: flex;
+    align-items: center;
+  }
+
+
+    #logout span {
+      font-size: .9rem;
+    }
+
+
+    #chat-container #logout button{
+      padding: .1rem .4rem .2rem;
+      border: none;
+      border-radius: 3px;
+      margin-left: .5rem;
+
+      font-size: .8rem;
+      font-weight: 500;
+
+      background-color: #c5c5c5;
+    }
+
+
+  #chat-header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+
+  #messages-container {
+    box-sizing: border-box;
+
+    width: calc(100% - 2rem);
+    min-height: 275px;
+    height: 50vh;
+
+    padding: 1rem;
     border-radius: 5px;
-    padding: 10px 10px 5px 10px;
+    border: 1px solid #7b7b7b;
+    box-shadow: inset 0 0 10px #585858;
+    margin: 1rem auto;
+
+    background-color: #8d97b3;
+
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+
+
+    .message {      
+      box-sizing: border-box;
+
+      width: calc(100% - 2rem);
+
+      padding: .5rem 1rem;
+      border: 1px solid #7b7b7b;
+      border-radius: 3px;
+      box-shadow: 0 0 7px #3a3a3a;
+      margin: 1rem;
+    }
+
+
+    .message.clear {
+      background-color: white;
+    }
+
+
+    .message.red {
+      background-color: red;
+    }
+
+
+    .message.blue {
+      background-color: #4b4bff;
+    }
+
+
+    .message.green {
+      background-color: #13bb13;
+    }
+
+
+    .message.yellow {
+      background-color: yellow;
+    }
+
+
+      .message span {
+        display: inline-block;
+      }
+
+
+      .message span:first-child {
+        width: calc(100% - 120px);
+        -webkit-hyphens: auto;
+           -moz-hyphens: auto;
+            -ms-hyphens: auto;
+                hyphens: auto;
+      }
+
+
+      .message span:last-child {
+        float: right;
+      }
+
+
+.clear-button {
+  border: 1px solid transparent;
+
+  background-color: white;
 }
 
-/**
- * Input area for the new chat message to the stream
- */
 
-#userid {
-  margin-top: 10px;
-  height: 40px;
-  width: 200px;
-  font-size: large;
-  text-align: center;
+.red-button {
+  border: 1px solid #484848;
+
+  background-color: red;
 }
 
-#messagetosend {
-    width: 590px;
-    height: 40px;
-    font-size: large;
-    text-align: center;
+
+.blue-button {
+  text-shadow: 0 0 2px rgba(253, 253, 253, 0.46);
+
+  border: 1px solid #3a3a3a;
+
+  background-color: #4b4bff;
 }
 
-/**
- * Button to send the new chat message to the stream
- */
 
-#btn-sendmsg {
-  padding: 10px;
-  height: 50px;
-  width: 80px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: large;
-  border-radius: 4px;
-  font-family: "Times New Roman", Times, serif;
+.green-button {
+  border: 1px solid #545454;
+
+  background-color: #13bb13;
 }
 
-/**
- * Add correct spacing between color radio buttons
- */
 
-#addingspace {
-    letter-spacing: 2px;
-    font-size: 22px;
-    padding-left: 200px;
-    margin: 0 auto;
+.yellow-button {
+  border: 1px solid #737373;
+
+  background-color: yellow;
 }
 
-/**
- * Send new chat message container
- */
 
-.newmessages {
-  height: 100px;
-  width: 900px;
+#chat-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
-#sendoptions {
-    font-size: 25px;
-    color: #595959;
-    /*padding-left: 13px;*/
-    float: left;
-}
+
+  #chat-container form div {
+    margin: .5rem 0;
+  }
+
+
+  #chat-container form div:first-child {
+    align-self: stretch;
+
+    display: flex;
+    align-items: center;
+  }
+
+
+    #chat-container form div:first-child input {
+      box-sizing: border-box;
+      height: 31px;
+
+      flex: 1 1 auto;
+
+      padding: .3rem .5rem .4rem;
+      border: 1px solid #8c8c8c;
+      border-radius: 5px 0 0 5px;
+      box-shadow: inset 0 0 3px #717171;
+      outline: none;
+
+      font-size: 1rem;
+      font-weight: 500;
+
+      background-color: #f7f7f7;
+    }
+
+
+    #new-message div:first-child > #send-message {
+      height: 31px;
+
+      border: 1px solid #8c8c8c;
+      border-left-width: 0;
+      border-radius: 0 5px 5px 0;
+      box-shadow: none;
+      margin: 0;
+
+      background-color: #a5a5a5;
+    }
+
+
+    #new-message div:first-child > #send-message:disabled {
+      background-color: #afafaf;
+    }
+
+
+    #new-message div:first-child > #send-message:hover:disabled {
+      background-color: #afafaf;
+    }
+
+
+    #new-message div:first-child > #send-message:hover {
+      background-color: #6b6b6b;
+    }
+
+
+    #chat-container form div span {
+      margin-right: .5rem;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

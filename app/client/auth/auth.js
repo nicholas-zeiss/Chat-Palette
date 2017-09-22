@@ -16,10 +16,11 @@ function AuthController($window, $location, serverCalls) {
 			.login(vm.user)
 			.then(res => {
 				$window.sessionStorage.setItem('token', res.token);
+				$window.sessionStorage.setItem('username', vm.user.username);
 				$location.path('/chat');
 			})
 			.catch(err => {
-				$window.sessionStorage.removeItem('token');
+				$window.sessionStorage.clear();
 				console.error(err);
 			});
 	};
@@ -30,10 +31,11 @@ function AuthController($window, $location, serverCalls) {
 			.signUp(vm.user)
 			.then(res => {
 				$window.sessionStorage.setItem('token', res.token);
+				$window.sessionStorage.setItem('username', vm.user.username);
 				$location.path('/chat');
 			})
 			.catch(err => {
-				$window.sessionStorage.removeItem('token');
+				$window.sessionStorage.clear();
 				console.error(err);
 			});
 	};

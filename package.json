@@ -5,18 +5,19 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "prestart": "webpack",
     "start": "node app/server/server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/superhashbros/Chat-Pallette.git"
+    "url": "git+https://github.com/nicholas-zeiss/Chat-Palette.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/superhashbros/Chat-Pallette/issues"
+    "url": "https://github.com/nicholas-zeiss/Chat-Palette/issues"
   },
-  "homepage": "https://github.com/superhashbros/Chat-Pallette#readme",
+  "homepage": "https://github.com/nicholas-zeiss/Chat-Palette#readme",
   "dependencies": {
     "angular": "^1.5.7",
     "angular-route": "^1.5.7",

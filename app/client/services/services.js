@@ -44,7 +44,7 @@ import angular from 'angular';
 			const sendMessage = message => (
 				handleResponse($http({
 					method: 'POST',
-					url: '/chat',
+					url: '/messages',
 					headers: { Authorization: 'Bearer ' + $window.sessionStorage.token },
 					data: message
 				}))
@@ -54,7 +54,7 @@ import angular from 'angular';
 			const getMessages = () => (
 				handleResponse($http({
 					method: 'GET',
-					url: '/chat',
+					url: '/messages',
 					headers: { Authorization: 'Bearer ' + $window.sessionStorage.token }
 				}))
 			);
