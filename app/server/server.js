@@ -1,12 +1,15 @@
 /**
  *
- *  Creates a server that serves up our files and allows clients to interact with database
+ *  Creates a server that serves up our files and allows clients to interact with database. Authorization is done using a session token.
+ *  Session tokens are created using jsonwebtoken, and express-jwt is used to protect the /chat path from unauthorized users.
  *
 **/
 
 
 const bodyParser = require('body-parser');
 const express = require('express');
+const expressJwt = require('express-jwt');
+const jwt = require('jsonwebtoken');
 const path = require('path');
 
 const Users = require('./controllers/userController.js');
@@ -14,11 +17,16 @@ const Messages = require('./controllers/messageController.js');
 
 const app = express();
 
+//secret for our tokens
+const secret = 'chat-pallette';
+
 
 //Middleware
 app.use(bodyParser.json());
 
 app.use(express.static(path.resolve(__dirname, '../client')));
+
+app.use('/chat', expressJwt({ secret }));
 
 
 //Routes
@@ -35,7 +43,11 @@ app.get('/chat', (req, res) => {
 app.post('/login', (req, res) => {
 	Users.getUser(req.body.username, req.body.password, user => {
 		if (user) {
-			res.status(201).json(user.username);
+			res.status(201).json({
+				token: jwt.sign(user.attributes, secret, { expiresIn: '1h' }),
+				username: user.attributes.username
+			});
+		
 		}	else {
 			res.sendStatus(404);
 		}
@@ -45,12 +57,18 @@ app.post('/login', (req, res) => {
 
 app.post('/signup', (req, res) => {
 	Users.userExists(req.body.username, user => {
-		if (user) {			
+		if (user) {		
+			//when user is not null that username already exists in the database	
 			res.sendStatus(400);
+		
 		} else {
 			Users.createUser(req.body.username, req.body.password, user => {
 				if (user) {
-					res.status(201).json(user.username);
+					res.status(201).json({
+						token: jwt.sign(user.attributes, secret, { expiresIn: '1h' }),
+						username: user.attributes.username
+					});
+				
 				} else {
 					res.sendStatus(500);
 				}

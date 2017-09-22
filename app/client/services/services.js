@@ -12,8 +12,8 @@ angular.module('app.services', [])
       url: '/login',
       data: user
     })
-    .then(function(resp) {
-      return resp.data;
+    .then(function(res) {
+      return res.data;
     })
     .catch(function(error) {
       console.error(error);
@@ -26,8 +26,8 @@ angular.module('app.services', [])
       url: '/signup',
       data: user
     })
-    .then(function(resp){
-      return resp.data;
+    .then(function(res){
+      return res.data;
     })
     .catch(function(error){
       console.error(error);
@@ -49,13 +49,14 @@ angular.module('app.services', [])
 * factory for chat, allows us to send and get messages
 */
 
-.factory('Chat', function($http) {
+.factory('Chat', function($http, $window) {
 
   var sendMessage = function(message) {
     console.log(message);
     return $http({
       method: 'POST',
       url: '/chat',
+			headers: { Authorization: 'Bearer ' + $window.sessionStorage.token },
       data: message
     });
   };
@@ -63,10 +64,11 @@ angular.module('app.services', [])
   var getMessages = function() {
     return $http({
       method: 'GET',
-      url: '/chat'
+      url: '/chat',
+      headers: { Authorization: 'Bearer ' + $window.sessionStorage.token }
     })
-    .then(function(resp) {
-      return resp.data;
+    .then(function(res) {
+      return res.data;
     });
   };
 

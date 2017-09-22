@@ -10,6 +10,7 @@ angular.module('app.auth', [])
   $scope.login = function() {
     Auth.login($scope.user)
       .then(function(res) {
+        $window.sessionStorage.setItem('token', res.token);
         $location.path('/chat');
       })
       .catch(function(error) {
@@ -21,6 +22,7 @@ angular.module('app.auth', [])
   $scope.signUp = function() {
     Auth.signUp($scope.user)
       .then(function(res) {
+        $window.sessionStorage.setItem('token', res.token);
         $location.path('/chat');
       })
       .catch(function(error) {
