@@ -5,88 +5,76 @@
 import angular from 'angular';
 
 
+(() => {
+  angular.module('app.serverCalls', [])
+  .factory('serverCalls', [ '$http', '$location', '$window', ($http, $location, $window) => {
 
-angular.module('app.services', [])
+    var login = function(user) {
+      return $http({
+        method: 'POST',
+        url: '/login',
+        data: user
+      })
+      .then(function(res) {
+        return res.data;
+      })
+      .catch(function(error) {
+        console.error(error);
+        return error;
+      });
+    };
 
-/**
-*  factory for login and signup html/js
-*/
+    var signUp = function(user) {
+      return $http({
+        method: 'POST',
+        url: '/signup',
+        data: user
+      })
+      .then(function(res){
+        return res.data;
+      })
+      .catch(function(error){
+        console.error(error);
+        return error;
+      });
+    };
 
-.factory('Auth', function($http, $location, $window) {
+    var signOut = function() {
+      $location.path('/login');
+    };
 
-  var login = function(user) {
-    return $http({
-      method: 'POST',
-      url: '/login',
-      data: user
-    })
-    .then(function(res) {
-      return res.data;
-    })
-    .catch(function(error) {
-      console.error(error);
-      return error;
-    });
-  };
+	  var sendMessage = function(message) {
+	    console.log(message);
+	    return $http({
+	      method: 'POST',
+	      url: '/chat',
+				headers: { Authorization: 'Bearer ' + $window.sessionStorage.token },
+	      data: message
+	    })
+	    .then(function(res) {
+	      return res.data;
+	    }).catch(err => err);
+	  };
 
-  var signUp = function(user) {
-    return $http({
-      method: 'POST',
-      url: '/signup',
-      data: user
-    })
-    .then(function(res){
-      return res.data;
-    })
-    .catch(function(error){
-      console.error(error);
-      return error;
-    });
-  };
+	  var getMessages = function() {
+	    return $http({
+	      method: 'GET',
+	      url: '/chat',
+	      headers: { Authorization: 'Bearer ' + $window.sessionStorage.token }
+	    })
+	    .then(function(res) {
+	      return res.data;
+	    }).catch(err => err);
+	  };
 
-  var signOut = function() {
-    $location.path('/login');
-  };
+	  
+    return {
+      login: login,
+	    getMessages: getMessages,
+	    sendMessage: sendMessage,
+      signUp: signUp,
+      signOut: signOut
+    };
+  }]);
+})();
 
-  return {
-    login: login,
-    signUp: signUp,
-    signOut: signOut
-  };
-})
-
-/**
-* factory for chat, allows us to send and get messages
-*/
-
-.factory('Chat', function($http, $window) {
-
-  var sendMessage = function(message) {
-    console.log(message);
-    return $http({
-      method: 'POST',
-      url: '/chat',
-			headers: { Authorization: 'Bearer ' + $window.sessionStorage.token },
-      data: message
-    })
-    .then(function(res) {
-      return res.data;
-    }).catch(err => err);
-  };
-
-  var getMessages = function() {
-    return $http({
-      method: 'GET',
-      url: '/chat',
-      headers: { Authorization: 'Bearer ' + $window.sessionStorage.token }
-    })
-    .then(function(res) {
-      return res.data;
-    }).catch(err => err);
-  };
-
-  return {
-    sendMessage: sendMessage,
-    getMessages: getMessages
-  };
-});
