@@ -51,10 +51,8 @@ app.post('/login', (req, res) => {
 	Users
 		.getUser(req.body.username, req.body.password, user => {
 			if (user) {
-				res.status(201).json({
-					token: jwt.sign(user, tokenSecret, { expiresIn: '1h' }),
-					username: user.username
-				});
+				let token = jwt.sign(user, tokenSecret, { expiresIn: '1h' });
+				res.status(201).json(token);
 			
 			}	else {
 				res.sendStatus(404);

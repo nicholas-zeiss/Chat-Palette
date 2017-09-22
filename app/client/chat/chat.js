@@ -20,29 +20,31 @@ function ChatController($window, $location, serverCalls) {
 	vm.color = 'clear';
 
 
+	const addMessage = message => {
+		vm.messages.push(message);
+	};
+
+
+	const failure = err => {
+		if (err.status == 401) {
+			$window.sessionStorage.clear();
+			$location.path('/');
+		}
+
+		console.error(err);
+	};
+
+
 	const loadMessages = () => {
 		serverCalls
 			.getMessages()
-			.then(messages => {
-				vm.messages = messages;
-			})
-			.catch(err => {
-				if (err.status == 401) {
-					$window.sessionStorage.clear();
-					$location.path('/');
-				}
-
-				console.error(err);
-			});
+			.then(res => {
+				vm.messages = res.data;
+			}, failure);
 	};
 
 
 	loadMessages();
-
-
-	const addMessage = message => {
-		vm.messages.push(message);
-	};
 
   
 	vm.sendMessage = () => {
@@ -51,15 +53,7 @@ function ChatController($window, $location, serverCalls) {
 			.then(() => {
 				addMessage(Object.assign({}, vm.message));
 				delete vm.message.content;
-			})
-			.catch(err => {
-				if (err.status == 401) {
-					$window.sessionStorage.clear();
-					$location.path('/');
-				}
-
-				console.error(err);
-			});
+			}, failure);
 	};
 
   
