@@ -38,8 +38,6 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 
-.DS_Store
-server/.DS_Store
 
 #custom values
-server/data/data.sqlite
+app/server/data/data.sqlite
