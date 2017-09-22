@@ -1,40 +1,28 @@
 /**
  *
- *  Creates a server that sends the app and allows us to interact with the database
+ *  Creates a server that serves up our files and allows clients to interact with database
  *
 **/
 
-var bodyParser = require('body-parser');
-var express = require('express');
-var path = require('path');
+const bodyParser = require('body-parser');
+const express = require('express');
+const path = require('path');
 
-var db = require('./db.js');
-var Users = require('./controllers/userController.js');
-var Messages = require('./controllers/messageController.js');
+const Users = require('./controllers/userController.js');
+const Messages = require('./controllers/messageController.js');
 
 
-var rootpath = path.normalize(__dirname + '/..');
+const app = express();
 
-var app = express();
+//Middleware
 app.use(bodyParser.json());
-app.use(express.static(path.join(rootpath, 'client')));
+app.use(express.static(path.resolve(__dirname, '../client')));
 
 
-/**
- *
- *  Set up routes
- *
-**/
-
+//Routes
 app.get('/', function(req, res) {
-  res.sendFile(path.join(rootpath, '/client/index.html'));
+	res.sendFile(path.resolve(__dirname, '../index.html'));
 });
-
-
-app.get('/login', function(req, res) {
-  res.sendFile(path.join(rootpath, '/client/index.html'));
-});
-
 
 app.get('/chat', function(req, res) {
   Messages.getAllMessages(function(collection) {
@@ -58,6 +46,7 @@ app.post('/signup', function(req, res) {
 
 
 app.post('/chat', function(req, res) {
+  console.log(req.body)
   Messages.createMessage(req.body.content, req.body.username, req.body.color, 'messages', function(collection) {
     res.status(201).json({});
   });

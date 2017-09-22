@@ -41,3 +41,5 @@ jspm_packages
 
 #custom values
 app/server/data/data.sqlite
+
+server
