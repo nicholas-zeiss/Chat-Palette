@@ -8,19 +8,13 @@ var sqlite3 = require('sqlite3');
 
 var config;
 
-if (!process.env.DATABASE_URL) {
-  config = {
-    client: 'postgresql',
-    connection: process.env.DATABASE_URL 
-  };
-} else {
-  config = {
-    client: 'sqlite3',
-    connection: {
-      filename: path.resolve(__dirname, './data/data.sqlite')
-    },
-    useNullAsDefault: true
-  }
+
+config = {
+  client: 'sqlite3',
+  connection: {
+    filename: path.resolve(__dirname, './data/data.sqlite')
+  },
+  useNullAsDefault: true
 }
 
 var knex = require('knex')(config);
