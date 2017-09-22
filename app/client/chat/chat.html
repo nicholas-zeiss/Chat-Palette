@@ -1,11 +1,6 @@
 
 
 <section id="chat-container">
-	<div id="logout">
-		<span>Logged in as {{ chat.message.username }}</span>
-		<button ng-click="chat.logout()">Logout</button>
-	</div>
-
 	<header id="chat-header">
 		<h2>Showing {{ chat.color == 'clear' ? 'all' : chat.color }} messages:</h2>
 
@@ -19,13 +14,13 @@
 	</header>
 	
 	
-	<section id="messages-container">
+	<section id="messages-container" auto-scroll>
 		<div ng-class="'message ' + message.color"
 			ng-repeat="message in chat.messages"
 			ng-if="chat.color == message.color || chat.color == 'clear'"
 		>
 			<span><strong>{{ message.username + ' :'}}</strong>{{ ' ' + message.content }}</span>
-			<span>{{ message.created_at | date: 'MMM d, HH:mm' }}</span>
+			<span>{{ message.created_at | date: 'M/d, h:mm a' }}</span>
 		</div>
 	</section>
 
@@ -54,5 +49,10 @@
 			</div>
 		</form>
 	</section>
+	
+	<div id="logout">
+		<span>Logged in as {{ chat.message.username }}</span>
+		<button ng-click="chat.logout()">Logout</button>
+	</div>
 </section>
 

@@ -105,6 +105,11 @@ app.post('/messages', (req, res) => {
 });
 
 
+app.get('*', (req, res) => {
+	res.redirect(301, '/');
+});
+
+
 //initialize server
 const port = 8080;
 

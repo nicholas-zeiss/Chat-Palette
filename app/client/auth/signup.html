@@ -3,8 +3,11 @@
 <section class="auth">
   <h1>Sign Up</h1>
   <form>
-  	<input type="text" placeholder="username"  autofocus required ng-model="auth.user.username"/>
-    <input type="password" placeholder="password"  required ng-model="auth.user.password"/>
+  	<div>
+	  	<input type="text" placeholder="username" autofocus required ng-model="auth.user.username" ng-change="auth.resetError()"/>
+	    <input type="password" placeholder="password" required ng-model="auth.user.password" ng-change="auth.resetError()"/>
+    </div>
+    <p>{{ auth.errorMsg }}</p>
     <input type="submit" value="Sign Up" ng-click="auth.signUp()"/>
   </form>
   <a href="/#/login">Already have an account? Login</a>

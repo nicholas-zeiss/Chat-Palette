@@ -11,10 +11,13 @@ import ngRoute from 'angular-route';
 
 import AuthController from './auth/auth';
 import ChatController from './chat/chat';
+
+import './chat/autoScroll';
 import './services/services';
 
 
 angular.module('app', [
+	'app.autoScroll',
 	'app.serverCalls',
 	'ngRoute'
 ])
