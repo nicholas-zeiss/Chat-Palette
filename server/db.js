@@ -3,27 +3,15 @@
  *   one to store users and one to store their messages.
  */
 
-var path = require('path');
-var sqlite3 = require('sqlite3');
+const path = require('path');
+const sqlite3 = require('sqlite3');
 
-var config;
-
-if (!process.env.DATABASE_URL) {
-  config = {
-    client: 'postgresql',
-    connection: process.env.DATABASE_URL 
-  };
-} else {
-  config = {
-    client: 'sqlite3',
-    connection: {
-      filename: path.resolve(__dirname, './data/data.sqlite')
-    },
-    useNullAsDefault: true
+var knex = require('knex')({
+  client: 'sqlite3',
+  connection: {
+    filename: path.resolve(__dirname, './data/data.sqlite')
   }
-}
-
-var knex = require('knex')(config);
+});
 
 
 knex.schema.hasTable('users').then(function(exists) {

@@ -4,9 +4,9 @@
  *
 **/
 
+var bodyParser = require('body-parser');
 var express = require('express');
 var path = require('path');
-var bodyParser = require('body-parser');
 
 var db = require('./db.js');
 var Users = require('./controllers/userController.js');
