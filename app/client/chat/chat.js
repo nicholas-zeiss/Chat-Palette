@@ -24,7 +24,11 @@ angular.module('app.chat', [])
         $scope.messagU = message;
       })
       .catch(function(error) {
-        console.error('Hurry up Alexius I\'m dying');
+        if (error.status == 401) {
+          $window.sessionStorage.removeItem('token');
+        }
+
+        console.error(error);
       });
   };
 
@@ -53,6 +57,10 @@ angular.module('app.chat', [])
           });
       })
       .catch(function (error) {
+        if (error.status == 401) {
+          $window.sessionStorage.removeItem('token');
+        }
+
         console.error(error);
       });
   };

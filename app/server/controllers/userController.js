@@ -9,27 +9,30 @@ const bcrypt = require('bcryptjs');
 const User = require('../models/user.js');
 
 
-function createUser(name, password, cb) {
-	let salt = bcrypt.genSaltSync();
-	new User({ username: name, password: bcrypt.hashSync(password, salt) }).save().then(cb);
-}
+exports.createUser = function(name, password, cb) {	
+	new User({
+		username: name,
+		password: bcrypt.hashSync(password)
+	})
+		.save()
+		.then(cb);
+};
 
 
-function getUser(name, password, cb) {
-	new User({ username: name }).fetch().then(user => {
-		if (user && bcrypt.compareSync(password, user.attributes.password)) {
-			cb(user);
-		} else {
-			cb(null);
-		}
-	});
-}
+exports.getUser = function(name, password, cb) {
+	new User({ username: name })
+		.fetch()
+		.then(user => {
+			if (user && bcrypt.compareSync(password, user.attributes.password)) {
+				cb(user.attributes);
+			} else {
+				cb(null);
+			}
+		});
+};
 
 
-function userExists(name, cb) {
+exports.userExists = function(name, cb) {
 	new User({ username: name }).fetch().then(cb);
-}
-
-
-module.exports = { createUser, getUser, userExists };
+};
 
