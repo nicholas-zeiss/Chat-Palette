@@ -34,7 +34,7 @@ app.get('/', (req, res) => {
 });
 
 
-app.get('/chat', (req, res) => {
+app.get('/messages', (req, res) => {
 	Messages
 		.getAllMessages(msgs => {
 			if (msgs) {
@@ -86,7 +86,7 @@ app.post('/signup', (req, res) => {
 });
 
 
-app.post('/chat', (req, res) => {
+app.post('/messages', (req, res) => {
 	//in case someone tries to post from outside the app w/ invalid data
 	if (!/red|blue|green|yellow|clear/.test(req.body.color)) {
 		res.sendStatus(400);

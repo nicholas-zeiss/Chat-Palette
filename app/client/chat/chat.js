@@ -7,11 +7,19 @@
 
 
 function ChatController($window, $location, serverCalls) {
+	
+	if (!$window.sessionStorage.getItem('username') || !$window.sessionStorage.getItem('token')) {
+		$window.sessionStorage.clear();
+		$location.path('/');
+	}
+
 	const vm = this;
 
 	vm.messages = [];
-	vm.message = {};
-	vm.color = 'all';
+	vm.message = { color: 'clear', username: $window.sessionStorage.getItem('username') };
+	vm.color = 'clear';
+
+
 
 	serverCalls
 		.getMessages()
@@ -20,7 +28,8 @@ function ChatController($window, $location, serverCalls) {
 		})
 		.catch(err => {
 			if (err.status == 401) {
-				$window.sessionStorage.removeItem('token');
+				$window.sessionStorage.clear();
+				$location.path('/');
 			}
 
 			console.error(err);
@@ -36,7 +45,8 @@ function ChatController($window, $location, serverCalls) {
 			})
 			.catch(err => {
 				if (err.status == 401) {
-					$window.sessionStorage.removeItem('token');
+					$window.sessionStorage.clear();
+					$location.path('/');
 				}
 
 				console.error(err);
@@ -44,7 +54,20 @@ function ChatController($window, $location, serverCalls) {
 	};
 
   
-	vm.filter = color => vm.color = color;
+	vm.filter = color => {
+		vm.color = color;
+	};
+
+
+	vm.setMessageColor = color => {
+		vm.message.color = color;
+	};
+
+
+	vm.logout = () => {
+		$window.sessionStorage.clear();
+		$location.path('/');
+	};
 }
 
 

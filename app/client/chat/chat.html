@@ -1,53 +1,53 @@
 
 
-<div class="container">
-<section class="buttons">
-  <nav class="chatroom">
-    <h1>CHATROOMS</h1>
-    <button class="button" id="all" ng-click="chat.filter('all')">All</button>
-    <button class="button" id="red" ng-click="chat.filter('red')">Red</button>
-    <button class="button" id="blue" ng-click="chat.filter('blue')">Blue</button>
-    <button class="button" id="green" ng-click="chat.filter('green')">Green</button>
-    <button class="button" id="yellow" ng-click="chat.filter('yellow')">Yellow</button>
-  </nav>
-  <h2>Below are all {{ chat.color == 'all' ? '' : chat.color }} messages:</h2>
+<section id="chat-container">
+	<header id="chat-color-selector">
+		<h1>CHATROOM</h1>
+		<button class="clear-button" ng-click="chat.filter('clear')">All</button>
+		<button class="red-button" ng-click="chat.filter('red')">Red</button>
+		<button class="blue-button" ng-click="chat.filter('blue')">Blue</button>
+		<button class="green-button" ng-click="chat.filter('green')">Green</button>
+		<button class="yellow-button" ng-click="chat.filter('yellow')">Yellow</button>
+	</header>
+	
+	<h2>Below are all {{ chat.color == 'all' ? '' : chat.color }} messages:</h2>
+	
+	<section id="messages-container">
+		<p class="message"
+			ng-repeat="message in chat.messages"
+			ng-if="chat.color == message.color || chat.color == 'clear'"
+			ng-style="{ background: message.color }"
+		>
+			{{ message.username + ':' + message.content }}
+			<br/>
+			{{ message.created_at | date: 'MMM d, HH:mm' }}
+		</p>
+	</section>
+
+	<section id='new-message'>
+		<form id="sendoptions">
+			<span>Choose your chat palette:</span>
+
+			<button class="clear-button" ng-click="chat.setMessageColor('clear')">Clear</button>
+			<button class="red-button" ng-click="chat.setMessageColor('red')">Red</button>
+			<button class="blue-button" ng-click="chat.setMessageColor('blue')">Blue</button>
+			<button class="green-button" ng-click="chat.setMessageColor('green')">Green</button>
+			<button class="yellow-button" ng-click="chat.setMessageColor('yellow')">Yellow</button>
+
+			<input
+				type="text"
+				placeholder="Type your message - 120 character max!"
+				maxlength="120"
+				required
+				ng-class="chat.messageColor"
+				ng-model="chat.message.content"
+			/>
+
+			<button id="send-message" ng-click="chat.sendMessage()">Send</button>
+		</form> 
+	</section>
+
+	<span id="username">Logged in as {{ chat.message.username }}</span>
+	<button id="logout" ng-click="chat.logout()">Logout</button>
 </section>
-<section>
-  <div id="messagecontainer">
-   <section class="scrollable">
-    <div class="msg">
-      <div id="messages">
-
-      <ul>
-       <li class="singlemessage" ng-repeat="message in chat.messages" ng-if="chat.color == message.color || chat.color === 'all'" ng-style="{ background: message.color }"> 
-           
-            <span> {{ message.username }}:   {{ message.content }}<br/>
-            {{ message.created_at | date: 'MMM d, HH:mm' }}
-            </span>
-        </li>
-      </ul>
-
-     </div>
-    </div>
-   </section>
-
-   <section class="newmessages">
-    <div>
-      <form id="sendoptions">
-        <span id="addingspace">Choose your chat palette:</span>
-        Red <input type="radio" value="red" ng-model="chat.message.color"  ng-click="chat.myStyle={ background: 'red' }" required>
-        Blue <input type="radio" value="blue" ng-model="chat.message.color" ng-click="chat.myStyle={ background: 'blue' }">
-        Green <input type="radio" value="green" ng-model="chat.message.color" ng-click="chat.myStyle={ background: 'green' }">
-        Yellow <input type="radio" value="yellow" ng-model="chat.message.color" ng-click="chat.myStyle={ background: 'yellow' }">
-        Clear <input type="radio" value="clear" ng-model="chat.message.color" ng-click="chat.myStyle={ background: 'none' }">
-
-        <input id="userid" placeholder="Enter your username" ng-model="chat.message.username" autofocus maxlength="10" required/>
-        <input  ng-style="chat.myStyle" id="messagetosend" placeholder="Type your message - 120 character max!" ng-model="chat.message.content" maxlength="120" required/>
-        <button id="btn-sendmsg" ng-click="chat.sendMessage()">Send</button>
-
-      </form>   
-    </div>
-    </section>
-  </section>
- </div>
 
