@@ -10,12 +10,16 @@ const User = require('../models/user.js');
 
 
 exports.createUser = function(name, password, cb) {	
-	new User({
-		username: name,
-		password: bcrypt.hashSync(password)
-	})
+	new User({ username: name, password: bcrypt.hashSync(password) })
 		.save()
-		.then(cb);
+		.then(user => {
+			if (user) {
+				cb(user.attributes);
+			
+			} else {
+				cb(null);
+			}
+		});
 };
 
 
@@ -25,6 +29,7 @@ exports.getUser = function(name, password, cb) {
 		.then(user => {
 			if (user && bcrypt.compareSync(password, user.attributes.password)) {
 				cb(user.attributes);
+			
 			} else {
 				cb(null);
 			}

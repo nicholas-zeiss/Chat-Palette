@@ -71,8 +71,9 @@ app.post('/signup', (req, res) => {
 		} else {
 			Users.createUser(req.body.username, req.body.password, user => {
 				if (user) {
-					let token = jwt.sign(user, tokenSecret, { expiresIn: '1h' });
-					res.status(201).json({ token });
+					res.status(201).json({
+						token: jwt.sign(user, tokenSecret, { expiresIn: '1h' })
+					});
 				
 				} else {
 					res.sendStatus(500);

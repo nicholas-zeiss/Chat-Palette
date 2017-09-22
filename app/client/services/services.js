@@ -17,6 +17,7 @@ angular.module('app.services', [])
     })
     .catch(function(error) {
       console.error(error);
+      return error;
     });
   };
 
@@ -31,6 +32,7 @@ angular.module('app.services', [])
     })
     .catch(function(error){
       console.error(error);
+      return error;
     });
   };
 
@@ -58,7 +60,10 @@ angular.module('app.services', [])
       url: '/chat',
 			headers: { Authorization: 'Bearer ' + $window.sessionStorage.token },
       data: message
-    });
+    })
+    .then(function(res) {
+      return res.data;
+    }).catch(err => err);
   };
 
   var getMessages = function() {
@@ -69,7 +74,7 @@ angular.module('app.services', [])
     })
     .then(function(res) {
       return res.data;
-    });
+    }).catch(err => err);
   };
 
   return {
