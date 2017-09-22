@@ -1,19 +1,35 @@
 /**
+ *
  *  Helper functions for interacting with the user table
+ *
 **/
 
-var bcrypt = require('bcryptjs');
-var User = require('../models/user.js');
 
-exports.getUsers = function(callback) {
-  new User().fetchAll().then(callback);
-};
+const bcrypt = require('bcryptjs');
+const User = require('../models/user.js');
 
-exports.getUser = function(name, callback) {
-  new User({username: name}).fetch().then(callback);
-};
 
-exports.createUser = function(name, password, callback) {
-  new User({username: name, password: bcrypt.hashSync(password, 'chat-palette')}).save().then(callback);
-};
+function createUser(name, password, cb) {
+	let salt = bcrypt.genSaltSync();
+	new User({ username: name, password: bcrypt.hashSync(password, salt) }).save().then(cb);
+}
+
+
+function getUser(name, password, cb) {
+	new User({ username: name }).fetch().then(user => {
+		if (user && bcrypt.compareSync(password, user.attributes.password)) {
+			cb(user);
+		} else {
+			cb(null);
+		}
+	});
+}
+
+
+function userExists(name, cb) {
+	new User({ username: name }).fetch().then(cb);
+}
+
+
+module.exports = { createUser, getUser, userExists };
 

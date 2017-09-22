@@ -1,16 +1,15 @@
 /**
- *  Creates a message model for bookshelf. Is responsible for
- *  holding the message content and relative key of the user
- *  responsible for the message
+ *
+ *  Creates a message model for bookshelf for our db
  *
 **/
 
-var Bookshelf = require('../db.js');
 
-var Message = Bookshelf.Model.extend({
-  tableName: 'messages',
-  hasTimestamps: true,
+const Bookshelf = require('../db.js');
+
+
+module.exports = Bookshelf.Model.extend({
+	tableName: 'messages',
+	hasTimestamps: true
 });
-
-module.exports = Message;
 

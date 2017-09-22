@@ -1,17 +1,12 @@
 /**
  *
- *	Creates a user model for bookshelf. Is currently responsible
- *	for holding a username and the hashed password in plaintext.
+ *	Creates a user model for bookshelf. 
  *
 **/
 
-var Bookshelf = require('../db.js');
-var Message = require('./message.js');
 
-var User = Bookshelf.Model.extend({
-  tableName: 'users',
-  hasTimestamps: true
-});
+const Bookshelf = require('../db.js');
 
-module.exports = User;
+
+module.exports = Bookshelf.Model.extend({ tableName: 'users' });
 
