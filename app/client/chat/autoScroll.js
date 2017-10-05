@@ -25,13 +25,13 @@ import $ from 'jquery';
 
 					//timeout is necessary to allow browser to render padding/borders of added message
 					setTimeout(() => {
-						//if currently scrolling, stop scrolling and clear any scrolls
-						//queued before this one
+
+						//if currently scrolling, stop scrolling and clear any scrolls queued before this one
 						$container.stop(true);
 
 						$container.animate({
 							scrollTop: message.offsetTop + message.offsetHeight
-						}, 1000);
+						}, 500);
 					}, 0);
 				};
 
