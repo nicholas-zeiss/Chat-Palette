@@ -28,15 +28,13 @@
 	<section id="new-message">
 		<form>
 			<div id="new-message-text">
-				<input
-					type="text"
+				<input type="text"
 					placeholder="Type your message - 120 character max!"
 					maxlength="120"
-					ng-class="chat.messageColor"
 					ng-model="chat.message.content"
 				/>
 				
-				<button id="send-message" ng-click="chat.sendMessage()" ng-disabled="!chat.message.content">Send</button>
+				<button id="send-message" ng-class="chat.message.color" ng-click="chat.sendMessage()" ng-disabled="!chat.message.content">Send</button>
 			</div>
 
 			<div id="new-message-color">
