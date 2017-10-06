@@ -14,29 +14,28 @@ import $ from 'jquery';
 //directive factory only returns post link function, no need to bother with the config object
 (() => {
 	angular.module('app.autoScroll', [])
-		.directive('autoScroll', () => (
-			(scope, el) => {
-				const $container = $('#messages-container');
-				const messageCount = () => el[0].children.length;
+		.directive('autoScroll', () => (scope, el) => {
+			const $container = $('#messages-container');
 
-				//performs the scroll animation
-				const scrollDown = count => {
-					let message = el[0].children[count - 1];
+			//el.children are all individual messages
+			const messageCount = () => el[0].children.length;
 
-					//timeout is necessary to allow browser to render padding/borders of added message
-					setTimeout(() => {
 
-						//if currently scrolling, stop scrolling and clear any scrolls queued before this one
-						$container.stop(true);
+			const scrollDown = count => {
+				let message = el[0].children[count - 1];
 
-						$container.animate({
-							scrollTop: message.offsetTop + message.offsetHeight
-						}, 500);
-					}, 0);
-				};
+				//timeout is necessary to allow browser to render padding/borders of added message
+				setTimeout(() => {
+					$container.stop(true);		//if currently scrolling, stop scrolling and clear any scrolls queued before this one
 
-				scope.$watch(messageCount, count => count ? scrollDown(count) : null);
-			}
-		));
+					$container.animate({
+						scrollTop: message.offsetTop + message.offsetHeight
+					}, 500);
+				}, 0);
+			};
+
+			//as this listener will be called before any messages are loaded verify count > 0
+			scope.$watch(messageCount, count => count > 0 ? scrollDown(count) : null);
+		});
 })();
 

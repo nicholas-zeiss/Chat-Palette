@@ -6,15 +6,7 @@ Create an account then log in to chat with your cyber friends! Before you post a
 
 ## Stack
 
-- Node 5.7.0
-- Angular 1.5.7
-- Angular-Route 1.5.7
-- Body-Parses 1.15.2
-- Bookshelf 0.10.0
-- Express 4.14.0
-- Express-Session 1.14.0
-- Knex 0.11.7
-- Postgresql 6.0.2
+Angular, 
 
 ## Development
 
@@ -26,9 +18,3 @@ From within the root directory:
 sudo npm i -S (i = install, -S = --save)
 npm i
 ```
-
-### Roadmap
-
-- __Implement different chatrooms__
-- __Handle attachments__
-- __Add video chat__
