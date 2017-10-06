@@ -11,7 +11,7 @@
 
 const bodyParser = require('body-parser');
 const express = require('express');
-const expressJwt = require('express-jwt');
+// const expressJwt = require('express-jwt');
 const jwt = require('jsonwebtoken');
 const path = require('path');
 
@@ -19,7 +19,7 @@ const Users = require('./controllers/userController.js');
 const Messages = require('./controllers/messageController.js');
 
 const app = express();
-const tokenSecret = 'chat-pallette';
+const jwtSecret = 'chat-pallette';
 
 
 //----------------------
@@ -30,7 +30,7 @@ app.use(bodyParser.json());
 app.use(express.static(path.resolve(__dirname, '../client')));
 
 //any requests to /chat require the client attach a valid session token
-app.use('/messages', expressJwt({ secret: tokenSecret }));
+// app.use('/messages', expressJwt({ secret: jwtSecret }));
 
 
 //------------------
@@ -38,6 +38,43 @@ app.use('/messages', expressJwt({ secret: tokenSecret }));
 //------------------
 app.get('/', (req, res) => {
 	res.sendFile(path.resolve(__dirname, '../index.html'));
+});
+
+
+//send client a session token if they provide valid login info
+app.post('/login', (req, res) => {
+	Users
+		.getUser(req.body.username, req.body.password, user => {
+			if (user) {
+				res.status(200).json(jwt.sign(user, jwtSecret, { expiresIn: '1h' }));
+			
+			}	else {
+				res.sendStatus(404);
+			}
+		});
+});
+
+
+//add new user to db and send client a session token
+app.post('/signup', (req, res) => {
+	Users
+		.userExists(req.body.username, user => {
+			if (user) {
+				//username already exists in the database	
+				res.sendStatus(400);
+			
+			} else {
+				Users.createUser(req.body.username, req.body.password, user => {
+					if (user) {
+						res.status(201).json(jwt.sign(user, jwtSecret, { expiresIn: '1h' }));
+					
+					} else {
+						//database error, unable to create new user
+						res.sendStatus(500);
+					}
+				});
+			}
+		});
 });
 
 
@@ -54,73 +91,37 @@ app.get('/messages', (req, res) => {
 		});
 });
 
-
-//send client a session token if they provide valid login info
-app.post('/login', (req, res) => {
-	Users
-		.getUser(req.body.username, req.body.password, user => {
-			if (user) {
-				res.status(200).json(jwt.sign(user, tokenSecret, { expiresIn: '1h' }));
-			
-			}	else {
-				res.sendStatus(404);
-			}
-		});
-});
-
-
-//add new user to db and send client a session token
-app.post('/signup', (req, res) => {
-	Users
-		.userExists(req.body.username, user => {
-			if (user) {		
-				//username already exists in the database	
-				res.sendStatus(400);
-			
-			} else {
-				Users.createUser(req.body.username, req.body.password, user => {
-					if (user) {
-						res.status(201).json(jwt.sign(user, tokenSecret, { expiresIn: '1h' }));
-					
-					} else {
-						//database error, unable to create new user
-						res.sendStatus(500);
-					}
-				});
-			}
-		});
+//TODO change to app.all ?
+//redirect invalid paths
+app.get('*', (req, res) => {
+	res.redirect(301, '/');
 });
 
 
 //add a message to the database
-app.post('/messages', (req, res) => {
-	//in case someone tries to post from outside the app w/ invalid data
-	if (!/red|blue|green|yellow|clear/.test(req.body.color)) {
-		res.sendStatus(400);
-	}
+// app.post('/messages', (req, res) => {
+// 	//in case someone tries to post from outside the app w/ invalid data
+// 	if (!/red|blue|green|yellow|clear/.test(req.body.color)) {
+// 		res.sendStatus(400);
+// 	}
 
-	Messages
-		.createMessage(req.body.content, req.body.username, req.body.color, msg => {
-			if (msg) {
-				res.sendStatus(201);
+// 	Messages
+// 		.createMessage(req.body.content, req.body.username, req.body.color, msg => {
+// 			if (msg) {
+// 				res.sendStatus(201);
 			
-			} else {
-				//database error
-				res.sendStatus(500);
-			}
-		});
-});
-
-
-//on page load of invalid path, redirect client to login page
-app.get('*', (req, res) => {
-	res.redirect(301, '/');
-});
+// 			} else {
+// 				//database error
+// 				res.sendStatus(500);
+// 			}
+// 		});
+// });
 
 
 //initialize server and socket connection
 const port = 8080;
 
 //export express so it can be used by socket.io
-module.exports = app.listen(port);
+exports.app = app.listen(port);
+exports.jwtSecret = jwtSecret;
 

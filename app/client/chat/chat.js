@@ -15,43 +15,38 @@ function ChatController($window, $location, serverCalls) {
 
 	const vm = this;
 
-	vm.messages = [];
-	vm.message = { color: 'clear', username: $window.sessionStorage.getItem('username') };
 	vm.color = 'clear';
-
-
-	const addMessage = message => {
-		vm.messages.push(message);
+	vm.messages = [];
+	vm.message = { 
+		color: 'clear',
+		username: $window.sessionStorage.getItem('username')
 	};
 
 
-	const failure = err => {
-		if (err.status == 401) {
-			$window.sessionStorage.clear();
-			$location.path('/');
-		}
-
-		console.error(err);
-	};
+	serverCalls
+		.getMessages()
+		.then(res => vm.messages = res.data, failure);
 
 
-	const loadMessages = () => {
-		serverCalls
-			.getMessages()
-			.then(res => {
-				vm.messages = res.data;
-			}, failure);
-	};
+	const socket = io.connect('http://localhost:8080');
 
-
-	loadMessages();
+	socket
+		.emit('authenticate', { token: $window.sessionStorage.getItem('token') })
+		.on('authenticated', () => {
+			console.log('authenticated!');
+		})
+		.on('unauthorized', err => {
+			socket.disconnect();
+			failure(err);
+		});
 
   
+
 	vm.sendMessage = () => {
 		serverCalls
 			.sendMessage(vm.message)
 			.then(() => {
-				addMessage(Object.assign({}, vm.message));
+				vm.messages.push(Object.assign({}, vm.message));
 				delete vm.message.content;
 			}, failure);
 	};
@@ -71,6 +66,14 @@ function ChatController($window, $location, serverCalls) {
 		$window.sessionStorage.clear();
 		$location.path('/');
 	};
+
+
+	function failure(err) {
+		$window.sessionStorage.clear();
+		$location.path('/');
+
+		console.error(err);
+	}
 }
 
 

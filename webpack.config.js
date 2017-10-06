@@ -14,6 +14,9 @@ module.exports = {
 			loaders: ['babel-loader?presets[]=es2015'],
 			include: path.join(__dirname, './app/client')
 		}]
+	},
+	node: {
+		fs: 'empty'
 	}
 };
 
