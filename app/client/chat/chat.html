@@ -2,9 +2,10 @@
 
 <section id="chat-container">
 	<header id="chat-header">
-		<h2>Showing {{ chat.color == 'clear' ? 'all' : chat.color }} messages:</h2>
+		<h2>Showing {{ chat.color == 'clear' ? 'all' : chat.color }} messages</h2>
 
 		<span>
+			<span>Filter:</span>
 			<button ng-class="'clear-button ' + (chat.color == 'clear' ? 'active' : '')" ng-click="chat.filter('clear')">All</button>
 			<button ng-class="'red-button ' + (chat.color == 'red' ? 'active' : '')" ng-click="chat.filter('red')">R</button>
 			<button ng-class="'green-button ' + (chat.color == 'green' ? 'active' : '')" ng-click="chat.filter('green')">G</button>
@@ -24,21 +25,19 @@
 		</div>
 	</section>
 
-	<section id='new-message'>
+	<section id="new-message">
 		<form>
-			<div>
-				<input
-					type="text"
+			<div id="new-message-text">
+				<input type="text"
 					placeholder="Type your message - 120 character max!"
 					maxlength="120"
-					ng-class="chat.messageColor"
 					ng-model="chat.message.content"
 				/>
 				
-				<button id="send-message" ng-click="chat.sendMessage()" ng-disabled="!chat.message.content">Send</button>
+				<button id="send-message" ng-class="chat.message.color" ng-click="chat.sendMessage()" ng-disabled="!chat.message.content">Send</button>
 			</div>
 
-			<div>
+			<div id="new-message-color">
 				<span>Message color:</span>
 
 				<button ng-class="'clear-button ' + (chat.message.color == 'clear' ? 'active' : '')" ng-click="chat.setMessageColor('clear')">All</button>
