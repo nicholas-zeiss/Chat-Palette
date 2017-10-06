@@ -11,13 +11,7 @@ const Message = require('../models/message.js');
 exports.createMessage = (msg, cb) => {
 	new Message(msg)
 		.save()
-		.then(msg => {
-			if (msg) {
-				cb(msg.attributes);	//unwrap messages from Bookshelf collection
-			} else {
-				cb(null);
-			}
-		});
+		.then(msg => cb(msg ? msg.attributes : null));		//return msg.attributes only to unwrap data from bookshelf wrapper	
 };
 
 
@@ -28,7 +22,7 @@ exports.getAllMessages = cb => {
 			if (msgs) {
 				cb(msgs
 					.toArray()
-					.map(msg => msg.attributes)	//unwrap messages from Bookshelf collection
+					.map(msg => msg.attributes)			//again unwrap data
 				);
 			} else {
 				cb(null);
