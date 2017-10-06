@@ -46,7 +46,7 @@ app.post('/login', (req, res) => {
 	Users
 		.getUser(req.body.username, req.body.password, user => {
 			if (user) {
-				res.status(200).json(jwt.sign(user, jwtSecret, { expiresIn: '1h' }));
+				res.status(200).json(jwt.sign(user, jwtSecret, { expiresIn: '12h' }));
 			
 			}	else {
 				res.sendStatus(404);
@@ -83,13 +83,14 @@ app.get('/messages', (req, res) => {
 	Messages
 		.getAllMessages(msgs => {
 			if (msgs) {
-				res.status(200).json(msgs);
+				res.status(200).json(msgs.slice(-100));
 			
 			} else {
 				res.sendStatus(500);
 			}
 		});
 });
+
 
 //TODO change to app.all ?
 //redirect invalid paths

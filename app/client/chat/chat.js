@@ -6,26 +6,45 @@
 **/
 
 
-function ChatController($window, $location, serverCalls) {
-	
-	if (!$window.sessionStorage.getItem('username') || !$window.sessionStorage.getItem('token')) {
+function ChatController($window, $location, $scope, serverCalls) {
+
+
+	function failure(err) {
 		$window.sessionStorage.clear();
 		$location.path('/');
+
+		console.error(err);
 	}
 
+
+	const addMessage = message => {
+		console.log('received message from server:\n', message);
+		console.log(vm.messages.length);
+		vm.messages.push(message);
+		console.log(vm.messages.length);
+		$scope.$apply();
+	};
+	
+
+	if (!$window.sessionStorage.getItem('username') || !$window.sessionStorage.getItem('token')) {
+		failure('can\'t load chat controller w/o token');
+	}
+
+	let socketAuthorized = false;
 	const vm = this;
 
 	vm.color = 'clear';
 	vm.messages = [];
 	vm.message = { 
 		color: 'clear',
+		content: '',
 		username: $window.sessionStorage.getItem('username')
 	};
 
 
 	serverCalls
 		.getMessages()
-		.then(res => vm.messages = res.data, failure);
+		.then(res => vm.messages.push(...res.data), failure);
 
 
 	const socket = io.connect('http://localhost:8080');
@@ -33,22 +52,24 @@ function ChatController($window, $location, serverCalls) {
 	socket
 		.emit('authenticate', { token: $window.sessionStorage.getItem('token') })
 		.on('authenticated', () => {
-			console.log('authenticated!');
+			socketAuthorized = true;
+			socket.on('message', addMessage);
+			socket.on('500', () => console.error('Server error creating message'));
 		})
 		.on('unauthorized', err => {
+			console.log('socket connection unathorized');
 			socket.disconnect();
 			failure(err);
 		});
 
   
-
 	vm.sendMessage = () => {
-		serverCalls
-			.sendMessage(vm.message)
-			.then(() => {
-				vm.messages.push(Object.assign({}, vm.message));
-				delete vm.message.content;
-			}, failure);
+		if (socketAuthorized) {
+			socket.emit('message', Object.assign({}, vm.message));
+			delete vm.message.content;
+		} else {
+			console.err('unable to post message without authorized socket connection');
+		}
 	};
 
   
@@ -66,14 +87,6 @@ function ChatController($window, $location, serverCalls) {
 		$window.sessionStorage.clear();
 		$location.path('/');
 	};
-
-
-	function failure(err) {
-		$window.sessionStorage.clear();
-		$location.path('/');
-
-		console.error(err);
-	}
 }
 
 

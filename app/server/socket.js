@@ -4,22 +4,27 @@
  *
 **/
 
+const Messages = require('./controllers/messageController.js');
 const server = require('./expressServer');
 
 const io = require('socket.io')(server.app);
 const socketioJwt = require('socketio-jwt');
 
-io.sockets
+io
 	.on('connection', socketioJwt.authorize({
 		secret: server.jwtSecret,
 		timeout: 15000
 	}))
-	.on('authenticated', messageHandler);
-
-
-function messageHandler(socket) {
-	console.log('client authenticated', socket);
-}
-
-
+	.on('authenticated', socket => {
+		socket.on('message', msg => {
+			console.log('received message from client');
+			Messages.createMessage(msg, msg => {
+				if (msg) {
+					io.emit('message', msg);
+				} else {
+					socket.emit('500');
+				}
+			});
+		});
+	});
 

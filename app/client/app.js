@@ -30,6 +30,7 @@ angular.module('app', [
 	.controller('ChatController', [
 		'$window',
 		'$location',
+		'$scope',
 		'serverCalls',
 		ChatController
 	])
