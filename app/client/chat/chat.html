@@ -20,7 +20,7 @@
 			ng-repeat="message in chat.messages"
 			ng-if="chat.color == message.color || chat.color == 'clear'"
 		>
-			<span><strong>{{ message.username + ' :'}}</strong>{{ ' ' + message.content }}</span>
+			<span><strong>{{ message.username + ' :' }}</strong>{{ ' ' + message.content }}</span>
 			<span>{{ message.created_at | date: 'M/d, h:mm a' }}</span>
 		</div>
 	</section>

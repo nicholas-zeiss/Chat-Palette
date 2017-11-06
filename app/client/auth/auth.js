@@ -8,11 +8,12 @@
  
 
 function AuthController($window, $location, serverCalls) {
-	//if already authenticated route directly to chat view
-	if ($window.sessionStorage.getItem('token') && $window.sessionStorage.getItem('token')) {
+	
+	//this is the controller for the default view, so if already authenticated route directly to chat view
+	//the token will be authenticated there
+	if ($window.sessionStorage.getItem('username') && $window.sessionStorage.getItem('token')) {
 		$location.path('/chat');
 	}
-
 
 	const errMessages = {
 		400: 'That username is already in use',
@@ -20,17 +21,18 @@ function AuthController($window, $location, serverCalls) {
 		500: 'Server is unable to sign you up'
 	};
 
-
 	const vm = this;
-
+	
 	vm.errorMsg = null;
-
-
-	vm.resetError = () => {
-		vm.errorMsg = null;
+	vm.user = {
+		username: '',
+		password: ''
 	};
 
 
+	//-------------------------------
+	//		http response handlers
+	//-------------------------------
 	const success = res => {
 		$window.sessionStorage.setItem('token', res.data);
 		$window.sessionStorage.setItem('username', vm.user.username);
@@ -46,6 +48,14 @@ function AuthController($window, $location, serverCalls) {
 		vm.user = null;
 		
 		console.error(err);
+	};
+
+
+	//----------------------------
+	//		interface for view
+	//----------------------------
+	vm.resetError = () => {
+		vm.errorMsg = null;
 	};
 
 

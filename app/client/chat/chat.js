@@ -8,14 +8,13 @@
 
 function ChatController($window, $location, $scope, serverCalls) {
 
-
 	//handler for logout/authorization failure
 	const logout = () => {
 		$window.sessionStorage.clear();
 		$location.path('/');
 	};
 	
-
+	//force anyone who manually loads this url w/o authorization to the login page
 	if (!$window.sessionStorage.getItem('username') || !$window.sessionStorage.getItem('token')) {
 		logout();
 	}
@@ -32,7 +31,7 @@ function ChatController($window, $location, $scope, serverCalls) {
 	};
 
 
-	//load extant messages
+	//load extant messages, force logout if unauthorized
 	serverCalls
 		.getMessages()
 		.then(res => vm.messages.push(...res.data), logout);

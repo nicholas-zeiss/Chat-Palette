@@ -18,7 +18,6 @@ exports.createUser = (username, password, cb) => {
 		.then(user => {
 			if (user) {
 				cb(user.attributes);
-			
 			} else {
 				cb(null);
 			}
@@ -32,7 +31,6 @@ exports.getUser = (username, password, cb) => {
 		.then(user => {
 			if (user && bcrypt.compareSync(password, user.attributes.password)) {
 				cb(user.attributes);
-			
 			} else {
 				cb(null);
 			}
@@ -41,6 +39,8 @@ exports.getUser = (username, password, cb) => {
 
 
 exports.userExists = (username, cb) => {
-	new User({ username }).fetch().then(cb);
+	new User({ username })
+		.fetch()
+		.then(cb);
 };
 
