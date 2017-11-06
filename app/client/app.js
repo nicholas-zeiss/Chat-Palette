@@ -34,7 +34,10 @@ angular.module('app', [
 		'serverCalls',
 		ChatController
 	])
-	.config($routeProvider => {
+	.config(($locationProvider, $routeProvider) => {
+		$locationProvider
+			.html5Mode(true);
+			
 		$routeProvider
 			.when('/', {
 				templateUrl: 'auth/login.html',
