@@ -10,6 +10,7 @@
 function AuthController($window, $location, serverCalls) {
 	
 	//this is the controller for the default view, so if already authenticated route directly to chat view
+	//the token will be authenticated there
 	if ($window.sessionStorage.getItem('username') && $window.sessionStorage.getItem('token')) {
 		$location.path('/chat');
 	}

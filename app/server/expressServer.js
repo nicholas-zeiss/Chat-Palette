@@ -21,11 +21,9 @@ const app = express();
 const jwtSecret = 'chat-pallette';
 
 
-
 app.use(bodyParser.json());
 app.use(express.static(path.resolve(__dirname, '../client')));
 app.use('/messages', expressJwt({ secret: jwtSecret }));
-
 
 
 app.get('/', (req, res) => {
@@ -37,7 +35,10 @@ app.get('/', (req, res) => {
 app.post('/login', (req, res) => {
 	Users.getUser(req.body.username, req.body.password, user => {
 		if (user) {
-			res.status(200).json(jwt.sign(user, jwtSecret, { expiresIn: '12h' }));
+			res
+				.status(200)
+				.json(jwt.sign(user, jwtSecret, { expiresIn: '12h' }));
+
 		}	else {
 			res.sendStatus(404);
 		}
@@ -51,10 +52,14 @@ app.post('/signup', (req, res) => {
 		if (user) {
 			//username already taken
 			res.sendStatus(400);
+
 		} else {
 			Users.createUser(req.body.username, req.body.password, user => {
 				if (user) {
-					res.status(201).json(jwt.sign(user, jwtSecret, { expiresIn: '1h' }));
+					res
+						.status(201)
+						.json(jwt.sign(user, jwtSecret, { expiresIn: '12h' }));
+
 				} else {
 					//database error, unable to create new user
 					res.sendStatus(500);
@@ -69,7 +74,10 @@ app.post('/signup', (req, res) => {
 app.get('/messages', (req, res) => {
 	Messages.getAllMessages(msgs => {
 		if (msgs) {
-			res.status(200).json(msgs.slice(-100));
+			res
+				.status(200)
+				.json(msgs.slice(-100));
+
 		} else {
 			res.sendStatus(500);
 		}

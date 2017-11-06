@@ -17,7 +17,7 @@ import $ from 'jquery';
 		.directive('autoScroll', () => (scope, el) => {
 			const $container = $('#messages-container');
 
-			//el.children are all individual messages
+			//el[0].children are all individual messages
 			const messageCount = () => el[0].children.length;
 
 

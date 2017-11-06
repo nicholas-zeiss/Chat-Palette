@@ -6,7 +6,7 @@ Create an account then log in to chat with your cyber friends! Before you post a
 
 ## Stack
 
-Angular, 
+AngularJS, Express, socket.io, SQL w/ Bookshelf.js
 
 ## Development
 
