@@ -13,7 +13,7 @@ const expressJwt = require('express-jwt');
 const jwt = require('jsonwebtoken');
 const path = require('path');
 
-//Bookshelf handler utils
+// Bookshelf handler utils
 const Users = require('./controllers/userController.js');
 const Messages = require('./controllers/messageController.js');
 
@@ -21,10 +21,16 @@ const app = express();
 const jwtSecret = 'chat-pallette';
 
 
+// Middleware
 app.use(bodyParser.json());
 app.use(express.static(path.resolve(__dirname, '../client')));
 app.use('/messages', expressJwt({ secret: jwtSecret }));
 
+
+
+//---------------------------------------------------------------
+//												API Endpoints
+//---------------------------------------------------------------
 
 app.get('/', (req, res) => {
 	res.sendFile(path.resolve(__dirname, '../index.html'));
@@ -46,12 +52,11 @@ app.post('/login', (req, res) => {
 });
 
 
-//add new user to db and send client a session token
+// add new user to db and send client a session token
 app.post('/signup', (req, res) => {
 	Users.userExists(req.body.username, user => {
 		if (user) {
-			//username already taken
-			res.sendStatus(400);
+			res.sendStatus(400);		// username already taken
 
 		} else {
 			Users.createUser(req.body.username, req.body.password, user => {
@@ -61,7 +66,6 @@ app.post('/signup', (req, res) => {
 						.json(jwt.sign(user, jwtSecret, { expiresIn: '12h' }));
 
 				} else {
-					//database error, unable to create new user
 					res.sendStatus(500);
 				}
 			});
@@ -70,7 +74,7 @@ app.post('/signup', (req, res) => {
 });
 
 
-//retreive 100 most recent messages
+// retreive 100 most recent messages
 app.get('/messages', (req, res) => {
 	Messages.getAllMessages(msgs => {
 		if (msgs) {
@@ -85,7 +89,7 @@ app.get('/messages', (req, res) => {
 });
 
 
-//redirect invalid paths
+// redirect invalid paths
 app.get('*', (req, res) => {
 	res.redirect(301, '/');
 });
@@ -93,7 +97,7 @@ app.get('*', (req, res) => {
 
 const port = 8080;
 
-//export app for use to socket.io
+// export app and JWT secret for socket.io
 exports.app = app.listen(port);
 exports.jwtSecret = jwtSecret;
 

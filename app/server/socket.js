@@ -25,7 +25,6 @@ io
 				if (msg) {
 					io.emit('message', msg);
 				} else {
-					//if db fails to create message notify only the socket that sent it
 					socket.emit('500');
 				}
 			});

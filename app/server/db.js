@@ -16,7 +16,7 @@ const knex = require('knex')({
 });
 
 
-//create the tables if they do not exist
+// create the tables if they do not exist
 knex.schema.hasTable('users').then(exists => {
 	if (!exists) {
 		return knex.schema.createTable('users', table => {
@@ -26,7 +26,6 @@ knex.schema.hasTable('users').then(exists => {
 		});
 	}
 });
-
 
 knex.schema.hasTable('messages').then(exists => {
 	if (!exists) {
@@ -41,6 +40,5 @@ knex.schema.hasTable('messages').then(exists => {
 });
 
 
-//initialize and export bookshelf to be used by our models and their controllers
 module.exports = require('bookshelf')(knex);
 
