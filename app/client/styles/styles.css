@@ -328,6 +328,7 @@ h1, h2, h3, h4, h5, h6, p {
 		width: calc(100% - 120px);
 		
 		overflow-wrap: break-word;
+		word-wrap: break-word;
 	}
 
 	.message span:last-child {
