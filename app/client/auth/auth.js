@@ -36,7 +36,7 @@ function AuthController($window, $location, serverCalls) {
 	const success = res => {
 		$window.sessionStorage.setItem('token', res.data);
 		$window.sessionStorage.setItem('username', vm.user.username);
-		
+
 		$location.path('/chat');
 	};
 
