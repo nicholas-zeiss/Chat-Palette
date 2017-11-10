@@ -95,7 +95,7 @@ app.get('*', (req, res) => {
 });
 
 
-const port = 8080;
+const port = process.argv[2] ? Number(process.argv[2]) : 8080;
 
 // export app and JWT secret for socket.io
 exports.app = app.listen(port);

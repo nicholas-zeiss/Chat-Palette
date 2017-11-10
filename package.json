@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prestart": "webpack --optimize-minimize --watch &",
-    "start": "nodemon app/server/socket.js"
+    "prestart": "webpack --watch &",
+    "start": "nodemon app/server/socket.js",
+    "preproduction": "webpack --optimize-minimize",
+    "production": "node app/server/socket.js"
   },
   "repository": {
     "type": "git",
