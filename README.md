@@ -11,6 +11,7 @@ All you need to do to get this site up and running on a local is a few simple co
 ```
  $ git clone https://github.com/nicholas-zeiss/Chat-Palette.git
  $ cd Chat-Palette/
+ $ mkdir app/server/data
  $ npm i
  $ npm start
 ```
